@@ -1,151 +1,326 @@
 # Pulsatrix connector hub
 
-A public registry of products the Pulsatrix connector can add: official vendor MCP servers first, then OpenAPI, Swagger, GraphQL and RPC documents compiled to catalogs.
+The product index the Pulsatrix console reads.
 
-The console starts empty. An operator opens Products, picks a card and taps Add (or opens the vendor MCP). Profiles then grant that product to people.
+One file, [`index.json`](index.json), format `pulsatrix-hub/1`. Each entry is a vendor an MSP actually runs: PSA, RMM, EDR, identity, cloud, billing, and the SaaS around them. When that vendor hosts an MCP server, the URL is on the card. When they publish OpenAPI, Swagger, GraphQL or RPC, the catalog `source` is too.
 
-`index.json` is `pulsatrix-hub/1`. The gateway fetch cap for `hub_url` is 256 KiB. This file stays under that.
+Nothing is preloaded. Adding a product from the console imports the catalog. If the vendor already hosts MCP, connect that in the AI client first and skip the compile unless you need Pulsatrix profiles, journal and scopes.
 
-The `account` tag is the login-gated path. The Add a product issue template already asks for a public document URL and whether a login is required. Those products stay in `index.json` so an operator who holds the vendor document can import it.
+```
+https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index.json
+```
 
-## This repository
+426 products. 100 with a vendor-hosted MCP URL. 6 with official MCP docs only (local, self-hosted, or per-account). The gateway refuses a `hub_url` larger than 256 KiB. This file stays under that.
 
-| File | What it is |
+## Contents
+
+1. [Use it](#use-it)
+2. [What this repository is](#what-this-repository-is)
+3. [Format](#format)
+4. [MCP or catalog](#mcp-or-catalog)
+5. [Tags](#tags)
+6. [What belongs here](#what-belongs-here)
+7. [Remote MCP](#remote-mcp)
+8. [Fetchable specs](#fetchable-specs)
+9. [Login-gated documents](#login-gated-documents)
+10. [Limits](#limits)
+11. [Not listed](#not-listed)
+12. [Contribute](#contribute)
+
+## Use it
+
+**From the console.** Products starts empty. Search, filter by tag, open a card. If the product has `mcp.url`, that is the primary action. Add catalog is the fallback. Profiles then grant the product to people.
+
+**From a connector.** The gateway ships a bundled copy of this index. To pin a fork or a revision:
+
+```
+hub_url = "https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index.json"
+```
+
+HTTPS only. The response must be `pulsatrix-hub/1` and at most 256 KiB.
+
+**From a script.**
+
+```bash
+curl -sL https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index.json \
+  | jq '.products[] | select(.mcp.url) | {name, url: .mcp.url}'
+```
+
+```bash
+jq '.products[] | select(.tags | index("account")) | .name' index.json
+```
+
+```bash
+jq '.products[] | select(.id == "pagerduty")' index.json
+```
+
+The compiled catalogs live in the connector repo (`catalog/`). This hub is the index, not a second copy of every document.
+
+## What this repository is
+
+| Path | Role |
 |---|---|
-| `index.json` | `pulsatrix-hub/1`: name, summary, tags, default catalogs, `source` on each catalog, optional `mcp` |
-| `.github/ISSUE_TEMPLATE/add-product.md` | how to ask for a missing vendor |
+| [`index.json`](index.json) | The registry. Name, tags, catalogs, `source`, optional `mcp`. |
+| [`.github/ISSUE_TEMPLATE/add-product.md`](.github/ISSUE_TEMPLATE/add-product.md) | How to ask for a vendor that is missing. |
 
-The compiled catalogs themselves live in the connector repo (`catalog/`). The hub is the index the console shows, not a second copy of every document.
+Unknown JSON fields are ignored. `installed` is filled at list time from catalogs already in the store. Do not put it in the file.
 
-Each catalog may carry `source`: a direct URL to the OpenAPI, Swagger, GraphQL or RPC document when one exists. Public files are the fetchable spec. Login-gated products point at the vendor developer page. The operator still imports the document they hold.
+## Format
 
-A product may also carry `mcp`: the vendor's own MCP server. **Use that first.** Compile the OpenAPI catalog into Pulsatrix only when you need profiles, journal and scopes on this host.
+`format` must be `pulsatrix-hub/1`.
 
-Counts in this revision: 426 products, 100 with a vendor-hosted MCP URL, 6 with official MCP docs only (local, self-hosted, or per-tenant URL).
+```json
+{
+  "format": "pulsatrix-hub/1",
+  "name": "Pulsatrix connector hub",
+  "community": {
+    "repo": "https://github.com/pulsatrixtechnologies/connector-hub",
+    "request_url": "https://github.com/pulsatrixtechnologies/connector-hub/issues/new?template=add-product.md"
+  },
+  "products": []
+}
+```
+
+### Product
+
+| Field | Required | Notes |
+|---|---|---|
+| `id` | yes | Stable slug. Unique. Snake case. |
+| `name` | yes | Card title. |
+| `vendor` | yes | Company that ships it. |
+| `summary` | yes | One or two sentences. What an MSP uses it for. |
+| `mark` | yes | Exactly two characters, unique across the file. Shown on the card. |
+| `tone` | yes | Console accent. Common values: `query`, `write`, `user`, `macro`, `error`. |
+| `tags` | yes | See [Tags](#tags). `mcp` first when `mcp` is present. |
+| `catalogs` | yes | At least one. |
+| `default_catalogs` | no | Catalog ids imported on Add when the operator does not pick a subset. |
+| `mcp` | no | Official vendor MCP. See below. |
+
+### Catalog
+
+| Field | Required | Notes |
+|---|---|---|
+| `id` | yes | Unique across the whole index. |
+| `title` | yes | Short label on the card. |
+| `file` | yes | Filename the connector looks up under `catalog/` (`pagerduty.json`). |
+| `source` | no | HTTPS URL of the OpenAPI, Swagger, GraphQL or RPC document, or of the vendor developer page when the file is login-gated. |
+
+### MCP
+
+| Field | Required | Notes |
+|---|---|---|
+| `url` | no | Remote MCP endpoint the vendor hosts. Streamable HTTP (`/mcp`) preferred over SSE (`/sse`) when both exist. |
+| `docs` | no | Vendor page that documents the server. Used when the URL is local, self-hosted, or per-account. |
+
+At least one of `url` or `docs` must be set when `mcp` is present.
+
+PagerDuty, as it sits in the file:
+
+```json
+{
+  "id": "pagerduty",
+  "name": "PagerDuty",
+  "vendor": "PagerDuty",
+  "summary": "Incidents, on-call and services. EU MCP: https://mcp.eu.pagerduty.com/mcp",
+  "mark": "PG",
+  "tone": "query",
+  "tags": ["mcp", "rest", "openapi"],
+  "catalogs": [
+    {
+      "id": "pagerduty",
+      "title": "REST API",
+      "file": "pagerduty.json",
+      "source": "https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json"
+    }
+  ],
+  "mcp": {
+    "url": "https://mcp.pagerduty.com/mcp",
+    "docs": "https://developer.pagerduty.com/docs/mcp-tooling-remote-server"
+  }
+}
+```
+
+## MCP or catalog
+
+Two different paths. Do not mix them up.
+
+1. **Vendor MCP.** Point the AI client at `mcp.url`. Auth is the vendor's (OAuth or API key). Pulsatrix never sees the traffic.
+2. **Pulsatrix catalog.** Import the OpenAPI (or Swagger, GraphQL, RPC) document. The connector compiles it, serves tools over `/mcp`, and the console can attach profiles, credentials, journal and scopes.
+
+Use (1) when the vendor already hosts a server and you only need that product in the client. Use (2) when several people share a Pulsatrix host and you need the operator controls.
+
+Shared endpoints:
+
+- Atlassian Rovo MCP `https://mcp.atlassian.com/v2/mcp` covers Jira Cloud, Jira Service Management, Confluence Cloud and Bitbucket Cloud.
+- PagerDuty EU is `https://mcp.eu.pagerduty.com/mcp`.
+- Cloudflare publishes several MCP hosts (Workers bindings, Observability, Radar, docs) besides `https://mcp.cloudflare.com/mcp`.
 
 ## Tags
 
-- `mcp` official vendor MCP. Connect this before compiling the API
-- `rest` REST API
-- `openapi` OpenAPI
-- `swagger` Swagger
-- `graphql` GraphQL
-- `rpc` RPC methods
-- `account` needs a login or a vendor document the operator already has
-- `private` private API (the vendor's own site, with the client's authorisation)
+| Tag | Meaning |
+|---|---|
+| `mcp` | Official vendor MCP. Connect it before compiling the API. |
+| `rest` | HTTP REST. |
+| `openapi` | OpenAPI document. |
+| `swagger` | Swagger 2 document. |
+| `graphql` | GraphQL schema or endpoint. |
+| `rpc` | RPC methods (JSON-RPC or similar). |
+| `account` | Spec is behind a login, a tenant console, or an instance page. `source` is the vendor page, not a fetchable file. |
+| `private` | Private API: the vendor's own site, with the client's authorisation. |
 
-## Official MCP first
+Filter in the console or with `jq`. Combining `mcp` and `account` is normal: the MCP may be public while the OpenAPI is not.
 
-These products ship a vendor-hosted MCP. Point the AI client at `mcp.url`. The `source` OpenAPI stays as a fallback for a Pulsatrix catalog.
+## What belongs here
 
-Community wrappers and aggregator MCP endpoints are not listed. If the vendor later hosts one, add `mcp` and the `mcp` tag.
+Listed:
+
+- A vendor-hosted MCP on that vendor's domain, with a URL they publish, **or**
+- An OpenAPI, Swagger, GraphQL or RPC document an operator can import, public or login-gated.
+
+Not listed:
+
+- Community wrappers and unofficial OpenAPI reverse-engineers. `source` stays on the vendor page.
+- Aggregator MCP (one URL that proxies many apps). Zapier is listed as Zapier, not as a directory of everyone else's APIs.
+- Invented MCP URLs. If the vendor did not publish it, it is not here. Per-account or local servers get `mcp.docs` and no `url`.
+- Secrets, tenant hostnames, company names, keys.
+
+Login-gated products stay in the index. The issue template already asks whether a login is required. An operator who holds the vendor document can still import it.
+
+## Remote MCP
+
+URLs below are the vendor hosts from `index.json`. Auth is OAuth or an API key unless the vendor says otherwise. Prefer `/mcp` over `/sse` when they publish both.
+
+### Cloud and infrastructure
 
 | Product | MCP |
 |---|---|
-| Ahrefs | https://api.ahrefs.com/mcp/mcp |
-| Airtable | https://mcp.airtable.com/mcp |
 | Amazon Web Services | https://aws-mcp.us-east-1.api.aws/mcp |
-| Amplitude | https://mcp.amplitude.com/mcp |
-| Apify | https://mcp.apify.com |
-| Asana | https://mcp.asana.com/mcp |
-| Ashby | https://mcp.ashbyhq.com/mcp/v1 |
-| Astro Docs | https://mcp.docs.astro.build/mcp |
-| Attio | https://mcp.attio.com/mcp |
 | AWS Knowledge | https://knowledge-mcp.global.api.aws |
-| Bitbucket Cloud | https://mcp.atlassian.com/v2/mcp |
-| Box | https://mcp.box.com |
-| Buildkite | https://mcp.buildkite.com/mcp |
-| Canva | https://mcp.canva.com/mcp |
-| Clay | https://mcp.clay.earth/mcp |
-| ClickUp | https://mcp.clickup.com/mcp |
-| Close | https://mcp.close.com/mcp |
 | Cloudflare | https://mcp.cloudflare.com/mcp |
 | Cloudflare Observability | https://observability.mcp.cloudflare.com/sse |
 | Cloudflare Radar | https://radar.mcp.cloudflare.com/sse |
 | Cloudflare Workers Bindings | https://bindings.mcp.cloudflare.com/sse |
-| Cloudinary | https://asset-management.mcp.cloudinary.com/sse |
-| Coda | https://coda.io/apis/mcp |
-| Confluence Cloud | https://mcp.atlassian.com/v2/mcp |
-| Context7 | https://mcp.context7.com/mcp |
-| Cortex | https://mcp.cortex.io/mcp |
-| DeepWiki | https://mcp.deepwiki.com/mcp |
-| draw.io | https://mcp.draw.io/mcp |
-| Egnyte | https://mcp-server.egnyte.com/sse |
-| Exa | https://mcp.exa.ai/mcp |
-| Excalidraw | https://mcp.excalidraw.com |
-| Figma | https://mcp.figma.com/mcp |
-| Fireflies | https://api.fireflies.ai/mcp |
-| GitHub | https://api.githubcopilot.com/mcp/ |
-| GitLab | https://gitlab.com/api/v4/mcp |
-| Globalping | https://mcp.globalping.dev/sse |
 | Google BigQuery | https://bigquery.googleapis.com/mcp |
 | Google Compute Engine | https://compute.googleapis.com/mcp |
 | Google Kubernetes Engine | https://container.googleapis.com/mcp |
 | Google Maps | https://mapstools.googleapis.com/mcp |
-| Grafbase | https://api.grafbase.com/mcp |
-| Hex | https://app.hex.tech/mcp |
-| Honeycomb | https://mcp.honeycomb.io/mcp |
+| Microsoft Graph | https://mcp.svc.cloud.microsoft/enterprise |
+| Microsoft Learn | https://learn.microsoft.com/api/mcp |
+| Neon | https://mcp.neon.tech/mcp |
+| Netlify | https://netlify-mcp.netlify.app/mcp |
+| Prisma Postgres | https://mcp.prisma.io/mcp |
+| Render | https://mcp.render.com/mcp |
+| Supabase | https://mcp.supabase.com/mcp |
+| Vercel | https://mcp.vercel.com/ |
+
+### Payments, banking, spend
+
+| Product | MCP |
+|---|---|
+| Mercado Libre | https://mcp.mercadolibre.com/mcp |
+| Mercado Pago | https://mcp.mercadopago.com/mcp |
+| PayPal | https://mcp.paypal.com/mcp |
+| Pennylane | https://app.pennylane.com/mcp/messages |
+| Plaid | https://api.dashboard.plaid.com/mcp/sse |
+| Ramp | https://ramp-mcp-remote.ramp.com/mcp |
+| Spendesk | https://public-api.spendesk.com/v1/mcp |
+| Square | https://mcp.squareup.com/sse |
+| Stripe | https://mcp.stripe.com |
+| Stytch | https://mcp.stytch.dev/mcp |
+
+### CRM, support, incidents
+
+| Product | MCP |
+|---|---|
+| Attio | https://mcp.attio.com/mcp |
+| Close | https://mcp.close.com/mcp |
 | HubSpot | https://mcp.hubspot.com |
-| Hugging Face | https://hf.co/mcp |
-| Indeed | https://mcp.indeed.com/claude/mcp |
 | Intercom | https://mcp.intercom.com/sse |
+| PagerDuty | https://mcp.pagerduty.com/mcp |
+| Pipedrive | https://mcp.pipedrive.ai/mcp |
+
+### Source, issues, CI
+
+| Product | MCP |
+|---|---|
+| Bitbucket Cloud | https://mcp.atlassian.com/v2/mcp |
+| Buildkite | https://mcp.buildkite.com/mcp |
+| Confluence Cloud | https://mcp.atlassian.com/v2/mcp |
+| GitHub | https://api.githubcopilot.com/mcp/ |
+| GitLab | https://gitlab.com/api/v4/mcp |
 | Jam | https://mcp.jam.dev/mcp |
 | Jira Cloud | https://mcp.atlassian.com/v2/mcp |
 | Jira Service Management | https://mcp.atlassian.com/v2/mcp |
 | Linear | https://mcp.linear.app/mcp |
-| Malware Patrol | https://mcp.malwarepatrol.net/v1 |
-| Mercado Libre | https://mcp.mercadolibre.com/mcp |
-| Mercado Pago | https://mcp.mercadopago.com/mcp |
-| Microsoft Graph | https://mcp.svc.cloud.microsoft/enterprise |
-| Microsoft Learn | https://learn.microsoft.com/api/mcp |
-| Miro | https://mcp.miro.com/ |
-| Mixpanel | https://mcp.mixpanel.com/mcp |
-| monday.com | https://mcp.monday.com/sse |
-| Neon | https://mcp.neon.tech/mcp |
-| Netlify | https://netlify-mcp.netlify.app/mcp |
-| Notion | https://mcp.notion.com/mcp |
-| OpenZeppelin | https://mcp.openzeppelin.com/contracts/solidity/mcp |
-| PagerDuty | https://mcp.pagerduty.com/mcp |
-| Parallel Search | https://search-mcp.parallel.ai/mcp |
-| Parallel Task | https://task-mcp.parallel.ai/mcp |
-| PayPal | https://mcp.paypal.com/mcp |
-| Pennylane | https://app.pennylane.com/mcp/messages |
-| Pipedrive | https://mcp.pipedrive.ai/mcp |
-| Plaid | https://api.dashboard.plaid.com/mcp/sse |
-| Port | https://mcp.port.io/v1 |
-| PostHog | https://mcp.posthog.com/mcp |
 | Postman | https://mcp.postman.com/minimal |
-| Prisma Postgres | https://mcp.prisma.io/mcp |
-| Ramp | https://ramp-mcp-remote.ramp.com/mcp |
-| Render | https://mcp.render.com/mcp |
-| Replicate | https://mcp.replicate.com/sse |
-| Sanity | https://mcp.sanity.io |
 | Semgrep | https://mcp.semgrep.ai/mcp |
-| Semrush | https://mcp.semrush.com/v1/mcp |
 | Sentry | https://mcp.sentry.dev/mcp |
-| Shopify | https://mcp.shopify.com/mcp |
-| SISTRIX | https://api.sistrix.com/mcp/ |
-| Slack | https://mcp.slack.com/mcp |
-| Spendesk | https://public-api.spendesk.com/v1/mcp |
-| Square | https://mcp.squareup.com/sse |
 | Stack Overflow | https://mcp.stackoverflow.com |
-| Statista | https://api.statista.ai/v1/mcp |
-| Stripe | https://mcp.stripe.com |
-| Stytch | https://mcp.stytch.dev/mcp |
-| Supabase | https://mcp.supabase.com/mcp |
-| Telnyx | https://api.telnyx.com/v2/mcp |
-| ThoughtSpot | https://agent.thoughtspot.app/mcp |
-| Vercel | https://mcp.vercel.com/ |
+
+### Work, files, design, commerce
+
+| Product | MCP |
+|---|---|
+| Airtable | https://mcp.airtable.com/mcp |
+| Asana | https://mcp.asana.com/mcp |
+| Ashby | https://mcp.ashbyhq.com/mcp/v1 |
+| Box | https://mcp.box.com |
+| Canva | https://mcp.canva.com/mcp |
+| ClickUp | https://mcp.clickup.com/mcp |
+| Coda | https://coda.io/apis/mcp |
+| Cloudinary | https://asset-management.mcp.cloudinary.com/sse |
+| draw.io | https://mcp.draw.io/mcp |
+| Egnyte | https://mcp-server.egnyte.com/sse |
+| Excalidraw | https://mcp.excalidraw.com |
+| Figma | https://mcp.figma.com/mcp |
+| Fireflies | https://api.fireflies.ai/mcp |
+| Miro | https://mcp.miro.com/ |
+| monday.com | https://mcp.monday.com/sse |
+| Notion | https://mcp.notion.com/mcp |
+| Sanity | https://mcp.sanity.io |
+| Shopify | https://mcp.shopify.com/mcp |
+| Slack | https://mcp.slack.com/mcp |
 | Webflow | https://mcp.webflow.com/sse |
 | Wix | https://mcp.wix.com/mcp |
+
+### Analytics, SEO, data, other
+
+| Product | MCP |
+|---|---|
+| Ahrefs | https://api.ahrefs.com/mcp/mcp |
+| Amplitude | https://mcp.amplitude.com/mcp |
+| Apify | https://mcp.apify.com |
+| Astro Docs | https://mcp.docs.astro.build/mcp |
+| Clay | https://mcp.clay.earth/mcp |
+| Context7 | https://mcp.context7.com/mcp |
+| Cortex | https://mcp.cortex.io/mcp |
+| DeepWiki | https://mcp.deepwiki.com/mcp |
+| Exa | https://mcp.exa.ai/mcp |
+| Globalping | https://mcp.globalping.dev/sse |
+| Grafbase | https://api.grafbase.com/mcp |
+| Hex | https://app.hex.tech/mcp |
+| Honeycomb | https://mcp.honeycomb.io/mcp |
+| Hugging Face | https://hf.co/mcp |
+| Indeed | https://mcp.indeed.com/claude/mcp |
+| Malware Patrol | https://mcp.malwarepatrol.net/v1 |
+| Mixpanel | https://mcp.mixpanel.com/mcp |
+| OpenZeppelin | https://mcp.openzeppelin.com/contracts/solidity/mcp |
+| Parallel Search | https://search-mcp.parallel.ai/mcp |
+| Parallel Task | https://task-mcp.parallel.ai/mcp |
+| Port | https://mcp.port.io/v1 |
+| PostHog | https://mcp.posthog.com/mcp |
+| Replicate | https://mcp.replicate.com/sse |
+| Semrush | https://mcp.semrush.com/v1/mcp |
+| SISTRIX | https://api.sistrix.com/mcp/ |
+| Statista | https://api.statista.ai/v1/mcp |
+| Telnyx | https://api.telnyx.com/v2/mcp |
+| ThoughtSpot | https://agent.thoughtspot.app/mcp |
 | Wolfram | https://agenttools.wolfram.com/mcp |
 | X | https://api.x.com/mcp |
 | X Docs | https://docs.x.com/mcp |
 | Zapier | https://mcp.zapier.com/api/mcp/mcp |
 
-PagerDuty also serves the EU at `https://mcp.eu.pagerduty.com/mcp`. Atlassian Rovo MCP (`https://mcp.atlassian.com/v2/mcp`) covers Jira, Confluence, Bitbucket and Jira Service Management. Prefer `/mcp` (Streamable HTTP) over `/sse` when the vendor publishes both.
-
-Official MCP with no single public URL (local server, self-hosted, or per-account):
+Official MCP with no single public URL (run locally, self-host, or substitute an account id):
 
 | Product | Docs |
 |---|---|
@@ -156,103 +331,98 @@ Official MCP with no single public URL (local server, self-hosted, or per-accoun
 | MongoDB Atlas | https://www.mongodb.com/docs/mcp-server/ |
 | Snowflake | https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp |
 
-## Public documents
+## Fetchable specs
 
-These `source` URLs return the spec without a vendor login (checked 2026-09-08, plus later additions).
+These `source` URLs returned the document without a vendor login when last checked. The connector still has to compile them; a few are larger than the current YAML node budget.
 
 | Product | Catalog | Source |
 |---|---|---|
 | AlertOps | `alertops` | https://api.alertops.com/swagger/v1/swagger.json |
-| Auvik | `auvik` | https://auvikapi.us1.my.auvik.com/spec |
-| Acronis | `acronis_*` | https://developer.acronis.com/doc/.../openapi.json |
-| Axcient x360 | `axcient_*` | https://developer.axcient.com/specs/{product}.yaml |
-| Cisco Meraki | `cisco_meraki_*` | https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json |
-| Autotask PSA | `autotask` | https://webservices.autotask.net/atservicesrest/swagger/docs/v1 |
-| Huntress | `huntress` | https://api.huntress.io/v1/swagger_doc.json |
-| NinjaOne | `ninjaone` | https://app.ninjarmm.com/apidocs/NinjaRMM-API-v2.json |
-| Slide | `slide` | https://api.slide.tech/openapi.json |
-| Syncro | `syncro` | https://api-docs.syncromsp.com/swagger.json |
-| Reddit Ads | `reddit_ads` | https://ads-api.reddit.com/api/v3/openapi.json |
-| HaloPSA | `halo_psa` | https://halo.haloservicedesk.com/api/swagger/v2/swagger.json |
-| Datto RMM | `datto_rmm` | https://pinotage-api.centrastage.net/api/v3/api-docs/Datto-RMM |
-| N-able N-central | `n_central` | https://documentation.n-able.com/N-central/preview/rest_api_preview/Content/Resources/swaggerapi/dist/openapi-spec.json |
-| PagerDuty | `pagerduty` | https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json |
-| Xero | `xero` | https://raw.githubusercontent.com/XeroAPI/Xero-OpenAPI/master/xero_accounting.yaml |
-| Microsoft Graph | `microsoft_graph` | https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml |
-| UniFi | `unifi_*` | https://developer.ui.com/{network,protect,site-manager}/.../openapi.json |
-| Grafana | `grafana` | https://raw.githubusercontent.com/grafana/grafana/main/public/api-merged.json |
-| Stripe | `stripe` | https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml |
-| Square | `square` | https://raw.githubusercontent.com/square/connect-api-specification/master/api.json |
-| Cloudflare | `cloudflare` | https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml |
-| DigitalOcean | `digitalocean` | https://raw.githubusercontent.com/digitalocean/openapi/main/specification/DigitalOcean-public.v2.yaml |
-| Slack | `slack` | https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json |
-| Twilio | `twilio` | https://raw.githubusercontent.com/twilio/twilio-oai/main/spec/json/twilio_api_v2010.json |
-| GitHub | `github` | https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml |
-| GitLab | `gitlab` | https://gitlab.com/gitlab-org/gitlab/-/raw/master/doc/api/openapi/openapi_v2.yaml |
-| Jira Cloud | `jira` | https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json |
 | Asana | `asana` | https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml |
+| Autotask PSA | `autotask` | https://webservices.autotask.net/atservicesrest/swagger/docs/v1 |
+| Auvik | `auvik` | https://auvikapi.us1.my.auvik.com/spec |
+| Axcient x360 | `axcient_*` | https://developer.axcient.com/specs/{product}.yaml |
 | Bitbucket Cloud | `bitbucket` | https://api.bitbucket.org/swagger.json |
 | CircleCI | `circleci` | https://circleci.com/api/v2/openapi.json |
+| Cisco Meraki | `cisco_meraki_*` | https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json |
+| Cloudflare | `cloudflare` | https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml |
+| Datto RMM | `datto_rmm` | https://pinotage-api.centrastage.net/api/v3/api-docs/Datto-RMM |
+| DigitalOcean | `digitalocean` | https://raw.githubusercontent.com/digitalocean/openapi/main/specification/DigitalOcean-public.v2.yaml |
+| GitHub | `github` | https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml |
+| GitLab | `gitlab` | https://gitlab.com/gitlab-org/gitlab/-/raw/master/doc/api/openapi/openapi_v2.yaml |
+| Grafana | `grafana` | https://raw.githubusercontent.com/grafana/grafana/main/public/api-merged.json |
+| HaloPSA | `halo_psa` | https://halo.haloservicedesk.com/api/swagger/v2/swagger.json |
+| Huntress | `huntress` | https://api.huntress.io/v1/swagger_doc.json |
+| Jira Cloud | `jira` | https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json |
 | Kubernetes | `kubernetes` | https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/swagger.json |
 | LaunchDarkly | `launchdarkly` | https://app.launchdarkly.com/api/v2/openapi.json |
+| Microsoft Graph | `microsoft_graph` | https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml |
+| N-able N-central | `n_central` | https://documentation.n-able.com/N-central/preview/rest_api_preview/Content/Resources/swaggerapi/dist/openapi-spec.json |
 | Netlify | `netlify` | https://raw.githubusercontent.com/netlify/open-api/master/swagger.yml |
+| NinjaOne | `ninjaone` | https://app.ninjarmm.com/apidocs/NinjaRMM-API-v2.json |
+| PagerDuty | `pagerduty` | https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json |
 | SendGrid | `sendgrid` | https://raw.githubusercontent.com/sendgrid/sendgrid-oai/main/oai.json |
+| Slack | `slack` | https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json |
+| Slide | `slide` | https://api.slide.tech/openapi.json |
+| Square | `square` | https://raw.githubusercontent.com/square/connect-api-specification/master/api.json |
+| Stripe | `stripe` | https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml |
+| Syncro | `syncro` | https://api-docs.syncromsp.com/swagger.json |
+| Twilio | `twilio` | https://raw.githubusercontent.com/twilio/twilio-oai/main/spec/json/twilio_api_v2010.json |
+| UniFi | `unifi_*` | https://developer.ui.com/{network,protect,site-manager}/openapi.json |
 | Vercel | `vercel` | https://openapi.vercel.sh/ |
+| Xero | `xero` | https://raw.githubusercontent.com/XeroAPI/Xero-OpenAPI/master/xero_accounting.yaml |
 
-Notes on public files:
+Acronis publishes per-product OpenAPI under `https://developer.acronis.com/doc/`. Reddit Ads is `https://ads-api.reddit.com/api/v3/openapi.json`.
 
+Instance copies:
+
+- HaloPSA also serves `{instance}/api/swagger/v2/swagger.json`.
+- N-central serves Swagger on the appliance at `{fqdn}/api-explorer`.
+- UniFi Network on a local console: `{console}/proxy/network/api-docs/integration.json`.
 - Datto RMM platforms share one schema. Pinotage answered 200. Merlot, Vidal, Concord and Zinfandel answered 500 on the same path the day this was checked. Swagger UI: `https://{platform}-api.centrastage.net/api/swagger-ui/index.html`.
-- HaloPSA is instance-hosted. The Halo Service Desk demo spec is public. A tenant copy also lives at `{instance}/api/swagger/v2/swagger.json`.
-- N-central also ships Swagger on the appliance at `{fqdn}/api-explorer`.
-- UniFi Network, Protect and Site Manager OpenAPI files are public on developer.ui.com. A local console also serves Network at `{console}/proxy/network/api-docs/integration.json`.
-- Microsoft Graph v1.0 is about 44 MiB, Cloudflare about 18 MiB, GitHub about 10 MiB. The connector YAML node budget currently refuses the Graph compile. The hub still lists them so an operator can split or wait on a later compiler.
 
 ## Login-gated documents
 
-Tagged `account`. The spec is behind a developer login, a tenant console, or an instance Swagger page. Do not expect `import` from the `source` URL to work unauthenticated. Download from the vendor portal (or export from the instance) and import that file.
+Tagged `account`. `import` from `source` will not work unauthenticated. Download the document from the vendor portal (or export it from the instance) and import that file.
 
-Examples (not exhaustive; filter `index.json` on the `account` tag for the full set):
-
-| Product | Where the document is |
+| Where it lives | Products |
 |---|---|
-| ConnectWise PSA / RMM / Automate / CPQ | developer.connectwise.com, sign-in |
-| ScreenConnect | vendor developer docs; connector ships `session-manager.yaml` |
-| SentinelOne | tenant console `/api-doc/` |
-| Atera | https://app.atera.com/apidocs (401 without a key) |
-| SuperOps | GraphQL at https://developer.superops.ai/ |
-| Freshdesk, Freshservice | vendor developer, HTML reference |
-| Hudu, IT Glue | instance or partner login |
-| Pax8, ThreatLocker, Action1, Addigy, Liongard | partner / in-app docs |
-| ImmyBot, Mosyle, Domotz, Kaseya VSA / BMS | vendor developer / help |
-| CrowdStrike, Palo Alto, Tenable, Qualys, Rapid7, Wiz | partner / developer portal |
-| Datadog, New Relic, Dynatrace, Splunk, Elastic | account |
-| Okta, JumpCloud, Duo, Auth0, Entra, Intune | account or OAuth app |
-| Salesforce, HubSpot, Zendesk, ServiceNow | account or OAuth app |
-| Unraid, Home Assistant, Proxmox, TrueNAS, Synology | instance |
-| QuickBooks, Xero, NetSuite, Sage, Gusto | accounting OAuth |
-| AWS, Azure, Google Cloud | cloud account |
+| developer.connectwise.com (sign-in) | ConnectWise PSA (`All.json`, split into the 12 PSA catalogs), RMM (`currentPartnerAPI.yaml`), Automate (ReDoc zip), CPQ (`SellAPI.json`) |
+| Tenant console | SentinelOne `/api-doc/`, Atera `https://app.atera.com/apidocs` (401 without a key) |
+| Instance | Hudu, Unraid (`/graphql`, 7.2+), Home Assistant, Proxmox, TrueNAS, Synology, Portainer `{portainer}/api/docs`, HaloPSA, N-central |
+| Partner / developer portal | CrowdStrike, Palo Alto, Tenable, Qualys, Rapid7, Wiz, Pax8, ThreatLocker, Action1, Addigy, Liongard, ImmyBot, Mosyle, Domotz, Kaseya VSA and BMS |
+| Account or OAuth app | Okta, JumpCloud, Duo, Auth0, Entra, Intune, Salesforce, HubSpot, Zendesk, ServiceNow, Datadog, New Relic, Splunk, Elastic |
+| Accounting OAuth | QuickBooks, Xero, NetSuite, Sage, Gusto, FreshBooks |
+| Cloud account | AWS, Azure, Google Cloud |
 
-Community unofficial specs exist for some gated APIs. They are not the vendor document. The hub `source` stays on the official page.
+ScreenConnect has no public OpenAPI. The connector ships an authored `session-manager.yaml` (RPC). SuperOps is GraphQL at https://developer.superops.ai/. IT Glue's `GET .../swagger.json` is 403; the HTML JSON:API docs are public, the spec is not.
 
-## Referenced, no published OpenAPI
+Filter the full set with:
 
-Products seen in the wild with no OpenAPI, Swagger, GraphQL schema, RPC document or official MCP found for the hub:
-
-- CIPP (CyberDrain Improved Partner Portal): instance REST, no published spec
-- Apple HomeKit: accessory protocol (HAP / Matter), not a REST or GraphQL document an operator can import
-
-Ask for those with the Add a product template if a document appears. ClickUp now has an official MCP (`https://mcp.clickup.com/mcp`) and is in `index.json`.
-
-## Request a product
-
-Open an issue with the Add a product template. Include the vendor name, a public document URL if there is one, the official MCP URL if the vendor hosts one, and whether a login is required. Do not attach keys, tokens or tenant hostnames.
-
-Do not invent MCP URLs. Only `mcp.url` values the vendor publishes on their own domain (or the documented regional endpoint) belong here.
-
-## Use it from a connector
-
-The gateway embeds this index. An operator can point `hub_url` at a fork:
-
+```bash
+jq '.products[] | select(.tags | index("account")) | .name' index.json
 ```
-https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index.json
-```
+
+## Limits
+
+- Microsoft Graph v1.0 is about 44 MiB, Cloudflare about 18 MiB, GitHub about 10 MiB. The connector YAML node budget currently refuses the Graph compile. The hub still lists them so an operator can split the document or wait on a later compiler.
+- `hub_url` is capped at 256 KiB. PRs that push `index.json` over that fail closed at fetch.
+- `mark` is two characters and must be unique. Letters or a letter plus a digit (`S1`, `B2`) are fine.
+- Catalog `id` values must be unique across the file, not only inside one product.
+
+## Not listed
+
+No OpenAPI, Swagger, GraphQL, RPC document or official MCP found:
+
+- **CIPP** (CyberDrain Improved Partner Portal): instance REST, no published spec.
+- **Apple HomeKit**: HAP / Matter accessory protocol. Not a document the connector can import.
+
+Open an issue if that changes.
+
+## Contribute
+
+**Missing vendor.** Open an issue with the [Add a product](https://github.com/pulsatrixtechnologies/connector-hub/issues/new?template=add-product.md) template. Vendor name, public document URL if any, whether a login is required, one sentence on what an MSP uses it for. No keys, tokens, tenant hostnames or company names.
+
+**Pull request.** Keep `pulsatrix-hub/1`. Unique `id` and `mark`. Every catalog `source` an `https://` URL. `mcp.url` only on the vendor's own domain (or the documented regional host). Do not add community wrappers. Stay under 256 KiB. Do not invent MCP URLs.
+
+The console copies this index. A broken `source` is worse than a missing card.
