@@ -1,6 +1,32 @@
-# Pulsatrix connector hub
+<p align="center">
+  <img src="logo.png" width="72" alt="Pulsatrix">
+</p>
 
-The product index the Pulsatrix console reads.
+<h1 align="center">Pulsatrix connector hub</h1>
+
+<p align="center">
+  Product index for the Pulsatrix connector.<br>
+  Official vendor MCP, OpenAPI, Swagger, GraphQL and RPC.
+</p>
+
+<p align="center">
+  <a href="index.json"><img src="https://img.shields.io/badge/format-pulsatrix--hub%2F1-3c76f4?style=flat-square&labelColor=111a2f" alt="format pulsatrix-hub/1"></a>
+  <a href="index.json"><img src="https://img.shields.io/badge/products-426-3c76f4?style=flat-square&labelColor=111a2f" alt="426 products"></a>
+  <a href="#remote-mcp"><img src="https://img.shields.io/badge/MCP-100%20remote-3c76f4?style=flat-square&labelColor=111a2f" alt="100 remote MCP"></a>
+  <a href="https://github.com/pulsatrixtechnologies/connector-hub/commits/main"><img src="https://img.shields.io/github/last-commit/pulsatrixtechnologies/connector-hub?style=flat-square&labelColor=111a2f&color=3c76f4" alt="last commit"></a>
+  <a href="https://github.com/pulsatrixtechnologies/connector-hub/issues"><img src="https://img.shields.io/github/issues/pulsatrixtechnologies/connector-hub?style=flat-square&labelColor=111a2f&color=3c76f4" alt="issues"></a>
+  <a href="https://pulsatrix.ca"><img src="https://img.shields.io/badge/website-pulsatrix.ca-111a2f?style=flat-square" alt="pulsatrix.ca"></a>
+</p>
+
+<p align="center">
+  <a href="https://pulsatrix.ca">Website</a>
+  ·
+  <a href="https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index.json">Raw index</a>
+  ·
+  <a href="https://github.com/pulsatrixtechnologies/connector-hub/issues/new?template=add-product.md">Add a product</a>
+  ·
+  <a href="mailto:hello@pulsatrix.ca">Contact</a>
+</p>
 
 One file, [`index.json`](index.json), format `pulsatrix-hub/1`. Each entry is a vendor an MSP actually runs: PSA, RMM, EDR, identity, cloud, billing, and the SaaS around them. When that vendor hosts an MCP server, the URL is on the card. When they publish OpenAPI, Swagger, GraphQL or RPC, the catalog `source` is too.
 
@@ -26,6 +52,8 @@ https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index
 10. [Limits](#limits)
 11. [Not listed](#not-listed)
 12. [Contribute](#contribute)
+13. [Status](#status)
+14. [License](#license)
 
 ## Use it
 
@@ -426,3 +454,20 @@ Open an issue if that changes.
 **Pull request.** Keep `pulsatrix-hub/1`. Unique `id` and `mark`. Every catalog `source` an `https://` URL. `mcp.url` only on the vendor's own domain (or the documented regional host). Do not add community wrappers. Stay under 256 KiB. Do not invent MCP URLs.
 
 The console copies this index. A broken `source` is worse than a missing card.
+
+## Status
+
+Public. Maintained by [Pulsatrix Technologies Inc.](https://pulsatrix.ca). The console ships a bundled copy of this index; `hub_url` can point at `main` or at a fork.
+
+| | |
+|---|---|
+| Format | `pulsatrix-hub/1` |
+| Index | [`index.json`](index.json) on `main` |
+| Cap | 256 KiB (`hub_url` fetch) |
+| Issues | [Add a product](https://github.com/pulsatrixtechnologies/connector-hub/issues/new?template=add-product.md) |
+
+## License
+
+Copyright Pulsatrix Technologies Inc. The index lists public vendor URLs and developer pages. Product names and marks belong to their vendors.
+
+See [pulsatrix.ca/terms](https://pulsatrix.ca/terms) and [pulsatrix.ca/privacy](https://pulsatrix.ca/privacy). Contact: [hello@pulsatrix.ca](mailto:hello@pulsatrix.ca).
