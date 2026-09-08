@@ -587,6 +587,7 @@
       "mark": "PG",
       "tone": "user",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -597,7 +598,11 @@
           "file": "pagerduty.json",
           "source": "https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json"
         }
-      ]
+      ],
+      "mcp": {
+        "url": "https://mcp.pagerduty.com/mcp",
+        "docs": "https://developer.pagerduty.com/docs/mcp-tooling-remote-server"
+      }
     },
     {
       "id": "xero",
@@ -627,6 +632,7 @@
       "mark": "MG",
       "tone": "ok",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -637,7 +643,11 @@
           "file": "microsoft_graph.json",
           "source": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml"
         }
-      ]
+      ],
+      "mcp": {
+        "url": "https://mcp.svc.cloud.microsoft/enterprise",
+        "docs": "https://learn.microsoft.com/en-us/graph/mcp-server/overview"
+      }
     },
     {
       "id": "atera",
@@ -1571,6 +1581,7 @@
       "mark": "HS",
       "tone": "user",
       "tags": [
+        "mcp",
         "rest",
         "openapi",
         "account"
@@ -1582,7 +1593,11 @@
           "file": "hubspot.json",
           "source": "https://developers.hubspot.com/docs/api/overview"
         }
-      ]
+      ],
+      "mcp": {
+        "url": "https://mcp.hubspot.com",
+        "docs": "https://developers.hubspot.com/docs/guides/apps/mcp"
+      }
     },
     {
       "id": "quickbooks",
@@ -1974,6 +1989,7 @@
       "summary": "Dashboards, alerts and the datasources behind them.",
       "mark": "GF",
       "tags": [
+        "mcp",
         "rest",
         "swagger"
       ],
@@ -1985,7 +2001,10 @@
           "source": "https://raw.githubusercontent.com/grafana/grafana/main/public/api-merged.json"
         }
       ],
-      "tone": "write"
+      "tone": "write",
+      "mcp": {
+        "docs": "https://grafana.com/docs/grafana/latest/developer-resources/mcp/"
+      }
     },
     {
       "id": "prtg",
@@ -2255,6 +2274,7 @@
       "summary": "Customers, invoices, subscriptions and payouts.",
       "mark": "SK",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -2266,7 +2286,11 @@
           "source": "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml"
         }
       ],
-      "tone": "denied"
+      "tone": "denied",
+      "mcp": {
+        "url": "https://mcp.stripe.com",
+        "docs": "https://docs.stripe.com/mcp"
+      }
     },
     {
       "id": "square",
@@ -2275,6 +2299,7 @@
       "summary": "Payments, orders, catalog and customers.",
       "mark": "SQ",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -2286,7 +2311,11 @@
           "source": "https://raw.githubusercontent.com/square/connect-api-specification/master/api.json"
         }
       ],
-      "tone": "query"
+      "tone": "query",
+      "mcp": {
+        "url": "https://mcp.squareup.com/sse",
+        "docs": "https://developer.squareup.com/docs/mcp"
+      }
     },
     {
       "id": "harvest",
@@ -2455,6 +2484,7 @@
       "summary": "Orders, payouts and the transactions that settled.",
       "mark": "PP",
       "tags": [
+        "mcp",
         "rest",
         "account"
       ],
@@ -2466,7 +2496,11 @@
           "source": "https://developer.paypal.com/api/rest/"
         }
       ],
-      "tone": "write"
+      "tone": "write",
+      "mcp": {
+        "url": "https://mcp.paypal.com/mcp",
+        "docs": "https://developer.paypal.com/tools/mcp-server/"
+      }
     },
     {
       "id": "cloudflare",
@@ -2475,6 +2509,7 @@
       "summary": "Zones, DNS, tunnels and the WAF in front of a site.",
       "mark": "CF",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -2486,7 +2521,11 @@
           "source": "https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml"
         }
       ],
-      "tone": "macro"
+      "tone": "macro",
+      "mcp": {
+        "url": "https://mcp.cloudflare.com/mcp",
+        "docs": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/"
+      }
     },
     {
       "id": "digitalocean",
@@ -2535,6 +2574,7 @@
       "summary": "Accounts, IAM and the services a client runs in AWS.",
       "mark": "AW",
       "tags": [
+        "mcp",
         "rest",
         "account"
       ],
@@ -2546,7 +2586,11 @@
           "source": "https://docs.aws.amazon.com/"
         }
       ],
-      "tone": "ok"
+      "tone": "ok",
+      "mcp": {
+        "url": "https://aws-mcp.us-east-1.api.aws/mcp",
+        "docs": "https://awslabs.github.io/mcp/"
+      }
     },
     {
       "id": "azure",
@@ -2555,6 +2599,7 @@
       "summary": "Subscriptions, resources and the health of a tenant.",
       "mark": "AZ",
       "tags": [
+        "mcp",
         "rest",
         "account"
       ],
@@ -2566,7 +2611,10 @@
           "source": "https://learn.microsoft.com/en-us/rest/api/azure/"
         }
       ],
-      "tone": "active"
+      "tone": "active",
+      "mcp": {
+        "docs": "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/overview"
+      }
     },
     {
       "id": "google_cloud",
@@ -2695,6 +2743,7 @@
       "summary": "Channels, messages and the users in a workspace.",
       "mark": "LK",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -2706,7 +2755,11 @@
           "source": "https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json"
         }
       ],
-      "tone": "ok"
+      "tone": "ok",
+      "mcp": {
+        "url": "https://mcp.slack.com/mcp",
+        "docs": "https://docs.slack.dev/ai/slack-mcp-server"
+      }
     },
     {
       "id": "zoom",
@@ -2775,6 +2828,7 @@
       "summary": "Repos, issues, pulls and the orgs that own them.",
       "mark": "GH",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -2786,7 +2840,11 @@
           "source": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml"
         }
       ],
-      "tone": "write"
+      "tone": "write",
+      "mcp": {
+        "url": "https://api.githubcopilot.com/mcp/",
+        "docs": "https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md"
+      }
     },
     {
       "id": "gitlab",
@@ -2795,6 +2853,7 @@
       "summary": "Projects, issues, pipelines and the groups that hold them.",
       "mark": "GL",
       "tags": [
+        "mcp",
         "rest",
         "openapi"
       ],
@@ -2806,7 +2865,11 @@
           "source": "https://gitlab.com/gitlab-org/gitlab/-/raw/master/doc/api/openapi/openapi_v2.yaml"
         }
       ],
-      "tone": "macro"
+      "tone": "macro",
+      "mcp": {
+        "url": "https://gitlab.com/api/v4/mcp",
+        "docs": "https://docs.gitlab.com/user/model_context_protocol/mcp_server/"
+      }
     },
     {
       "id": "jira",
@@ -2815,6 +2878,7 @@
       "summary": "Issues, projects and the workflows behind a board.",
       "mark": "JR",
       "tags": [
+        "mcp",
         "rest",
         "swagger"
       ],
@@ -2826,7 +2890,11 @@
           "source": "https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json"
         }
       ],
-      "tone": "user"
+      "tone": "user",
+      "mcp": {
+        "url": "https://mcp.atlassian.com/v2/mcp",
+        "docs": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"
+      }
     },
     {
       "id": "zendesk",
@@ -2875,6 +2943,7 @@
       "summary": "Issues, projects and cycles over GraphQL.",
       "mark": "LI",
       "tags": [
+        "mcp",
         "graphql",
         "account"
       ],
@@ -2886,7 +2955,11 @@
           "source": "https://developers.linear.app/docs/graphql/working-with-the-graphql-api"
         }
       ],
-      "tone": "active"
+      "tone": "active",
+      "mcp": {
+        "url": "https://mcp.linear.app/mcp",
+        "docs": "https://linear.app/docs/mcp"
+      }
     },
     {
       "id": "statuspage",

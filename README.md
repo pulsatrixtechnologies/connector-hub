@@ -17,8 +17,11 @@ The compiled catalogs themselves live in the connector repo (`catalog/`). The hu
 
 Each catalog may carry `source`: a direct URL to the OpenAPI, Swagger, GraphQL or RPC document when one exists. Public files are the fetchable spec. Login-gated products point at the vendor developer page. The operator still imports the document they hold.
 
+A product may also carry `mcp`: the vendor's own MCP server. **Use that first.** Compile the OpenAPI catalog into Pulsatrix only when you need profiles, journal and scopes on this host.
+
 ## Tags
 
+- `mcp` official vendor MCP. Connect this before compiling the API
 - `rest` REST API
 - `openapi` OpenAPI
 - `swagger` Swagger
@@ -26,6 +29,30 @@ Each catalog may carry `source`: a direct URL to the OpenAPI, Swagger, GraphQL o
 - `rpc` RPC methods
 - `account` needs a login or a vendor document the operator already has
 - `private` private API (the vendor's own site, with the client's authorisation)
+
+## Official MCP first
+
+These products ship a vendor-hosted MCP. Point the AI client at `mcp.url`. The `source` OpenAPI stays as a fallback for a Pulsatrix catalog.
+
+| Product | MCP | Docs |
+|---|---|---|
+| Stripe | https://mcp.stripe.com | https://docs.stripe.com/mcp |
+| Slack | https://mcp.slack.com/mcp | https://docs.slack.dev/ai/slack-mcp-server |
+| GitHub | https://api.githubcopilot.com/mcp/ | https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md |
+| Jira Cloud | https://mcp.atlassian.com/v2/mcp | Atlassian Rovo MCP |
+| Linear | https://mcp.linear.app/mcp | https://linear.app/docs/mcp |
+| HubSpot | https://mcp.hubspot.com | HubSpot apps MCP |
+| PayPal | https://mcp.paypal.com/mcp | PayPal MCP |
+| Square | https://mcp.squareup.com/sse | Square MCP |
+| PagerDuty | https://mcp.pagerduty.com/mcp | https://developer.pagerduty.com/docs/mcp-tooling-remote-server |
+| GitLab | https://gitlab.com/api/v4/mcp | GitLab MCP server (instance URL on self-managed) |
+| Microsoft Graph | https://mcp.svc.cloud.microsoft/enterprise | Microsoft MCP Server for Enterprise |
+| Cloudflare | https://mcp.cloudflare.com/mcp | Cloudflare MCP servers |
+| AWS | https://aws-mcp.us-east-1.api.aws/mcp | AWS MCP |
+| Azure | n/a (local / self-hosted official server) | Azure MCP Server |
+| Grafana | n/a (official local server) | Grafana MCP |
+
+Community MCP wrappers are not listed. If the vendor later hosts one, add `mcp` and the `mcp` tag.
 
 ## Public documents
 
