@@ -16,18 +16,18 @@
       "tags": ["rest", "openapi", "account"],
       "default_catalogs": ["cw_psa_service"],
       "catalogs": [
-        { "id": "cw_psa_service", "title": "Service tickets", "file": "cw_psa_service.json" },
-        { "id": "cw_psa_company", "title": "Companies", "file": "cw_psa_company.json" },
-        { "id": "cw_psa_time", "title": "Time", "file": "cw_psa_time.json" },
-        { "id": "cw_psa_schedule", "title": "Schedule", "file": "cw_psa_schedule.json" },
-        { "id": "cw_psa_project", "title": "Projects", "file": "cw_psa_project.json" },
-        { "id": "cw_psa_finance", "title": "Finance", "file": "cw_psa_finance.json" },
-        { "id": "cw_psa_sales", "title": "Sales", "file": "cw_psa_sales.json" },
-        { "id": "cw_psa_system", "title": "System", "file": "cw_psa_system.json" },
-        { "id": "cw_psa_configurations", "title": "Configurations", "file": "cw_psa_configurations.json" },
-        { "id": "cw_psa_expense", "title": "Expense", "file": "cw_psa_expense.json" },
-        { "id": "cw_psa_marketing", "title": "Marketing", "file": "cw_psa_marketing.json" },
-        { "id": "cw_psa_procurement", "title": "Procurement", "file": "cw_psa_procurement.json" }
+        { "id": "cw_psa_service", "title": "Service tickets", "file": "cw_psa_service.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_company", "title": "Companies", "file": "cw_psa_company.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_time", "title": "Time", "file": "cw_psa_time.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_schedule", "title": "Schedule", "file": "cw_psa_schedule.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_project", "title": "Projects", "file": "cw_psa_project.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_finance", "title": "Finance", "file": "cw_psa_finance.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_sales", "title": "Sales", "file": "cw_psa_sales.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_system", "title": "System", "file": "cw_psa_system.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_configurations", "title": "Configurations", "file": "cw_psa_configurations.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_expense", "title": "Expense", "file": "cw_psa_expense.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_marketing", "title": "Marketing", "file": "cw_psa_marketing.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" },
+        { "id": "cw_psa_procurement", "title": "Procurement", "file": "cw_psa_procurement.json", "source": "https://developer.connectwise.com/Products/ConnectWise_PSA/REST" }
       ]
     },
     {
@@ -38,7 +38,7 @@
       "mark": "RM",
       "tone": "write",
       "tags": ["rest", "openapi", "account"],
-      "catalogs": [{ "id": "cw_rmm", "title": "RMM", "file": "cw_rmm.json" }]
+      "catalogs": [{ "id": "cw_rmm", "title": "RMM", "file": "cw_rmm.json", "source": "https://developer.connectwise.com/Products/ConnectWise_Asio" }]
     },
     {
       "id": "connectwise_cpq",
@@ -48,7 +48,7 @@
       "mark": "QP",
       "tone": "macro",
       "tags": ["rest", "swagger", "account"],
-      "catalogs": [{ "id": "cw_cpq", "title": "CPQ", "file": "cw_cpq.json" }]
+      "catalogs": [{ "id": "cw_cpq", "title": "CPQ", "file": "cw_cpq.json", "source": "https://developer.connectwise.com/Products/ConnectWise_CPQ" }]
     },
     {
       "id": "connectwise_automate",
@@ -58,7 +58,7 @@
       "mark": "AU",
       "tone": "user",
       "tags": ["rest", "openapi", "account"],
-      "catalogs": [{ "id": "cw_automate", "title": "Automate", "file": "cw_automate.json" }]
+      "catalogs": [{ "id": "cw_automate", "title": "Automate", "file": "cw_automate.json", "source": "https://developer.connectwise.com/Products/Automate" }]
     },
     {
       "id": "screenconnect",
@@ -68,7 +68,7 @@
       "mark": "SC",
       "tone": "active",
       "tags": ["rpc", "account"],
-      "catalogs": [{ "id": "screenconnect", "title": "Session manager", "file": "screenconnect.json" }]
+      "catalogs": [{ "id": "screenconnect", "title": "Session manager", "file": "screenconnect.json", "source": "https://docs.connectwise.com/ConnectWise_Control_Documentation/Developers" }]
     },
     {
       "id": "sentinelone",
@@ -78,7 +78,7 @@
       "mark": "S1",
       "tone": "error",
       "tags": ["rest", "swagger", "account"],
-      "catalogs": [{ "id": "sentinelone", "title": "Management API", "file": "sentinelone.json" }]
+      "catalogs": [{ "id": "sentinelone", "title": "Management API", "file": "sentinelone.json", "source": "https://www.sentinelone.com/developers/" }]
     },
     {
       "id": "alertops",
@@ -88,7 +88,7 @@
       "mark": "AO",
       "tone": "denied",
       "tags": ["rest", "swagger"],
-      "catalogs": [{ "id": "alertops", "title": "AlertOps", "file": "alertops.json" }]
+      "catalogs": [{ "id": "alertops", "title": "AlertOps", "file": "alertops.json", "source": "https://api.alertops.com/swagger/v1/swagger.json" }]
     },
     {
       "id": "auvik",
@@ -98,7 +98,7 @@
       "mark": "AV",
       "tone": "ok",
       "tags": ["rest", "openapi"],
-      "catalogs": [{ "id": "auvik", "title": "Auvik", "file": "auvik.json" }]
+      "catalogs": [{ "id": "auvik", "title": "Auvik", "file": "auvik.json", "source": "https://auvikapi.us1.my.auvik.com/spec" }]
     },
     {
       "id": "acronis",
@@ -110,16 +110,16 @@
       "tags": ["rest", "openapi"],
       "default_catalogs": ["acronis_alerts"],
       "catalogs": [
-        { "id": "acronis_account", "title": "Accounts", "file": "acronis_account.json" },
-        { "id": "acronis_agents", "title": "Agents", "file": "acronis_agents.json" },
-        { "id": "acronis_alerts", "title": "Alerts", "file": "acronis_alerts.json" },
-        { "id": "acronis_dr", "title": "Disaster recovery", "file": "acronis_dr.json" },
-        { "id": "acronis_events", "title": "Events", "file": "acronis_events.json" },
-        { "id": "acronis_files", "title": "Files", "file": "acronis_files.json" },
-        { "id": "acronis_mdr", "title": "EDR", "file": "acronis_mdr.json" },
-        { "id": "acronis_policy", "title": "Policies", "file": "acronis_policy.json" },
-        { "id": "acronis_tasks", "title": "Tasks", "file": "acronis_tasks.json" },
-        { "id": "acronis_vaultman", "title": "Vaults", "file": "acronis_vaultman.json" }
+        { "id": "acronis_account", "title": "Accounts", "file": "acronis_account.json", "source": "https://developer.acronis.com/doc/account-management/v2/reference/openapi.json" },
+        { "id": "acronis_agents", "title": "Agents", "file": "acronis_agents.json", "source": "https://developer.acronis.com/doc/agents/v2/reference/openapi.json" },
+        { "id": "acronis_alerts", "title": "Alerts", "file": "acronis_alerts.json", "source": "https://developer.acronis.com/doc/alerts/v1/reference/openapi.json" },
+        { "id": "acronis_dr", "title": "Disaster recovery", "file": "acronis_dr.json", "source": "https://developer.acronis.com/doc/disaster-recovery/v2/reference/openapi.json" },
+        { "id": "acronis_events", "title": "Events", "file": "acronis_events.json", "source": "https://developer.acronis.com/doc/events/v1/reference/openapi.json" },
+        { "id": "acronis_files", "title": "Files", "file": "acronis_files.json", "source": "https://developer.acronis.com/doc/files/v1/reference/openapi.json" },
+        { "id": "acronis_mdr", "title": "EDR", "file": "acronis_mdr.json", "source": "https://developer.acronis.com/doc/mdr/v1/reference/openapi.json" },
+        { "id": "acronis_policy", "title": "Policies", "file": "acronis_policy.json", "source": "https://developer.acronis.com/doc/resource-policy-management/v4/reference/openapi.json" },
+        { "id": "acronis_tasks", "title": "Tasks", "file": "acronis_tasks.json", "source": "https://developer.acronis.com/doc/tasks/v2/reference/openapi.json" },
+        { "id": "acronis_vaultman", "title": "Vaults", "file": "acronis_vaultman.json", "source": "https://developer.acronis.com/doc/vaultman/v1/reference/openapi.json" }
       ]
     },
     {
@@ -132,10 +132,10 @@
       "tags": ["rest", "openapi"],
       "default_catalogs": ["axcient_x360recover"],
       "catalogs": [
-        { "id": "axcient_x360recover", "title": "Recover", "file": "axcient_x360recover.json" },
-        { "id": "axcient_x360cloud", "title": "Cloud", "file": "axcient_x360cloud.json" },
-        { "id": "axcient_x360sync", "title": "Sync", "file": "axcient_x360sync.json" },
-        { "id": "axcient_billing", "title": "Billing", "file": "axcient_billing.json" }
+        { "id": "axcient_x360recover", "title": "Recover", "file": "axcient_x360recover.json", "source": "https://developer.axcient.com/specs/x360Recover.yaml" },
+        { "id": "axcient_x360cloud", "title": "Cloud", "file": "axcient_x360cloud.json", "source": "https://developer.axcient.com/specs/x360Cloud.yaml" },
+        { "id": "axcient_x360sync", "title": "Sync", "file": "axcient_x360sync.json", "source": "https://developer.axcient.com/specs/x360Sync.yaml" },
+        { "id": "axcient_billing", "title": "Billing", "file": "axcient_billing.json", "source": "https://developer.axcient.com/specs/Billing.yaml" }
       ]
     },
     {
@@ -148,10 +148,10 @@
       "tags": ["rest", "openapi"],
       "default_catalogs": ["cisco_meraki_organizations"],
       "catalogs": [
-        { "id": "cisco_meraki_organizations", "title": "Organizations", "file": "cisco_meraki_organizations.json" },
-        { "id": "cisco_meraki_networks", "title": "Networks", "file": "cisco_meraki_networks.json" },
-        { "id": "cisco_meraki_devices", "title": "Devices", "file": "cisco_meraki_devices.json" },
-        { "id": "cisco_meraki_administered", "title": "Administered", "file": "cisco_meraki_administered.json" }
+        { "id": "cisco_meraki_organizations", "title": "Organizations", "file": "cisco_meraki_organizations.json", "source": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json" },
+        { "id": "cisco_meraki_networks", "title": "Networks", "file": "cisco_meraki_networks.json", "source": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json" },
+        { "id": "cisco_meraki_devices", "title": "Devices", "file": "cisco_meraki_devices.json", "source": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json" },
+        { "id": "cisco_meraki_administered", "title": "Administered", "file": "cisco_meraki_administered.json", "source": "https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json" }
       ]
     },
     {
@@ -162,7 +162,7 @@
       "mark": "AT",
       "tone": "user",
       "tags": ["rest", "swagger"],
-      "catalogs": [{ "id": "autotask", "title": "Autotask", "file": "autotask.json" }]
+      "catalogs": [{ "id": "autotask", "title": "Autotask", "file": "autotask.json", "source": "https://webservices.autotask.net/atservicesrest/swagger/docs/v1" }]
     },
     {
       "id": "huntress",
@@ -172,7 +172,7 @@
       "mark": "HT",
       "tone": "error",
       "tags": ["rest", "swagger"],
-      "catalogs": [{ "id": "huntress", "title": "Huntress", "file": "huntress.json" }]
+      "catalogs": [{ "id": "huntress", "title": "Huntress", "file": "huntress.json", "source": "https://api.huntress.io/v1/swagger_doc.json" }]
     },
     {
       "id": "ninjaone",
@@ -182,7 +182,7 @@
       "mark": "NJ",
       "tone": "ok",
       "tags": ["rest", "openapi"],
-      "catalogs": [{ "id": "ninjaone", "title": "NinjaOne", "file": "ninjaone.json" }]
+      "catalogs": [{ "id": "ninjaone", "title": "NinjaOne", "file": "ninjaone.json", "source": "https://app.ninjarmm.com/apidocs/NinjaRMM-API-v2.json" }]
     },
     {
       "id": "slide",
@@ -192,7 +192,7 @@
       "mark": "SL",
       "tone": "active",
       "tags": ["rest", "openapi"],
-      "catalogs": [{ "id": "slide", "title": "Slide", "file": "slide.json" }]
+      "catalogs": [{ "id": "slide", "title": "Slide", "file": "slide.json", "source": "https://api.slide.tech/openapi.json" }]
     },
     {
       "id": "syncro",
@@ -202,7 +202,7 @@
       "mark": "SY",
       "tone": "query",
       "tags": ["rest", "openapi"],
-      "catalogs": [{ "id": "syncro", "title": "Syncro", "file": "syncro.json" }]
+      "catalogs": [{ "id": "syncro", "title": "Syncro", "file": "syncro.json", "source": "https://api-docs.syncromsp.com/swagger.json" }]
     },
     {
       "id": "reddit_ads",
@@ -212,7 +212,627 @@
       "mark": "RD",
       "tone": "denied",
       "tags": ["rest", "openapi"],
-      "catalogs": [{ "id": "reddit_ads", "title": "Reddit Ads", "file": "reddit_ads.json" }]
+      "catalogs": [{ "id": "reddit_ads", "title": "Reddit Ads", "file": "reddit_ads.json", "source": "https://ads-api.reddit.com/api/v3/openapi.json" }]
+    },
+    {
+      "id": "halo_psa",
+      "name": "HaloPSA",
+      "vendor": "Halo",
+      "summary": "Tickets, clients, assets and contracts in Halo.",
+      "mark": "HA",
+      "tone": "query",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "halo_psa", "title": "Halo API", "file": "halo_psa.json", "source": "https://halo.haloservicedesk.com/api/swagger/v2/swagger.json" }]
+    },
+    {
+      "id": "datto_rmm",
+      "name": "Datto RMM",
+      "vendor": "Kaseya",
+      "summary": "Devices, sites, alerts and jobs in Datto RMM.",
+      "mark": "DR",
+      "tone": "write",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "datto_rmm", "title": "Datto RMM", "file": "datto_rmm.json", "source": "https://pinotage-api.centrastage.net/api/v3/api-docs/Datto-RMM" }]
+    },
+    {
+      "id": "n_central",
+      "name": "N-able N-central",
+      "vendor": "N-able",
+      "summary": "Devices, customers and tasks in N-central.",
+      "mark": "NC",
+      "tone": "macro",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "n_central", "title": "N-central REST", "file": "n_central.json", "source": "https://documentation.n-able.com/N-central/preview/rest_api_preview/Content/Resources/swaggerapi/dist/openapi-spec.json" }]
+    },
+    {
+      "id": "pagerduty",
+      "name": "PagerDuty",
+      "vendor": "PagerDuty",
+      "summary": "Incidents, on-call and the services that page you.",
+      "mark": "PG",
+      "tone": "user",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "pagerduty", "title": "REST API", "file": "pagerduty.json", "source": "https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json" }]
+    },
+    {
+      "id": "xero",
+      "name": "Xero",
+      "vendor": "Xero",
+      "summary": "Invoices, contacts and the books you keep for clients.",
+      "mark": "XO",
+      "tone": "error",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "xero", "title": "Accounting", "file": "xero.json", "source": "https://raw.githubusercontent.com/XeroAPI/Xero-OpenAPI/master/xero_accounting.yaml" }]
+    },
+    {
+      "id": "microsoft_graph",
+      "name": "Microsoft Graph",
+      "vendor": "Microsoft",
+      "summary": "Users, mail, Teams and devices across Microsoft 365 tenants.",
+      "mark": "MG",
+      "tone": "ok",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "microsoft_graph", "title": "Graph v1.0", "file": "microsoft_graph.json", "source": "https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml" }]
+    },
+    {
+      "id": "atera",
+      "name": "Atera",
+      "vendor": "Atera",
+      "summary": "Tickets, agents, customers and alerts in Atera.",
+      "mark": "AE",
+      "tone": "active",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "atera", "title": "Atera", "file": "atera.json", "source": "https://app.atera.com/apidocs" }]
+    },
+    {
+      "id": "superops",
+      "name": "SuperOps",
+      "vendor": "SuperOps",
+      "summary": "Tickets, assets and clients over GraphQL.",
+      "mark": "SO",
+      "tone": "denied",
+      "tags": ["graphql", "account"],
+      "catalogs": [{ "id": "superops", "title": "SuperOps GraphQL", "file": "superops.json", "source": "https://developer.superops.ai/" }]
+    },
+    {
+      "id": "freshdesk",
+      "name": "Freshdesk",
+      "vendor": "Freshworks",
+      "summary": "Tickets, contacts and the knowledge base.",
+      "mark": "FD",
+      "tone": "query",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "freshdesk", "title": "Freshdesk", "file": "freshdesk.json", "source": "https://developer.freshdesk.com/api/" }]
+    },
+    {
+      "id": "hudu",
+      "name": "Hudu",
+      "vendor": "Hudu",
+      "summary": "Companies, assets, articles and passwords in Hudu.",
+      "mark": "HU",
+      "tone": "write",
+      "tags": ["rest", "swagger", "account"],
+      "catalogs": [{ "id": "hudu", "title": "Hudu", "file": "hudu.json", "source": "https://support.hudu.com/hc/en-us/articles/11422780787735-REST-API" }]
+    },
+    {
+      "id": "it_glue",
+      "name": "IT Glue",
+      "vendor": "Kaseya",
+      "summary": "Organisations, configurations, passwords and flexible assets.",
+      "mark": "IG",
+      "tone": "macro",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "it_glue", "title": "IT Glue", "file": "it_glue.json", "source": "https://api.itglue.com/developer" }]
+    },
+    {
+      "id": "pax8",
+      "name": "Pax8",
+      "vendor": "Pax8",
+      "summary": "Companies, products, subscriptions and orders in the marketplace.",
+      "mark": "P8",
+      "tone": "user",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "pax8", "title": "Partner API", "file": "pax8.json", "source": "https://devx.pax8.com" }]
+    },
+    {
+      "id": "threatlocker",
+      "name": "ThreatLocker",
+      "vendor": "ThreatLocker",
+      "summary": "Allowlisting, approval requests and the computers you lock down.",
+      "mark": "TL",
+      "tone": "error",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "threatlocker", "title": "Portal API", "file": "threatlocker.json", "source": "https://portalapi.threatlocker.com/swagger/index.html" }]
+    },
+    {
+      "id": "action1",
+      "name": "Action1",
+      "vendor": "Action1",
+      "summary": "Endpoints, patches and the automations you run on them.",
+      "mark": "A1",
+      "tone": "ok",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "action1", "title": "Action1", "file": "action1.json", "source": "https://app.action1.com/apidocs/" }]
+    },
+    {
+      "id": "addigy",
+      "name": "Addigy",
+      "vendor": "Addigy",
+      "summary": "Apple devices, policies and the commands you send them.",
+      "mark": "AD",
+      "tone": "active",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "addigy", "title": "Addigy v2", "file": "addigy.json", "source": "https://support.addigy.com/hc/en-us/articles/16938210315411-API-Documentation-v2" }]
+    },
+    {
+      "id": "liongard",
+      "name": "Liongard",
+      "vendor": "Liongard",
+      "summary": "Environments, inspections and the systems they describe.",
+      "mark": "LG",
+      "tone": "denied",
+      "tags": ["rest", "swagger", "account"],
+      "catalogs": [{ "id": "liongard", "title": "Liongard", "file": "liongard.json", "source": "https://docs.liongard.com/reference" }]
+    },
+    {
+      "id": "immybot",
+      "name": "ImmyBot",
+      "vendor": "ImmyBot",
+      "summary": "Desired-state software and the sessions that apply it.",
+      "mark": "IB",
+      "tone": "query",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "immybot", "title": "ImmyBot", "file": "immybot.json", "source": "https://docs.immy.bot/" }]
+    },
+    {
+      "id": "mosyle",
+      "name": "Mosyle",
+      "vendor": "Mosyle",
+      "summary": "Apple fleets per client: inventory, lock, Lost Mode.",
+      "mark": "MY",
+      "tone": "write",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "mosyle", "title": "Mosyle", "file": "mosyle.json", "source": "https://developer.mosyle.com/" }]
+    },
+    {
+      "id": "domotz",
+      "name": "Domotz",
+      "vendor": "Domotz",
+      "summary": "Network discovery, SNMP and the devices on each agent.",
+      "mark": "DZ",
+      "tone": "macro",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "domotz", "title": "Domotz", "file": "domotz.json", "source": "https://portal.domotz.com/public-api/" }]
+    },
+    {
+      "id": "kaseya_vsa",
+      "name": "Kaseya VSA",
+      "vendor": "Kaseya",
+      "summary": "Agents, patches and procedures on the older VSA.",
+      "mark": "VS",
+      "tone": "user",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "kaseya_vsa", "title": "VSA", "file": "kaseya_vsa.json", "source": "https://helpdesk.kaseya.com/hc/en-gb/articles/229048968-REST-API-Overview" }]
+    },
+    {
+      "id": "sophos_central",
+      "name": "Sophos Central",
+      "vendor": "Sophos",
+      "summary": "Endpoint health, alerts and isolation across tenants.",
+      "mark": "SX",
+      "tone": "error",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "sophos_central", "title": "Sophos Central", "file": "sophos_central.json", "source": "https://developer.sophos.com" }]
+    },
+    {
+      "id": "knowbe4",
+      "name": "KnowBe4",
+      "vendor": "KnowBe4",
+      "summary": "Phishing simulations, training and user risk.",
+      "mark": "KB",
+      "tone": "ok",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "knowbe4", "title": "Reporting API", "file": "knowbe4.json", "source": "https://developer.knowbe4.com/rest/reporting" }]
+    },
+    {
+      "id": "proofpoint",
+      "name": "Proofpoint",
+      "vendor": "Proofpoint",
+      "summary": "TAP, quarantine and the people who click.",
+      "mark": "PF",
+      "tone": "active",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "proofpoint", "title": "Proofpoint", "file": "proofpoint.json", "source": "https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation" }]
+    },
+    {
+      "id": "blackpoint",
+      "name": "Blackpoint Cyber",
+      "vendor": "Blackpoint",
+      "summary": "Tenants, detections and the assets CompassOne watches.",
+      "mark": "BP",
+      "tone": "denied",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "blackpoint", "title": "CompassOne", "file": "blackpoint.json", "source": "https://www.blackpointcyber.com/" }]
+    },
+    {
+      "id": "blumira",
+      "name": "Blumira",
+      "vendor": "Blumira",
+      "summary": "SIEM findings and the devices behind them.",
+      "mark": "BL",
+      "tone": "query",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "blumira", "title": "Blumira", "file": "blumira.json", "source": "https://docs.blumira.com/" }]
+    },
+    {
+      "id": "abnormal",
+      "name": "Abnormal Security",
+      "vendor": "Abnormal",
+      "summary": "Phishing cases, messages and account-takeover signals.",
+      "mark": "AB",
+      "tone": "write",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "abnormal", "title": "Abnormal", "file": "abnormal.json", "source": "https://abnormal-security.readme.io/" }]
+    },
+    {
+      "id": "inforcer",
+      "name": "Inforcer",
+      "vendor": "Inforcer",
+      "summary": "M365 baselines, drift and the tenants you govern.",
+      "mark": "IF",
+      "tone": "macro",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "inforcer", "title": "Inforcer", "file": "inforcer.json", "source": "https://docs.inforcer.com/" }]
+    },
+    {
+      "id": "rocketcyber",
+      "name": "RocketCyber",
+      "vendor": "Kaseya",
+      "summary": "SOC incidents, agents and the events they raise.",
+      "mark": "RC",
+      "tone": "user",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "rocketcyber", "title": "RocketCyber", "file": "rocketcyber.json", "source": "https://help.rocketcyber.com/" }]
+    },
+    {
+      "id": "saas_alerts",
+      "name": "SaaS Alerts",
+      "vendor": "SaaS Alerts",
+      "summary": "M365 and Google Workspace anomalies across tenants.",
+      "mark": "SA",
+      "tone": "error",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "saas_alerts", "title": "SaaS Alerts", "file": "saas_alerts.json", "source": "https://www.saasalerts.com/" }]
+    },
+    {
+      "id": "usecure",
+      "name": "usecure",
+      "vendor": "usecure",
+      "summary": "Training, phishing sims and policy compliance.",
+      "mark": "UC",
+      "tone": "ok",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "usecure", "title": "usecure", "file": "usecure.json", "source": "https://www.usecure.io/" }]
+    },
+    {
+      "id": "afi",
+      "name": "AFI.ai",
+      "vendor": "AFI.ai",
+      "summary": "Microsoft 365 and Google Workspace backup health.",
+      "mark": "AF",
+      "tone": "active",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "afi", "title": "AFI.ai", "file": "afi.json", "source": "https://afi.ai/" }]
+    },
+    {
+      "id": "cloudally",
+      "name": "CloudAlly",
+      "vendor": "OpenText",
+      "summary": "SaaS backup status and restores for M365 and Google.",
+      "mark": "CL",
+      "tone": "denied",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "cloudally", "title": "CloudAlly", "file": "cloudally.json", "source": "https://www.cloudally.com/" }]
+    },
+    {
+      "id": "backblaze",
+      "name": "Backblaze",
+      "vendor": "Backblaze",
+      "summary": "Endpoint backup groups, members and stale devices.",
+      "mark": "BB",
+      "tone": "query",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "backblaze", "title": "Computer Backup", "file": "backblaze.json", "source": "https://www.backblaze.com/docs/computer-backup" }]
+    },
+    {
+      "id": "datto_bcdr",
+      "name": "Datto BCDR",
+      "vendor": "Kaseya",
+      "summary": "SIRIS and Alto backup status, screenshots and recovery points.",
+      "mark": "DB",
+      "tone": "write",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "datto_bcdr", "title": "BCDR", "file": "datto_bcdr.json", "source": "https://www.datto.com/ca/products/bcdr/" }]
+    },
+    {
+      "id": "unitrends",
+      "name": "Unitrends",
+      "vendor": "Kaseya",
+      "summary": "Appliances, jobs, recovery points and replication.",
+      "mark": "UN",
+      "tone": "macro",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "unitrends", "title": "Unitrends", "file": "unitrends.json", "source": "https://help.kaseya.com/" }]
+    },
+    {
+      "id": "spanning",
+      "name": "Spanning",
+      "vendor": "Kaseya",
+      "summary": "SaaS backup for M365, Google Workspace and Salesforce.",
+      "mark": "SG",
+      "tone": "user",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "spanning", "title": "Spanning", "file": "spanning.json", "source": "https://www.spanning.com/" }]
+    },
+    {
+      "id": "datto_saas_protection",
+      "name": "Datto SaaS Protection",
+      "vendor": "Kaseya",
+      "summary": "Cloud-to-cloud backup for M365 and Google Workspace.",
+      "mark": "DS",
+      "tone": "error",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "datto_saas_protection", "title": "SaaS Protection", "file": "datto_saas_protection.json", "source": "https://www.datto.com/ca/products/saas-protection/" }]
+    },
+    {
+      "id": "unifi",
+      "name": "UniFi",
+      "vendor": "Ubiquiti",
+      "summary": "Consoles, sites, devices and the clients on them.",
+      "mark": "UF",
+      "tone": "ok",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "unifi", "title": "Site Manager", "file": "unifi.json", "source": "https://developer.ui.com/" }]
+    },
+    {
+      "id": "bigleaf",
+      "name": "BigLeaf",
+      "vendor": "Bigleaf",
+      "summary": "Site connectivity and the risks on each location.",
+      "mark": "BG",
+      "tone": "active",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "bigleaf", "title": "BigLeaf", "file": "bigleaf.json", "source": "https://www.bigleaf.net/" }]
+    },
+    {
+      "id": "scalepad",
+      "name": "ScalePad",
+      "vendor": "ScalePad",
+      "summary": "Asset age, warranty, Backup Radar and quoting.",
+      "mark": "LP",
+      "tone": "denied",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "scalepad", "title": "ScalePad", "file": "scalepad.json", "source": "https://www.scalepad.com/" }]
+    },
+    {
+      "id": "timezest",
+      "name": "TimeZest",
+      "vendor": "TimeZest",
+      "summary": "Scheduling links against PSA tickets.",
+      "mark": "TZ",
+      "tone": "query",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "timezest", "title": "TimeZest", "file": "timezest.json", "source": "https://help.timezest.com/" }]
+    },
+    {
+      "id": "smileback",
+      "name": "SmileBack",
+      "vendor": "ConnectWise",
+      "summary": "CSAT, NPS and the tickets behind the scores.",
+      "mark": "SB",
+      "tone": "write",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "smileback", "title": "SmileBack", "file": "smileback.json", "source": "https://www.smileback.com/" }]
+    },
+    {
+      "id": "streamone",
+      "name": "TD Synnex StreamOne",
+      "vendor": "TD Synnex",
+      "summary": "Cloud subscriptions, licences and seat changes.",
+      "mark": "TD",
+      "tone": "macro",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "streamone", "title": "StreamOne", "file": "streamone.json", "source": "https://www.tdsynnex.com/na/us/streamone/" }]
+    },
+    {
+      "id": "sherweb",
+      "name": "Sherweb",
+      "vendor": "Sherweb",
+      "summary": "Distributor billing, customers and subscriptions.",
+      "mark": "SW",
+      "tone": "user",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "sherweb", "title": "Partner API", "file": "sherweb.json", "source": "https://developers.sherweb.com/" }]
+    },
+    {
+      "id": "salesbuildr",
+      "name": "SalesBuildr",
+      "vendor": "SalesBuildr",
+      "summary": "Contacts, companies, opportunities and quotes.",
+      "mark": "SR",
+      "tone": "error",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "salesbuildr", "title": "SalesBuildr", "file": "salesbuildr.json", "source": "https://www.salesbuildr.com/" }]
+    },
+    {
+      "id": "pandadoc",
+      "name": "PandaDoc",
+      "vendor": "PandaDoc",
+      "summary": "Documents, templates and e-signatures.",
+      "mark": "PD",
+      "tone": "ok",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "pandadoc", "title": "PandaDoc", "file": "pandadoc.json", "source": "https://developers.pandadoc.com/" }]
+    },
+    {
+      "id": "kaseya_quote_manager",
+      "name": "Kaseya Quote Manager",
+      "vendor": "Kaseya",
+      "summary": "Quotes, sales orders and the Datto Commerce catalog.",
+      "mark": "QM",
+      "tone": "active",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "kaseya_quote_manager", "title": "Quote Manager", "file": "kaseya_quote_manager.json", "source": "https://www.datto.com/ca/products/commerce/" }]
+    },
+    {
+      "id": "threecx",
+      "name": "3CX",
+      "vendor": "3CX",
+      "summary": "Directory, calls, queues and PBX admin.",
+      "mark": "CX",
+      "tone": "denied",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "threecx", "title": "3CX", "file": "threecx.json", "source": "https://www.3cx.com/docs/" }]
+    },
+    {
+      "id": "betterstack",
+      "name": "Better Stack",
+      "vendor": "Better Stack",
+      "summary": "Uptime monitors, logs and incidents.",
+      "mark": "BS",
+      "tone": "query",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "betterstack", "title": "Better Stack", "file": "betterstack.json", "source": "https://betterstack.com/docs/uptime/api/" }]
+    },
+    {
+      "id": "rootly",
+      "name": "Rootly",
+      "vendor": "Rootly",
+      "summary": "Incidents, postmortems and on-call.",
+      "mark": "RT",
+      "tone": "write",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "rootly", "title": "Rootly", "file": "rootly.json", "source": "https://rootly.com/api" }]
+    },
+    {
+      "id": "runzero",
+      "name": "runZero",
+      "vendor": "runZero",
+      "summary": "Asset discovery, scans and the inventory they build.",
+      "mark": "RZ",
+      "tone": "macro",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "runzero", "title": "runZero", "file": "runzero.json", "source": "https://www.runzero.com/docs/rpc-api/" }]
+    },
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "vendor": "HubSpot",
+      "summary": "Contacts, companies, deals and tickets.",
+      "mark": "HS",
+      "tone": "user",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "hubspot", "title": "CRM", "file": "hubspot.json", "source": "https://developers.hubspot.com/docs/api/overview" }]
+    },
+    {
+      "id": "quickbooks",
+      "name": "QuickBooks Online",
+      "vendor": "Intuit",
+      "summary": "Customers, invoices, expenses and payments.",
+      "mark": "QB",
+      "tone": "error",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "quickbooks", "title": "QBO", "file": "quickbooks.json", "source": "https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account" }]
+    },
+    {
+      "id": "google_workspace",
+      "name": "Google Workspace",
+      "vendor": "Google",
+      "summary": "Users, groups, licences and devices across customer domains.",
+      "mark": "GW",
+      "tone": "ok",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "google_workspace", "title": "Admin SDK", "file": "google_workspace.json", "source": "https://developers.google.com/workspace/admin/directory/reference/rest" }]
+    },
+    {
+      "id": "crewhu",
+      "name": "Crewhu",
+      "vendor": "Crewhu",
+      "summary": "CSAT, NPS, badges and prize redemptions.",
+      "mark": "CH",
+      "tone": "active",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "crewhu", "title": "Crewhu", "file": "crewhu.json", "source": "https://www.crewhu.com/" }]
+    },
+    {
+      "id": "mailprotector",
+      "name": "Mailprotector",
+      "vendor": "Mailprotector",
+      "summary": "Quarantine, allow/block rules and mail-flow for MSP tenants.",
+      "mark": "MP",
+      "tone": "denied",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "mailprotector", "title": "Mailprotector", "file": "mailprotector.json", "source": "https://www.mailprotector.com/" }]
+    },
+    {
+      "id": "mimecast",
+      "name": "Mimecast",
+      "vendor": "Mimecast",
+      "summary": "Message tracking, threat intel and the queues.",
+      "mark": "MC",
+      "tone": "query",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "mimecast", "title": "Mimecast", "file": "mimecast.json", "source": "https://developer.services.mimecast.com/" }]
+    },
+    {
+      "id": "ironscales",
+      "name": "IRONSCALES",
+      "vendor": "IRONSCALES",
+      "summary": "Phishing incidents and email classification.",
+      "mark": "IS",
+      "tone": "write",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "ironscales", "title": "IRONSCALES", "file": "ironscales.json", "source": "https://ironscales.com/" }]
+    },
+    {
+      "id": "spamtitan",
+      "name": "SpamTitan",
+      "vendor": "TitanHQ",
+      "summary": "Quarantine, mail-flow stats and sender lists.",
+      "mark": "ST",
+      "tone": "macro",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "spamtitan", "title": "SpamTitan", "file": "spamtitan.json", "source": "https://www.titanhq.com/spamtitan/" }]
+    },
+    {
+      "id": "nutanix",
+      "name": "Nutanix",
+      "vendor": "Nutanix",
+      "summary": "VMs, clusters, storage and networking in Prism Central.",
+      "mark": "NX",
+      "tone": "user",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "nutanix", "title": "Prism Central v4", "file": "nutanix.json", "source": "https://www.nutanix.dev/" }]
+    },
+    {
+      "id": "clio",
+      "name": "Clio",
+      "vendor": "Clio",
+      "summary": "Matters, contacts, time and billing for legal practices.",
+      "mark": "CI",
+      "tone": "error",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "clio", "title": "Clio Manage", "file": "clio.json", "source": "https://docs.developers.clio.com/" }]
+    },
+    {
+      "id": "kaseya_bms",
+      "name": "Kaseya BMS",
+      "vendor": "Kaseya",
+      "summary": "Tickets, accounts, contracts and time in BMS.",
+      "mark": "BM",
+      "tone": "ok",
+      "tags": ["rest", "account"],
+      "catalogs": [{ "id": "kaseya_bms", "title": "BMS", "file": "kaseya_bms.json", "source": "https://www.kaseya.com/products/bms/" }]
     }
   ]
 }
