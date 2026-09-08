@@ -1,0 +1,218 @@
+{
+  "format": "pulsatrix-hub/1",
+  "name": "Pulsatrix connector hub",
+  "community": {
+    "repo": "https://github.com/pulsatrixtechnologies/connector-hub",
+    "request_url": "https://github.com/pulsatrixtechnologies/connector-hub/issues/new?template=add-product.md"
+  },
+  "products": [
+    {
+      "id": "connectwise_platform",
+      "name": "ConnectWise Platform",
+      "vendor": "ConnectWise",
+      "summary": "Tickets, companies, time and quotes for the service desk. Add this first if you run ConnectWise.",
+      "mark": "CW",
+      "tone": "query",
+      "tags": ["rest", "openapi", "account"],
+      "default_catalogs": ["cw_psa_service"],
+      "catalogs": [
+        { "id": "cw_psa_service", "title": "Service tickets", "file": "cw_psa_service.json" },
+        { "id": "cw_psa_company", "title": "Companies", "file": "cw_psa_company.json" },
+        { "id": "cw_psa_time", "title": "Time", "file": "cw_psa_time.json" },
+        { "id": "cw_psa_schedule", "title": "Schedule", "file": "cw_psa_schedule.json" },
+        { "id": "cw_psa_project", "title": "Projects", "file": "cw_psa_project.json" },
+        { "id": "cw_psa_finance", "title": "Finance", "file": "cw_psa_finance.json" },
+        { "id": "cw_psa_sales", "title": "Sales", "file": "cw_psa_sales.json" },
+        { "id": "cw_psa_system", "title": "System", "file": "cw_psa_system.json" },
+        { "id": "cw_psa_configurations", "title": "Configurations", "file": "cw_psa_configurations.json" },
+        { "id": "cw_psa_expense", "title": "Expense", "file": "cw_psa_expense.json" },
+        { "id": "cw_psa_marketing", "title": "Marketing", "file": "cw_psa_marketing.json" },
+        { "id": "cw_psa_procurement", "title": "Procurement", "file": "cw_psa_procurement.json" }
+      ]
+    },
+    {
+      "id": "connectwise_rmm",
+      "name": "ConnectWise RMM",
+      "vendor": "ConnectWise",
+      "summary": "Computers you manage: health, patches and inventory.",
+      "mark": "RM",
+      "tone": "write",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "cw_rmm", "title": "RMM", "file": "cw_rmm.json" }]
+    },
+    {
+      "id": "connectwise_cpq",
+      "name": "ConnectWise CPQ",
+      "vendor": "ConnectWise",
+      "summary": "Quotes and recurring lines you send to clients.",
+      "mark": "QP",
+      "tone": "macro",
+      "tags": ["rest", "swagger", "account"],
+      "catalogs": [{ "id": "cw_cpq", "title": "CPQ", "file": "cw_cpq.json" }]
+    },
+    {
+      "id": "connectwise_automate",
+      "name": "ConnectWise Automate",
+      "vendor": "ConnectWise",
+      "summary": "The older RMM: scripts, computers and monitors.",
+      "mark": "AU",
+      "tone": "user",
+      "tags": ["rest", "openapi", "account"],
+      "catalogs": [{ "id": "cw_automate", "title": "Automate", "file": "cw_automate.json" }]
+    },
+    {
+      "id": "screenconnect",
+      "name": "ScreenConnect",
+      "vendor": "ConnectWise",
+      "summary": "Remote sessions: who is connected and to which machine.",
+      "mark": "SC",
+      "tone": "active",
+      "tags": ["rpc", "account"],
+      "catalogs": [{ "id": "screenconnect", "title": "Session manager", "file": "screenconnect.json" }]
+    },
+    {
+      "id": "sentinelone",
+      "name": "SentinelOne",
+      "vendor": "SentinelOne",
+      "summary": "Agents and threats on the computers you protect.",
+      "mark": "S1",
+      "tone": "error",
+      "tags": ["rest", "swagger", "account"],
+      "catalogs": [{ "id": "sentinelone", "title": "Management API", "file": "sentinelone.json" }]
+    },
+    {
+      "id": "alertops",
+      "name": "AlertOps",
+      "vendor": "AlertOps",
+      "summary": "Who gets paged when something breaks, and the alerts themselves.",
+      "mark": "AO",
+      "tone": "denied",
+      "tags": ["rest", "swagger"],
+      "catalogs": [{ "id": "alertops", "title": "AlertOps", "file": "alertops.json" }]
+    },
+    {
+      "id": "auvik",
+      "name": "Auvik",
+      "vendor": "Auvik",
+      "summary": "Network gear: devices, interfaces and alerts.",
+      "mark": "AV",
+      "tone": "ok",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "auvik", "title": "Auvik", "file": "auvik.json" }]
+    },
+    {
+      "id": "acronis",
+      "name": "Acronis",
+      "vendor": "Acronis",
+      "summary": "Backup accounts, agents, alerts and recovery.",
+      "mark": "AC",
+      "tone": "query",
+      "tags": ["rest", "openapi"],
+      "default_catalogs": ["acronis_alerts"],
+      "catalogs": [
+        { "id": "acronis_account", "title": "Accounts", "file": "acronis_account.json" },
+        { "id": "acronis_agents", "title": "Agents", "file": "acronis_agents.json" },
+        { "id": "acronis_alerts", "title": "Alerts", "file": "acronis_alerts.json" },
+        { "id": "acronis_dr", "title": "Disaster recovery", "file": "acronis_dr.json" },
+        { "id": "acronis_events", "title": "Events", "file": "acronis_events.json" },
+        { "id": "acronis_files", "title": "Files", "file": "acronis_files.json" },
+        { "id": "acronis_mdr", "title": "EDR", "file": "acronis_mdr.json" },
+        { "id": "acronis_policy", "title": "Policies", "file": "acronis_policy.json" },
+        { "id": "acronis_tasks", "title": "Tasks", "file": "acronis_tasks.json" },
+        { "id": "acronis_vaultman", "title": "Vaults", "file": "acronis_vaultman.json" }
+      ]
+    },
+    {
+      "id": "axcient",
+      "name": "Axcient x360",
+      "vendor": "Axcient",
+      "summary": "Backup jobs, cloud and billing for the x360 family.",
+      "mark": "X3",
+      "tone": "write",
+      "tags": ["rest", "openapi"],
+      "default_catalogs": ["axcient_x360recover"],
+      "catalogs": [
+        { "id": "axcient_x360recover", "title": "Recover", "file": "axcient_x360recover.json" },
+        { "id": "axcient_x360cloud", "title": "Cloud", "file": "axcient_x360cloud.json" },
+        { "id": "axcient_x360sync", "title": "Sync", "file": "axcient_x360sync.json" },
+        { "id": "axcient_billing", "title": "Billing", "file": "axcient_billing.json" }
+      ]
+    },
+    {
+      "id": "cisco_meraki",
+      "name": "Cisco Meraki",
+      "vendor": "Cisco",
+      "summary": "Networks, devices and the organisations that own them.",
+      "mark": "MK",
+      "tone": "macro",
+      "tags": ["rest", "openapi"],
+      "default_catalogs": ["cisco_meraki_organizations"],
+      "catalogs": [
+        { "id": "cisco_meraki_organizations", "title": "Organizations", "file": "cisco_meraki_organizations.json" },
+        { "id": "cisco_meraki_networks", "title": "Networks", "file": "cisco_meraki_networks.json" },
+        { "id": "cisco_meraki_devices", "title": "Devices", "file": "cisco_meraki_devices.json" },
+        { "id": "cisco_meraki_administered", "title": "Administered", "file": "cisco_meraki_administered.json" }
+      ]
+    },
+    {
+      "id": "autotask",
+      "name": "Autotask PSA",
+      "vendor": "Kaseya",
+      "summary": "Tickets and companies in Autotask.",
+      "mark": "AT",
+      "tone": "user",
+      "tags": ["rest", "swagger"],
+      "catalogs": [{ "id": "autotask", "title": "Autotask", "file": "autotask.json" }]
+    },
+    {
+      "id": "huntress",
+      "name": "Huntress",
+      "vendor": "Huntress",
+      "summary": "Managed detections and the agents that send them.",
+      "mark": "HT",
+      "tone": "error",
+      "tags": ["rest", "swagger"],
+      "catalogs": [{ "id": "huntress", "title": "Huntress", "file": "huntress.json" }]
+    },
+    {
+      "id": "ninjaone",
+      "name": "NinjaOne",
+      "vendor": "NinjaOne",
+      "summary": "Devices and the work you run on them.",
+      "mark": "NJ",
+      "tone": "ok",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "ninjaone", "title": "NinjaOne", "file": "ninjaone.json" }]
+    },
+    {
+      "id": "slide",
+      "name": "Slide",
+      "vendor": "Slide",
+      "summary": "Backup appliances and restore jobs.",
+      "mark": "SL",
+      "tone": "active",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "slide", "title": "Slide", "file": "slide.json" }]
+    },
+    {
+      "id": "syncro",
+      "name": "Syncro",
+      "vendor": "Syncro",
+      "summary": "Tickets and assets in Syncro.",
+      "mark": "SY",
+      "tone": "query",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "syncro", "title": "Syncro", "file": "syncro.json" }]
+    },
+    {
+      "id": "reddit_ads",
+      "name": "Reddit Ads",
+      "vendor": "Reddit",
+      "summary": "Ad campaigns and the accounts that run them.",
+      "mark": "RD",
+      "tone": "denied",
+      "tags": ["rest", "openapi"],
+      "catalogs": [{ "id": "reddit_ads", "title": "Reddit Ads", "file": "reddit_ads.json" }]
+    }
+  ]
+}
