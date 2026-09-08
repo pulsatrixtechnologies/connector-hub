@@ -50,13 +50,25 @@ These `source` URLs return the spec without a vendor login (checked 2026-09-08).
 | PagerDuty | `pagerduty` | https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json |
 | Xero | `xero` | https://raw.githubusercontent.com/XeroAPI/Xero-OpenAPI/master/xero_accounting.yaml |
 | Microsoft Graph | `microsoft_graph` | https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml |
+| UniFi | `unifi_*` | https://developer.ui.com/{network,protect,site-manager}/.../openapi.json |
+| Grafana | `grafana` | https://raw.githubusercontent.com/grafana/grafana/main/public/api-merged.json |
+| Stripe | `stripe` | https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml |
+| Square | `square` | https://raw.githubusercontent.com/square/connect-api-specification/master/api.json |
+| Cloudflare | `cloudflare` | https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml |
+| DigitalOcean | `digitalocean` | https://raw.githubusercontent.com/digitalocean/openapi/main/specification/DigitalOcean-public.v2.yaml |
+| Slack | `slack` | https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json |
+| Twilio | `twilio` | https://raw.githubusercontent.com/twilio/twilio-oai/main/spec/json/twilio_api_v2010.json |
+| GitHub | `github` | https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml |
+| GitLab | `gitlab` | https://gitlab.com/gitlab-org/gitlab/-/raw/master/doc/api/openapi/openapi_v2.yaml |
+| Jira Cloud | `jira` | https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json |
 
 Notes on public files:
 
 - Datto RMM platforms share one schema. Pinotage answered 200. Merlot, Vidal, Concord and Zinfandel answered 500 on the same path the day this was checked. Swagger UI: `https://{platform}-api.centrastage.net/api/swagger-ui/index.html`.
 - HaloPSA is instance-hosted. The Halo Service Desk demo spec is public. A tenant copy also lives at `{instance}/api/swagger/v2/swagger.json`.
 - N-central also ships Swagger on the appliance at `{fqdn}/api-explorer`.
-- Microsoft Graph v1.0 is about 44 MiB. The connector YAML node budget currently refuses that compile. The hub still lists it so an operator can split or wait on a later compiler.
+- UniFi Network, Protect and Site Manager OpenAPI files are public on developer.ui.com. A local console also serves Network at `{console}/proxy/network/api-docs/integration.json`.
+- Microsoft Graph v1.0 is about 44 MiB, Cloudflare about 18 MiB, GitHub about 10 MiB. The connector YAML node budget currently refuses the Graph compile. The hub still lists them so an operator can split or wait on a later compiler.
 
 ## Login-gated documents
 
@@ -84,7 +96,21 @@ Tagged `account`. The spec is behind a developer login, a tenant console, or an 
 | Sophos Central | https://developer.sophos.com | Partner / Central login |
 | KnowBe4, Proofpoint, Blackpoint, Blumira, Abnormal, Inforcer, RocketCyber, SaaS Alerts, usecure | vendor developer | Partner login |
 | AFI.ai, CloudAlly, Backblaze Computer Backup, Datto BCDR, Unitrends, Spanning, Datto SaaS Protection | vendor developer | Partner login |
-| UniFi, BigLeaf | vendor developer | Account |
+| BigLeaf | vendor developer | Account |
+| Unraid | https://docs.unraid.net/API/ | GraphQL on the server (`/graphql`), 7.2+ built in |
+| Home Assistant | https://developers.home-assistant.io/docs/api/rest/ | REST on the instance. No official OpenAPI file |
+| UISP | Ubiquiti help | Partner / controller login |
+| Proxmox VE | https://pve.proxmox.com/pve-docs/api-viewer/ | JSON schema in the API viewer, not a standalone OpenAPI file |
+| TrueNAS, Synology DSM | vendor / instance docs | OpenAPI on the appliance for TrueNAS (`/api/v2.0`) |
+| OPNsense, pfSense | vendor developer | Instance or XML-RPC |
+| Portainer | instance Swagger | `{portainer}/api/docs` |
+| PRTG, Zabbix, FortiGate | vendor manuals | HTTP API / JSON-RPC / FortiOS |
+| Jamf Pro, Kandji, Apple Business Manager | vendor developer | MDM partner login |
+| JumpCloud, Okta, Duo, Tailscale | vendor developer | Account or OAuth app |
+| Bitwarden, 1Password, HashiCorp Vault | vendor developer | Public API or Connect, still needs a token |
+| Harvest, Zoho Books, Sage, Sage Intacct, FreshBooks, NetSuite, Gusto, Clockify, PayPal | vendor developer | Accounting / payroll OAuth |
+| Hetzner, AWS, Azure, Google Cloud, Linode, OVHcloud, Backblaze B2, Wasabi, Dropbox | vendor developer | Cloud account |
+| Zoom, RingCentral, Zendesk, ServiceNow, Linear, Statuspage | vendor developer | Account or OAuth app |
 | ScalePad, TimeZest, SmileBack, StreamOne, Sherweb, SalesBuildr, PandaDoc, Quote Manager | vendor developer | Account |
 | 3CX, Better Stack, Rootly, runZero, HubSpot, QuickBooks Online, Google Workspace | vendor developer | Account or OAuth app |
 | Crewhu, Mailprotector, Mimecast, IRONSCALES, SpamTitan, Nutanix, Clio, Kaseya BMS | vendor developer | Account |
@@ -96,7 +122,8 @@ Community unofficial specs exist for some gated APIs (Atera YAML in PSAtera, IT 
 MSP products seen in the wild with no OpenAPI, Swagger, GraphQL schema or RPC document found for the hub:
 
 - CIPP (CyberDrain Improved Partner Portal): instance REST, no published spec
-- Analytics 365, ClickUp, Warmly, PostHog, Alternative Payments, Slack, Microsoft Teams as collaboration channels
+- Apple HomeKit: accessory protocol (HAP / Matter), not a REST or GraphQL document an operator can import
+- Analytics 365, ClickUp, Warmly, PostHog, Alternative Payments, Microsoft Teams as a standalone channel (Teams itself is Microsoft Graph)
 
 Ask for those with the Add a product template if a document appears.
 
