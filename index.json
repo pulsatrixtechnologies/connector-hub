@@ -583,7 +583,7 @@
       "id": "pagerduty",
       "name": "PagerDuty",
       "vendor": "PagerDuty",
-      "summary": "Incidents, on-call and the services that page you.",
+      "summary": "Incidents, on-call and services. EU MCP: https://mcp.eu.pagerduty.com/mcp",
       "mark": "PG",
       "tone": "user",
       "tags": [
@@ -1289,6 +1289,9 @@
         "rest",
         "openapi"
       ],
+      "default_catalogs": [
+        "unifi_site_manager"
+      ],
       "catalogs": [
         {
           "id": "unifi_site_manager",
@@ -1308,9 +1311,6 @@
           "file": "unifi_protect.json",
           "source": "https://developer.ui.com/protect/v7.3.47/openapi.json"
         }
-      ],
-      "default_catalogs": [
-        "unifi_site_manager"
       ]
     },
     {
@@ -1806,6 +1806,7 @@
       "vendor": "Lime Technology",
       "summary": "Array, disks, Docker and VMs on the NAS you run for a client.",
       "mark": "UR",
+      "tone": "query",
       "tags": [
         "graphql",
         "account"
@@ -1817,8 +1818,7 @@
           "file": "unraid.json",
           "source": "https://docs.unraid.net/API/"
         }
-      ],
-      "tone": "query"
+      ]
     },
     {
       "id": "home_assistant",
@@ -1826,6 +1826,7 @@
       "vendor": "Open Home Foundation",
       "summary": "States, services and the devices in a smart building.",
       "mark": "HM",
+      "tone": "write",
       "tags": [
         "rest",
         "account"
@@ -1837,8 +1838,7 @@
           "file": "home_assistant.json",
           "source": "https://developers.home-assistant.io/docs/api/rest/"
         }
-      ],
-      "tone": "write"
+      ]
     },
     {
       "id": "uisp",
@@ -1846,6 +1846,7 @@
       "vendor": "Ubiquiti",
       "summary": "WISP and ISP gear: devices, sites and the links between them.",
       "mark": "UP",
+      "tone": "macro",
       "tags": [
         "rest",
         "account"
@@ -1857,8 +1858,7 @@
           "file": "uisp.json",
           "source": "https://help.ui.com/hc/en-us/articles/115012700967"
         }
-      ],
-      "tone": "macro"
+      ]
     },
     {
       "id": "proxmox",
@@ -1866,6 +1866,7 @@
       "vendor": "Proxmox",
       "summary": "VMs, containers, storage and the cluster that holds them.",
       "mark": "PX",
+      "tone": "user",
       "tags": [
         "rest",
         "account"
@@ -1877,8 +1878,7 @@
           "file": "proxmox.json",
           "source": "https://pve.proxmox.com/pve-docs/api-viewer/index.html"
         }
-      ],
-      "tone": "user"
+      ]
     },
     {
       "id": "truenas",
@@ -1886,6 +1886,7 @@
       "vendor": "iXsystems",
       "summary": "Pools, shares, snapshots and the jobs that move data.",
       "mark": "TN",
+      "tone": "error",
       "tags": [
         "rest",
         "openapi",
@@ -1898,8 +1899,7 @@
           "file": "truenas.json",
           "source": "https://www.truenas.com/docs/api/"
         }
-      ],
-      "tone": "error"
+      ]
     },
     {
       "id": "synology",
@@ -1907,6 +1907,7 @@
       "vendor": "Synology",
       "summary": "Shares, volumes and the packages on a DiskStation.",
       "mark": "SN",
+      "tone": "ok",
       "tags": [
         "rest",
         "account"
@@ -1918,8 +1919,7 @@
           "file": "synology.json",
           "source": "https://www.synology.com/en-global/support/developer"
         }
-      ],
-      "tone": "ok"
+      ]
     },
     {
       "id": "opnsense",
@@ -1927,6 +1927,7 @@
       "vendor": "Deciso",
       "summary": "Firewall, aliases, VPN and the firmware on the box.",
       "mark": "OS",
+      "tone": "active",
       "tags": [
         "rest",
         "account"
@@ -1938,8 +1939,7 @@
           "file": "opnsense.json",
           "source": "https://docs.opnsense.org/development/api.html"
         }
-      ],
-      "tone": "active"
+      ]
     },
     {
       "id": "pfsense",
@@ -1947,6 +1947,7 @@
       "vendor": "Netgate",
       "summary": "Firewall rules, interfaces and packages on pfSense.",
       "mark": "PS",
+      "tone": "denied",
       "tags": [
         "rest",
         "account"
@@ -1958,8 +1959,7 @@
           "file": "pfsense.json",
           "source": "https://docs.netgate.com/pfsense/en/latest/development/xmlrpc.html"
         }
-      ],
-      "tone": "denied"
+      ]
     },
     {
       "id": "portainer",
@@ -1967,6 +1967,7 @@
       "vendor": "Portainer",
       "summary": "Containers, stacks and the endpoints that run them.",
       "mark": "PT",
+      "tone": "query",
       "tags": [
         "rest",
         "swagger",
@@ -1979,8 +1980,7 @@
           "file": "portainer.json",
           "source": "https://docs.portainer.io/api/docs"
         }
-      ],
-      "tone": "query"
+      ]
     },
     {
       "id": "grafana",
@@ -1988,6 +1988,7 @@
       "vendor": "Grafana Labs",
       "summary": "Dashboards, alerts and the datasources behind them.",
       "mark": "GF",
+      "tone": "write",
       "tags": [
         "mcp",
         "rest",
@@ -2001,7 +2002,6 @@
           "source": "https://raw.githubusercontent.com/grafana/grafana/main/public/api-merged.json"
         }
       ],
-      "tone": "write",
       "mcp": {
         "docs": "https://grafana.com/docs/grafana/latest/developer-resources/mcp/"
       }
@@ -2012,6 +2012,7 @@
       "vendor": "Paessler",
       "summary": "Sensors, devices and the probes that poll them.",
       "mark": "PR",
+      "tone": "macro",
       "tags": [
         "rest",
         "account"
@@ -2023,8 +2024,7 @@
           "file": "prtg.json",
           "source": "https://www.paessler.com/manuals/prtg/http_api"
         }
-      ],
-      "tone": "macro"
+      ]
     },
     {
       "id": "zabbix",
@@ -2032,6 +2032,7 @@
       "vendor": "Zabbix",
       "summary": "Hosts, items, triggers and the problems they raise.",
       "mark": "ZX",
+      "tone": "user",
       "tags": [
         "rpc",
         "account"
@@ -2043,8 +2044,7 @@
           "file": "zabbix.json",
           "source": "https://www.zabbix.com/documentation/current/en/manual/api"
         }
-      ],
-      "tone": "user"
+      ]
     },
     {
       "id": "fortigate",
@@ -2052,6 +2052,7 @@
       "vendor": "Fortinet",
       "summary": "Firewall policies, VPN and the interfaces on the appliance.",
       "mark": "FG",
+      "tone": "error",
       "tags": [
         "rest",
         "account"
@@ -2063,8 +2064,7 @@
           "file": "fortigate.json",
           "source": "https://docs.fortinet.com/product/fortigate"
         }
-      ],
-      "tone": "error"
+      ]
     },
     {
       "id": "jamf",
@@ -2072,6 +2072,7 @@
       "vendor": "Jamf",
       "summary": "Apple devices, policies and the apps you push.",
       "mark": "JF",
+      "tone": "ok",
       "tags": [
         "rest",
         "account"
@@ -2083,8 +2084,7 @@
           "file": "jamf.json",
           "source": "https://developer.jamf.com/jamf-pro/docs/jamf-pro-api-overview"
         }
-      ],
-      "tone": "ok"
+      ]
     },
     {
       "id": "kandji",
@@ -2092,6 +2092,7 @@
       "vendor": "Kandji",
       "summary": "Apple fleets, blueprints and the library you assign.",
       "mark": "KJ",
+      "tone": "active",
       "tags": [
         "rest",
         "account"
@@ -2103,8 +2104,7 @@
           "file": "kandji.json",
           "source": "https://api.kandji.io/"
         }
-      ],
-      "tone": "active"
+      ]
     },
     {
       "id": "apple_business_manager",
@@ -2112,6 +2112,7 @@
       "vendor": "Apple",
       "summary": "Devices, apps and the MDM servers that own them.",
       "mark": "AM",
+      "tone": "denied",
       "tags": [
         "rest",
         "account"
@@ -2123,8 +2124,7 @@
           "file": "apple_business_manager.json",
           "source": "https://developer.apple.com/documentation/apple-business-manager-api"
         }
-      ],
-      "tone": "denied"
+      ]
     },
     {
       "id": "jumpcloud",
@@ -2132,6 +2132,7 @@
       "vendor": "JumpCloud",
       "summary": "Users, devices and the directory that binds them.",
       "mark": "JC",
+      "tone": "query",
       "tags": [
         "rest",
         "account"
@@ -2143,8 +2144,7 @@
           "file": "jumpcloud.json",
           "source": "https://docs.jumpcloud.com/"
         }
-      ],
-      "tone": "query"
+      ]
     },
     {
       "id": "okta",
@@ -2152,6 +2152,7 @@
       "vendor": "Okta",
       "summary": "Users, groups, apps and the policies that gate them.",
       "mark": "OK",
+      "tone": "write",
       "tags": [
         "rest",
         "openapi",
@@ -2164,8 +2165,7 @@
           "file": "okta.json",
           "source": "https://developer.okta.com/docs/api/"
         }
-      ],
-      "tone": "write"
+      ]
     },
     {
       "id": "duo",
@@ -2173,6 +2173,7 @@
       "vendor": "Cisco",
       "summary": "Users, endpoints and the MFA that protects them.",
       "mark": "DU",
+      "tone": "macro",
       "tags": [
         "rest",
         "account"
@@ -2184,8 +2185,7 @@
           "file": "duo.json",
           "source": "https://duo.com/docs/adminapi"
         }
-      ],
-      "tone": "macro"
+      ]
     },
     {
       "id": "tailscale",
@@ -2193,6 +2193,7 @@
       "vendor": "Tailscale",
       "summary": "Devices, keys and the tailnet they share.",
       "mark": "TS",
+      "tone": "user",
       "tags": [
         "rest",
         "account"
@@ -2204,8 +2205,7 @@
           "file": "tailscale.json",
           "source": "https://tailscale.com/api"
         }
-      ],
-      "tone": "user"
+      ]
     },
     {
       "id": "bitwarden",
@@ -2213,6 +2213,7 @@
       "vendor": "Bitwarden",
       "summary": "Vaults, collections and the members who hold them.",
       "mark": "BW",
+      "tone": "error",
       "tags": [
         "rest",
         "account"
@@ -2224,8 +2225,7 @@
           "file": "bitwarden.json",
           "source": "https://bitwarden.com/help/api/"
         }
-      ],
-      "tone": "error"
+      ]
     },
     {
       "id": "onepassword",
@@ -2233,6 +2233,7 @@
       "vendor": "1Password",
       "summary": "Vaults and items through Connect or the Events API.",
       "mark": "OP",
+      "tone": "ok",
       "tags": [
         "rest",
         "account"
@@ -2244,8 +2245,7 @@
           "file": "onepassword.json",
           "source": "https://developer.1password.com/docs/connect/api-reference/"
         }
-      ],
-      "tone": "ok"
+      ]
     },
     {
       "id": "vault",
@@ -2253,6 +2253,7 @@
       "vendor": "HashiCorp",
       "summary": "Secrets, auth methods and the mounts that hold them.",
       "mark": "VL",
+      "tone": "active",
       "tags": [
         "rest",
         "account"
@@ -2264,8 +2265,7 @@
           "file": "vault.json",
           "source": "https://developer.hashicorp.com/vault/api-docs"
         }
-      ],
-      "tone": "active"
+      ]
     },
     {
       "id": "stripe",
@@ -2273,6 +2273,7 @@
       "vendor": "Stripe",
       "summary": "Customers, invoices, subscriptions and payouts.",
       "mark": "SK",
+      "tone": "denied",
       "tags": [
         "mcp",
         "rest",
@@ -2286,7 +2287,6 @@
           "source": "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml"
         }
       ],
-      "tone": "denied",
       "mcp": {
         "url": "https://mcp.stripe.com",
         "docs": "https://docs.stripe.com/mcp"
@@ -2298,6 +2298,7 @@
       "vendor": "Block",
       "summary": "Payments, orders, catalog and customers.",
       "mark": "SQ",
+      "tone": "query",
       "tags": [
         "mcp",
         "rest",
@@ -2311,7 +2312,6 @@
           "source": "https://raw.githubusercontent.com/square/connect-api-specification/master/api.json"
         }
       ],
-      "tone": "query",
       "mcp": {
         "url": "https://mcp.squareup.com/sse",
         "docs": "https://developer.squareup.com/docs/mcp"
@@ -2323,6 +2323,7 @@
       "vendor": "Harvest",
       "summary": "Time, projects, clients and the invoices you send.",
       "mark": "HV",
+      "tone": "write",
       "tags": [
         "rest",
         "account"
@@ -2334,8 +2335,7 @@
           "file": "harvest.json",
           "source": "https://help.getharvest.com/api-v2/"
         }
-      ],
-      "tone": "write"
+      ]
     },
     {
       "id": "zoho_books",
@@ -2343,6 +2343,7 @@
       "vendor": "Zoho",
       "summary": "Contacts, invoices, bills and the chart of accounts.",
       "mark": "ZB",
+      "tone": "macro",
       "tags": [
         "rest",
         "account"
@@ -2354,8 +2355,7 @@
           "file": "zoho_books.json",
           "source": "https://www.zoho.com/books/api/v3/"
         }
-      ],
-      "tone": "macro"
+      ]
     },
     {
       "id": "sage",
@@ -2363,6 +2363,7 @@
       "vendor": "Sage",
       "summary": "Contacts, invoices, payments and ledger accounts.",
       "mark": "SE",
+      "tone": "user",
       "tags": [
         "rest",
         "account"
@@ -2374,8 +2375,7 @@
           "file": "sage.json",
           "source": "https://developer.sage.com/accounting/"
         }
-      ],
-      "tone": "user"
+      ]
     },
     {
       "id": "sage_intacct",
@@ -2383,6 +2383,7 @@
       "vendor": "Sage",
       "summary": "Customers, vendors, AP, AR and dimensions.",
       "mark": "SI",
+      "tone": "error",
       "tags": [
         "rest",
         "account"
@@ -2394,8 +2395,7 @@
           "file": "sage_intacct.json",
           "source": "https://developer.intacct.com/"
         }
-      ],
-      "tone": "error"
+      ]
     },
     {
       "id": "freshbooks",
@@ -2403,6 +2403,7 @@
       "vendor": "FreshBooks",
       "summary": "Clients, invoices, expenses and payments.",
       "mark": "FB",
+      "tone": "ok",
       "tags": [
         "rest",
         "account"
@@ -2414,8 +2415,7 @@
           "file": "freshbooks.json",
           "source": "https://www.freshbooks.com/api/start"
         }
-      ],
-      "tone": "ok"
+      ]
     },
     {
       "id": "netsuite",
@@ -2423,6 +2423,7 @@
       "vendor": "Oracle",
       "summary": "Records, saved searches and SuiteQL.",
       "mark": "NS",
+      "tone": "active",
       "tags": [
         "rest",
         "account"
@@ -2434,8 +2435,7 @@
           "file": "netsuite.json",
           "source": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_1540391670.html"
         }
-      ],
-      "tone": "active"
+      ]
     },
     {
       "id": "gusto",
@@ -2443,6 +2443,7 @@
       "vendor": "Gusto",
       "summary": "Employees, payroll and the companies you run payroll for.",
       "mark": "GU",
+      "tone": "denied",
       "tags": [
         "rest",
         "account"
@@ -2454,8 +2455,7 @@
           "file": "gusto.json",
           "source": "https://docs.gusto.com/"
         }
-      ],
-      "tone": "denied"
+      ]
     },
     {
       "id": "clockify",
@@ -2463,6 +2463,7 @@
       "vendor": "CAKE.com",
       "summary": "Time entries, projects and workspaces.",
       "mark": "CK",
+      "tone": "query",
       "tags": [
         "rest",
         "account"
@@ -2474,8 +2475,7 @@
           "file": "clockify.json",
           "source": "https://docs.clockify.me/"
         }
-      ],
-      "tone": "query"
+      ]
     },
     {
       "id": "paypal",
@@ -2483,6 +2483,7 @@
       "vendor": "PayPal",
       "summary": "Orders, payouts and the transactions that settled.",
       "mark": "PP",
+      "tone": "write",
       "tags": [
         "mcp",
         "rest",
@@ -2496,7 +2497,6 @@
           "source": "https://developer.paypal.com/api/rest/"
         }
       ],
-      "tone": "write",
       "mcp": {
         "url": "https://mcp.paypal.com/mcp",
         "docs": "https://developer.paypal.com/tools/mcp-server/"
@@ -2508,6 +2508,7 @@
       "vendor": "Cloudflare",
       "summary": "Zones, DNS, tunnels and the WAF in front of a site.",
       "mark": "CF",
+      "tone": "macro",
       "tags": [
         "mcp",
         "rest",
@@ -2521,7 +2522,6 @@
           "source": "https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml"
         }
       ],
-      "tone": "macro",
       "mcp": {
         "url": "https://mcp.cloudflare.com/mcp",
         "docs": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/"
@@ -2533,6 +2533,7 @@
       "vendor": "DigitalOcean",
       "summary": "Droplets, volumes, Kubernetes and DNS.",
       "mark": "DO",
+      "tone": "user",
       "tags": [
         "rest",
         "openapi"
@@ -2544,8 +2545,7 @@
           "file": "digitalocean.json",
           "source": "https://raw.githubusercontent.com/digitalocean/openapi/main/specification/DigitalOcean-public.v2.yaml"
         }
-      ],
-      "tone": "user"
+      ]
     },
     {
       "id": "hetzner",
@@ -2553,6 +2553,7 @@
       "vendor": "Hetzner",
       "summary": "Servers, volumes, networks and firewalls.",
       "mark": "HZ",
+      "tone": "error",
       "tags": [
         "rest",
         "account"
@@ -2564,8 +2565,7 @@
           "file": "hetzner.json",
           "source": "https://docs.hetzner.cloud/"
         }
-      ],
-      "tone": "error"
+      ]
     },
     {
       "id": "aws",
@@ -2573,6 +2573,7 @@
       "vendor": "Amazon",
       "summary": "Accounts, IAM and the services a client runs in AWS.",
       "mark": "AW",
+      "tone": "ok",
       "tags": [
         "mcp",
         "rest",
@@ -2586,7 +2587,6 @@
           "source": "https://docs.aws.amazon.com/"
         }
       ],
-      "tone": "ok",
       "mcp": {
         "url": "https://aws-mcp.us-east-1.api.aws/mcp",
         "docs": "https://awslabs.github.io/mcp/"
@@ -2598,6 +2598,7 @@
       "vendor": "Microsoft",
       "summary": "Subscriptions, resources and the health of a tenant.",
       "mark": "AZ",
+      "tone": "active",
       "tags": [
         "mcp",
         "rest",
@@ -2611,7 +2612,6 @@
           "source": "https://learn.microsoft.com/en-us/rest/api/azure/"
         }
       ],
-      "tone": "active",
       "mcp": {
         "docs": "https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/overview"
       }
@@ -2622,7 +2622,9 @@
       "vendor": "Google",
       "summary": "Projects, IAM and the resources in a GCP org.",
       "mark": "GC",
+      "tone": "denied",
       "tags": [
+        "mcp",
         "rest",
         "account"
       ],
@@ -2634,7 +2636,9 @@
           "source": "https://cloud.google.com/apis"
         }
       ],
-      "tone": "denied"
+      "mcp": {
+        "docs": "https://docs.cloud.google.com/mcp/overview"
+      }
     },
     {
       "id": "linode",
@@ -2642,6 +2646,7 @@
       "vendor": "Akamai",
       "summary": "Instances, volumes, Kubernetes and domains.",
       "mark": "LN",
+      "tone": "query",
       "tags": [
         "rest",
         "account"
@@ -2653,8 +2658,7 @@
           "file": "linode.json",
           "source": "https://www.linode.com/docs/api/"
         }
-      ],
-      "tone": "query"
+      ]
     },
     {
       "id": "ovh",
@@ -2662,6 +2666,7 @@
       "vendor": "OVHcloud",
       "summary": "Servers, domains, DNS and the services on an account.",
       "mark": "OV",
+      "tone": "write",
       "tags": [
         "rest",
         "account"
@@ -2673,8 +2678,7 @@
           "file": "ovh.json",
           "source": "https://api.ovh.com/"
         }
-      ],
-      "tone": "write"
+      ]
     },
     {
       "id": "backblaze_b2",
@@ -2682,6 +2686,7 @@
       "vendor": "Backblaze",
       "summary": "Buckets, files and the keys that reach object storage.",
       "mark": "B2",
+      "tone": "macro",
       "tags": [
         "rest",
         "account"
@@ -2693,8 +2698,7 @@
           "file": "backblaze_b2.json",
           "source": "https://www.backblaze.com/b2/docs/"
         }
-      ],
-      "tone": "macro"
+      ]
     },
     {
       "id": "wasabi",
@@ -2702,6 +2706,7 @@
       "vendor": "Wasabi",
       "summary": "S3-compatible buckets for backup and file storage.",
       "mark": "WS",
+      "tone": "user",
       "tags": [
         "rest",
         "account"
@@ -2713,8 +2718,7 @@
           "file": "wasabi.json",
           "source": "https://docs.wasabi.com/"
         }
-      ],
-      "tone": "user"
+      ]
     },
     {
       "id": "dropbox",
@@ -2722,6 +2726,7 @@
       "vendor": "Dropbox",
       "summary": "Files, shares and the team folders a client uses.",
       "mark": "DP",
+      "tone": "error",
       "tags": [
         "rest",
         "account"
@@ -2733,8 +2738,7 @@
           "file": "dropbox.json",
           "source": "https://www.dropbox.com/developers/documentation/http/documentation"
         }
-      ],
-      "tone": "error"
+      ]
     },
     {
       "id": "slack",
@@ -2742,6 +2746,7 @@
       "vendor": "Salesforce",
       "summary": "Channels, messages and the users in a workspace.",
       "mark": "LK",
+      "tone": "ok",
       "tags": [
         "mcp",
         "rest",
@@ -2755,7 +2760,6 @@
           "source": "https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json"
         }
       ],
-      "tone": "ok",
       "mcp": {
         "url": "https://mcp.slack.com/mcp",
         "docs": "https://docs.slack.dev/ai/slack-mcp-server"
@@ -2767,6 +2771,7 @@
       "vendor": "Zoom",
       "summary": "Meetings, users and recordings.",
       "mark": "ZM",
+      "tone": "active",
       "tags": [
         "rest",
         "account"
@@ -2778,8 +2783,7 @@
           "file": "zoom.json",
           "source": "https://developers.zoom.us/docs/api/"
         }
-      ],
-      "tone": "active"
+      ]
     },
     {
       "id": "twilio",
@@ -2787,6 +2791,7 @@
       "vendor": "Twilio",
       "summary": "SMS, voice, numbers and the messages that went out.",
       "mark": "TW",
+      "tone": "denied",
       "tags": [
         "rest",
         "openapi"
@@ -2798,8 +2803,7 @@
           "file": "twilio.json",
           "source": "https://raw.githubusercontent.com/twilio/twilio-oai/main/spec/json/twilio_api_v2010.json"
         }
-      ],
-      "tone": "denied"
+      ]
     },
     {
       "id": "ringcentral",
@@ -2807,6 +2811,7 @@
       "vendor": "RingCentral",
       "summary": "Calls, SMS, users and the extensions on a PBX.",
       "mark": "RN",
+      "tone": "query",
       "tags": [
         "rest",
         "account"
@@ -2818,8 +2823,7 @@
           "file": "ringcentral.json",
           "source": "https://developers.ringcentral.com/api-reference"
         }
-      ],
-      "tone": "query"
+      ]
     },
     {
       "id": "github",
@@ -2827,6 +2831,7 @@
       "vendor": "GitHub",
       "summary": "Repos, issues, pulls and the orgs that own them.",
       "mark": "GH",
+      "tone": "write",
       "tags": [
         "mcp",
         "rest",
@@ -2840,7 +2845,6 @@
           "source": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml"
         }
       ],
-      "tone": "write",
       "mcp": {
         "url": "https://api.githubcopilot.com/mcp/",
         "docs": "https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md"
@@ -2852,6 +2856,7 @@
       "vendor": "GitLab",
       "summary": "Projects, issues, pipelines and the groups that hold them.",
       "mark": "GL",
+      "tone": "macro",
       "tags": [
         "mcp",
         "rest",
@@ -2865,7 +2870,6 @@
           "source": "https://gitlab.com/gitlab-org/gitlab/-/raw/master/doc/api/openapi/openapi_v2.yaml"
         }
       ],
-      "tone": "macro",
       "mcp": {
         "url": "https://gitlab.com/api/v4/mcp",
         "docs": "https://docs.gitlab.com/user/model_context_protocol/mcp_server/"
@@ -2877,6 +2881,7 @@
       "vendor": "Atlassian",
       "summary": "Issues, projects and the workflows behind a board.",
       "mark": "JR",
+      "tone": "user",
       "tags": [
         "mcp",
         "rest",
@@ -2890,7 +2895,6 @@
           "source": "https://developer.atlassian.com/cloud/jira/platform/swagger-v3.v3.json"
         }
       ],
-      "tone": "user",
       "mcp": {
         "url": "https://mcp.atlassian.com/v2/mcp",
         "docs": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"
@@ -2902,6 +2906,7 @@
       "vendor": "Zendesk",
       "summary": "Tickets, users and the help center articles.",
       "mark": "ZD",
+      "tone": "error",
       "tags": [
         "rest",
         "account"
@@ -2913,8 +2918,7 @@
           "file": "zendesk.json",
           "source": "https://developer.zendesk.com/api-reference/"
         }
-      ],
-      "tone": "error"
+      ]
     },
     {
       "id": "servicenow",
@@ -2922,6 +2926,7 @@
       "vendor": "ServiceNow",
       "summary": "Incidents, CMDB and the tables a client lives in.",
       "mark": "NV",
+      "tone": "ok",
       "tags": [
         "rest",
         "account"
@@ -2933,8 +2938,7 @@
           "file": "servicenow.json",
           "source": "https://developer.servicenow.com/"
         }
-      ],
-      "tone": "ok"
+      ]
     },
     {
       "id": "linear",
@@ -2942,6 +2946,7 @@
       "vendor": "Linear",
       "summary": "Issues, projects and cycles over GraphQL.",
       "mark": "LI",
+      "tone": "active",
       "tags": [
         "mcp",
         "graphql",
@@ -2955,7 +2960,6 @@
           "source": "https://developers.linear.app/docs/graphql/working-with-the-graphql-api"
         }
       ],
-      "tone": "active",
       "mcp": {
         "url": "https://mcp.linear.app/mcp",
         "docs": "https://linear.app/docs/mcp"
@@ -2967,6 +2971,7 @@
       "vendor": "Atlassian",
       "summary": "Incidents, components and the page clients watch.",
       "mark": "SP",
+      "tone": "denied",
       "tags": [
         "rest",
         "account"
@@ -2978,8 +2983,7149 @@
           "file": "statuspage.json",
           "source": "https://developer.statuspage.io/"
         }
+      ]
+    },
+    {
+      "id": "eightxeight",
+      "name": "8x8",
+      "vendor": "8x8",
+      "summary": "UCaaS, CPaaS and contact center.",
+      "mark": "EI",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
       ],
-      "tone": "denied"
+      "default_catalogs": [
+        "eightxeight"
+      ],
+      "catalogs": [
+        {
+          "id": "eightxeight",
+          "title": "8x8",
+          "file": "eightxeight.json",
+          "source": "https://developer.8x8.com/"
+        }
+      ]
+    },
+    {
+      "id": "abuseipdb",
+      "name": "AbuseIPDB",
+      "vendor": "AbuseIPDB",
+      "summary": "IP abuse reports and check.",
+      "mark": "BZ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "abuseipdb"
+      ],
+      "catalogs": [
+        {
+          "id": "abuseipdb",
+          "title": "AbuseIPDB",
+          "file": "abuseipdb.json",
+          "source": "https://docs.abuseipdb.com/"
+        }
+      ]
+    },
+    {
+      "id": "magento",
+      "name": "Adobe Commerce",
+      "vendor": "Adobe",
+      "summary": "Magento / Commerce REST and GraphQL.",
+      "mark": "E5",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "magento"
+      ],
+      "catalogs": [
+        {
+          "id": "magento",
+          "title": "Adobe Commerce",
+          "file": "magento.json",
+          "source": "https://developer.adobe.com/commerce/webapi/rest/"
+        }
+      ]
+    },
+    {
+      "id": "adp",
+      "name": "ADP",
+      "vendor": "ADP",
+      "summary": "Workforce Now and the API Central marketplace.",
+      "mark": "EO",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "adp"
+      ],
+      "catalogs": [
+        {
+          "id": "adp",
+          "title": "ADP",
+          "file": "adp.json",
+          "source": "https://developers.adp.com/"
+        }
+      ]
+    },
+    {
+      "id": "adyen",
+      "name": "Adyen",
+      "vendor": "Adyen",
+      "summary": "Payments, payouts and platforms.",
+      "mark": "ER",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "adyen"
+      ],
+      "catalogs": [
+        {
+          "id": "adyen",
+          "title": "Adyen",
+          "file": "adyen.json",
+          "source": "https://docs.adyen.com/api-explorer/"
+        }
+      ]
+    },
+    {
+      "id": "ahrefs",
+      "name": "Ahrefs",
+      "vendor": "Ahrefs",
+      "summary": "Backlinks, keywords and site explorer.",
+      "mark": "AQ",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ahrefs"
+      ],
+      "catalogs": [
+        {
+          "id": "ahrefs",
+          "title": "Ahrefs",
+          "file": "ahrefs.json",
+          "source": "https://docs.ahrefs.com/docs/api/reference/introduction"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.ahrefs.com/mcp/mcp",
+        "docs": "https://docs.ahrefs.com/docs/mcp"
+      }
+    },
+    {
+      "id": "airtable",
+      "name": "Airtable",
+      "vendor": "Airtable",
+      "summary": "Bases, tables and records.",
+      "mark": "AI",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "airtable"
+      ],
+      "catalogs": [
+        {
+          "id": "airtable",
+          "title": "Airtable",
+          "file": "airtable.json",
+          "source": "https://airtable.com/developers/web/api/introduction"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.airtable.com/mcp",
+        "docs": "https://airtable.com/developers/web/api/mcp-servers"
+      }
+    },
+    {
+      "id": "aiven",
+      "name": "Aiven",
+      "vendor": "Aiven",
+      "summary": "Kafka, Postgres, OpenSearch and more.",
+      "mark": "F3",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "aiven"
+      ],
+      "catalogs": [
+        {
+          "id": "aiven",
+          "title": "Aiven",
+          "file": "aiven.json",
+          "source": "https://api.aiven.io/doc/"
+        }
+      ]
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai",
+      "vendor": "Akamai",
+      "summary": "CDN, AppSec and EdgeWorkers.",
+      "mark": "C6",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "akamai"
+      ],
+      "catalogs": [
+        {
+          "id": "akamai",
+          "title": "Akamai",
+          "file": "akamai.json",
+          "source": "https://techdocs.akamai.com/"
+        }
+      ]
+    },
+    {
+      "id": "algolia",
+      "name": "Algolia",
+      "vendor": "Algolia",
+      "summary": "Search indexes, rules and analytics.",
+      "mark": "FW",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "algolia"
+      ],
+      "catalogs": [
+        {
+          "id": "algolia",
+          "title": "Algolia",
+          "file": "algolia.json",
+          "source": "https://www.algolia.com/doc/rest-api/search/"
+        }
+      ]
+    },
+    {
+      "id": "alienvault_otx",
+      "name": "AlienVault OTX",
+      "vendor": "AT&T",
+      "summary": "Open threat exchange pulses and indicators.",
+      "mark": "B3",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "alienvault_otx"
+      ],
+      "catalogs": [
+        {
+          "id": "alienvault_otx",
+          "title": "AlienVault OTX",
+          "file": "alienvault_otx.json",
+          "source": "https://otx.alienvault.com/api"
+        }
+      ]
+    },
+    {
+      "id": "amplitude",
+      "name": "Amplitude",
+      "vendor": "Amplitude",
+      "summary": "Charts, cohorts, experiments and product analytics.",
+      "mark": "AR",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "amplitude"
+      ],
+      "catalogs": [
+        {
+          "id": "amplitude",
+          "title": "Amplitude",
+          "file": "amplitude.json",
+          "source": "https://www.docs.developers.amplitude.com/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.amplitude.com/mcp",
+        "docs": "https://amplitude.com/docs/amplitude-ai/amplitude-mcp"
+      }
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "vendor": "Anthropic",
+      "summary": "Messages API and Admin API.",
+      "mark": "FQ",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "anthropic"
+      ],
+      "catalogs": [
+        {
+          "id": "anthropic",
+          "title": "Anthropic",
+          "file": "anthropic.json",
+          "source": "https://docs.anthropic.com/en/api/getting-started"
+        }
+      ]
+    },
+    {
+      "id": "apify",
+      "name": "Apify",
+      "vendor": "Apify",
+      "summary": "Actors, crawlers and web data extraction.",
+      "mark": "AP",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "apify"
+      ],
+      "catalogs": [
+        {
+          "id": "apify",
+          "title": "Apify",
+          "file": "apify.json",
+          "source": "https://docs.apify.com/api/v2"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.apify.com",
+        "docs": "https://docs.apify.com/platform/integrations/mcp"
+      }
+    },
+    {
+      "id": "argo_cd",
+      "name": "Argo CD",
+      "vendor": "Argo",
+      "summary": "Applications, sync and the cluster API.",
+      "mark": "DL",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "argo_cd"
+      ],
+      "catalogs": [
+        {
+          "id": "argo_cd",
+          "title": "Argo CD",
+          "file": "argo_cd.json",
+          "source": "https://argo-cd.readthedocs.io/en/stable/developer-guide/api-docs/"
+        }
+      ]
+    },
+    {
+      "id": "aruba_central",
+      "name": "Aruba Central",
+      "vendor": "HPE",
+      "summary": "Wireless, switches and SD-WAN.",
+      "mark": "C2",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "aruba_central"
+      ],
+      "catalogs": [
+        {
+          "id": "aruba_central",
+          "title": "Aruba Central",
+          "file": "aruba_central.json",
+          "source": "https://developer.arubanetworks.com/"
+        }
+      ]
+    },
+    {
+      "id": "asana",
+      "name": "Asana",
+      "vendor": "Asana",
+      "summary": "Projects, tasks and team workflows.",
+      "mark": "AS",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "asana"
+      ],
+      "catalogs": [
+        {
+          "id": "asana",
+          "title": "Asana",
+          "file": "asana.json",
+          "source": "https://raw.githubusercontent.com/Asana/openapi/master/defs/asana_oas.yaml"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.asana.com/mcp",
+        "docs": "https://developers.asana.com/docs/using-asanas-mcp-server"
+      }
+    },
+    {
+      "id": "ashby",
+      "name": "Ashby",
+      "vendor": "Ashby",
+      "summary": "Recruiting: jobs, candidates and interviews.",
+      "mark": "A2",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ashby"
+      ],
+      "catalogs": [
+        {
+          "id": "ashby",
+          "title": "Ashby",
+          "file": "ashby.json",
+          "source": "https://developers.ashbyhq.com/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.ashbyhq.com/mcp/v1",
+        "docs": "https://docs.ashbyhq.com/ashby-mcp-server-beta"
+      }
+    },
+    {
+      "id": "astro",
+      "name": "Astro Docs",
+      "vendor": "Astro",
+      "summary": "Official Astro documentation for agents.",
+      "mark": "AH",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "astro"
+      ],
+      "catalogs": [
+        {
+          "id": "astro",
+          "title": "Astro Docs",
+          "file": "astro.json",
+          "source": "https://docs.astro.build"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.docs.astro.build/mcp",
+        "docs": "https://docs.astro.build/en/guides/build-with-ai/#astro-docs-mcp-server"
+      }
+    },
+    {
+      "id": "attio",
+      "name": "Attio",
+      "vendor": "Attio",
+      "summary": "CRM records, lists and deal pipelines.",
+      "mark": "AA",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "attio"
+      ],
+      "catalogs": [
+        {
+          "id": "attio",
+          "title": "Attio",
+          "file": "attio.json",
+          "source": "https://docs.attio.com/rest-api/overview"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.attio.com/mcp",
+        "docs": "https://attio.com/docs/mcp"
+      }
+    },
+    {
+      "id": "auth0",
+      "name": "Auth0",
+      "vendor": "Okta",
+      "summary": "Tenants, users, connections and actions.",
+      "mark": "B8",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "auth0"
+      ],
+      "catalogs": [
+        {
+          "id": "auth0",
+          "title": "Auth0",
+          "file": "auth0.json",
+          "source": "https://auth0.com/docs/api/management/v2"
+        }
+      ]
+    },
+    {
+      "id": "authentik",
+      "name": "authentik",
+      "vendor": "Authentik Security",
+      "summary": "Flows, users and providers on the instance.",
+      "mark": "CJ",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "authentik"
+      ],
+      "catalogs": [
+        {
+          "id": "authentik",
+          "title": "authentik",
+          "file": "authentik.json",
+          "source": "https://docs.goauthentik.io/developer-docs/api/"
+        }
+      ]
+    },
+    {
+      "id": "aws_knowledge",
+      "name": "AWS Knowledge",
+      "vendor": "Amazon",
+      "summary": "AWS documentation search. Open, no account.",
+      "mark": "A7",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "aws_knowledge"
+      ],
+      "catalogs": [
+        {
+          "id": "aws_knowledge",
+          "title": "AWS Knowledge",
+          "file": "aws_knowledge.json",
+          "source": "https://docs.aws.amazon.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://knowledge-mcp.global.api.aws",
+        "docs": "https://awslabs.github.io/mcp/"
+      }
+    },
+    {
+      "id": "azure_devops",
+      "name": "Azure DevOps",
+      "vendor": "Microsoft",
+      "summary": "Repos, boards, pipelines and artifacts.",
+      "mark": "DK",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "azure_devops"
+      ],
+      "catalogs": [
+        {
+          "id": "azure_devops",
+          "title": "Azure DevOps",
+          "file": "azure_devops.json",
+          "source": "https://learn.microsoft.com/en-us/rest/api/azure/devops/"
+        }
+      ]
+    },
+    {
+      "id": "backstage",
+      "name": "Backstage",
+      "vendor": "CNCF",
+      "summary": "Software catalog on the instance.",
+      "mark": "FN",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "backstage"
+      ],
+      "catalogs": [
+        {
+          "id": "backstage",
+          "title": "Backstage",
+          "file": "backstage.json",
+          "source": "https://backstage.io/docs/features/software-catalog/descriptor-format"
+        }
+      ]
+    },
+    {
+      "id": "bamboohr",
+      "name": "BambooHR",
+      "vendor": "BambooHR",
+      "summary": "Employees, time off and files.",
+      "mark": "EM",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "bamboohr"
+      ],
+      "catalogs": [
+        {
+          "id": "bamboohr",
+          "title": "BambooHR",
+          "file": "bamboohr.json",
+          "source": "https://documentation.bamboohr.com/docs/getting-started"
+        }
+      ]
+    },
+    {
+      "id": "bandwidth",
+      "name": "Bandwidth",
+      "vendor": "Bandwidth",
+      "summary": "Voice, messaging and numbers.",
+      "mark": "D6",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "bandwidth"
+      ],
+      "catalogs": [
+        {
+          "id": "bandwidth",
+          "title": "Bandwidth",
+          "file": "bandwidth.json",
+          "source": "https://dev.bandwidth.com/"
+        }
+      ]
+    },
+    {
+      "id": "barracuda",
+      "name": "Barracuda",
+      "vendor": "Barracuda",
+      "summary": "Email, WAF and CloudGen.",
+      "mark": "C5",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "barracuda"
+      ],
+      "catalogs": [
+        {
+          "id": "barracuda",
+          "title": "Barracuda",
+          "file": "barracuda.json",
+          "source": "https://campus.barracuda.com/"
+        }
+      ]
+    },
+    {
+      "id": "basecamp",
+      "name": "Basecamp",
+      "vendor": "37signals",
+      "summary": "Projects, to-dos, messages and Campfire.",
+      "mark": "EV",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "basecamp"
+      ],
+      "catalogs": [
+        {
+          "id": "basecamp",
+          "title": "Basecamp",
+          "file": "basecamp.json",
+          "source": "https://github.com/basecamp/bc3-api"
+        }
+      ]
+    },
+    {
+      "id": "beyondtrust",
+      "name": "BeyondTrust",
+      "vendor": "BeyondTrust",
+      "summary": "Password Safe, Remote Support and PRA.",
+      "mark": "CQ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "beyondtrust"
+      ],
+      "catalogs": [
+        {
+          "id": "beyondtrust",
+          "title": "BeyondTrust",
+          "file": "beyondtrust.json",
+          "source": "https://www.beyondtrust.com/docs"
+        }
+      ]
+    },
+    {
+      "id": "bigcommerce",
+      "name": "BigCommerce",
+      "vendor": "BigCommerce",
+      "summary": "Catalog, orders and store management.",
+      "mark": "E6",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "bigcommerce"
+      ],
+      "catalogs": [
+        {
+          "id": "bigcommerce",
+          "title": "BigCommerce",
+          "file": "bigcommerce.json",
+          "source": "https://developer.bigcommerce.com/docs/rest-management"
+        }
+      ]
+    },
+    {
+      "id": "bill",
+      "name": "BILL",
+      "vendor": "BILL",
+      "summary": "Bills, invoices and vendors.",
+      "mark": "EK",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "bill"
+      ],
+      "catalogs": [
+        {
+          "id": "bill",
+          "title": "BILL",
+          "file": "bill.json",
+          "source": "https://developer.bill.com/docs/api-basics"
+        }
+      ]
+    },
+    {
+      "id": "bitbucket",
+      "name": "Bitbucket Cloud",
+      "vendor": "Atlassian",
+      "summary": "Repos, PRs and pipelines.",
+      "mark": "BC",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "bitbucket"
+      ],
+      "catalogs": [
+        {
+          "id": "bitbucket",
+          "title": "Bitbucket Cloud",
+          "file": "bitbucket.json",
+          "source": "https://api.bitbucket.org/swagger.json"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.atlassian.com/v2/mcp",
+        "docs": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"
+      }
+    },
+    {
+      "id": "bitdefender",
+      "name": "Bitdefender GravityZone",
+      "vendor": "Bitdefender",
+      "summary": "Endpoints, policies and incidents.",
+      "mark": "BR",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "bitdefender"
+      ],
+      "catalogs": [
+        {
+          "id": "bitdefender",
+          "title": "Bitdefender GravityZone",
+          "file": "bitdefender.json",
+          "source": "https://www.bitdefender.com/business/support/en/77209-125280-public-api.html"
+        }
+      ]
+    },
+    {
+      "id": "box",
+      "name": "Box",
+      "vendor": "Box",
+      "summary": "Enterprise files, folders and sharing.",
+      "mark": "BO",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "box"
+      ],
+      "catalogs": [
+        {
+          "id": "box",
+          "title": "Box",
+          "file": "box.json",
+          "source": "https://developer.box.com/reference/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.box.com",
+        "docs": "https://box.dev/guides/box-mcp-server"
+      }
+    },
+    {
+      "id": "braintree",
+      "name": "Braintree",
+      "vendor": "PayPal",
+      "summary": "Gateway charges, customers and vault.",
+      "mark": "ET",
+      "tone": "write",
+      "tags": [
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "braintree"
+      ],
+      "catalogs": [
+        {
+          "id": "braintree",
+          "title": "Braintree",
+          "file": "braintree.json",
+          "source": "https://developer.paypal.com/braintree/docs/start/overview"
+        }
+      ]
+    },
+    {
+      "id": "brex",
+      "name": "Brex",
+      "vendor": "Brex",
+      "summary": "Cards, expenses and transfers.",
+      "mark": "EQ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "brex"
+      ],
+      "catalogs": [
+        {
+          "id": "brex",
+          "title": "Brex",
+          "file": "brex.json",
+          "source": "https://developer.brex.com/"
+        }
+      ]
+    },
+    {
+      "id": "buildkite",
+      "name": "Buildkite",
+      "vendor": "Buildkite",
+      "summary": "Pipelines, builds and CI agents.",
+      "mark": "BU",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "buildkite"
+      ],
+      "catalogs": [
+        {
+          "id": "buildkite",
+          "title": "Buildkite",
+          "file": "buildkite.json",
+          "source": "https://buildkite.com/docs/apis/rest-api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.buildkite.com/mcp",
+        "docs": "https://buildkite.com/docs/mcp"
+      }
+    },
+    {
+      "id": "bunnycdn",
+      "name": "Bunny CDN",
+      "vendor": "Bunny.net",
+      "summary": "Pull zones, storage and DNS.",
+      "mark": "C8",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "bunnycdn"
+      ],
+      "catalogs": [
+        {
+          "id": "bunnycdn",
+          "title": "Bunny CDN",
+          "file": "bunnycdn.json",
+          "source": "https://docs.bunny.net/reference/bunnynet-api-overview"
+        }
+      ]
+    },
+    {
+      "id": "calendly",
+      "name": "Calendly",
+      "vendor": "Calendly",
+      "summary": "Event types, invitees and scheduling.",
+      "mark": "BI",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "calendly"
+      ],
+      "catalogs": [
+        {
+          "id": "calendly",
+          "title": "Calendly",
+          "file": "calendly.json",
+          "source": "https://developer.calendly.com/api-docs"
+        }
+      ]
+    },
+    {
+      "id": "canva",
+      "name": "Canva",
+      "vendor": "Canva",
+      "summary": "Designs, brand kits and assets.",
+      "mark": "CA",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "canva"
+      ],
+      "catalogs": [
+        {
+          "id": "canva",
+          "title": "Canva",
+          "file": "canva.json",
+          "source": "https://www.canva.dev/docs/connect/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.canva.com/mcp",
+        "docs": "https://www.canva.dev/docs/connect/mcp"
+      }
+    },
+    {
+      "id": "carbon_black",
+      "name": "Carbon Black",
+      "vendor": "Broadcom",
+      "summary": "Endpoint detections and device control.",
+      "mark": "CB",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "carbon_black"
+      ],
+      "catalogs": [
+        {
+          "id": "carbon_black",
+          "title": "Carbon Black",
+          "file": "carbon_black.json",
+          "source": "https://developer.carbonblack.com/"
+        }
+      ]
+    },
+    {
+      "id": "censys",
+      "name": "Censys",
+      "vendor": "Censys",
+      "summary": "Hosts, certificates and attack surface.",
+      "mark": "CS",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "censys"
+      ],
+      "catalogs": [
+        {
+          "id": "censys",
+          "title": "Censys",
+          "file": "censys.json",
+          "source": "https://search.censys.io/api"
+        }
+      ]
+    },
+    {
+      "id": "checkpoint",
+      "name": "Check Point",
+      "vendor": "Check Point",
+      "summary": "Management, Gaia and cloud APIs.",
+      "mark": "C3",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "checkpoint"
+      ],
+      "catalogs": [
+        {
+          "id": "checkpoint",
+          "title": "Check Point",
+          "file": "checkpoint.json",
+          "source": "https://sc1.checkpoint.com/documents/"
+        }
+      ]
+    },
+    {
+      "id": "checkmarx",
+      "name": "Checkmarx",
+      "vendor": "Checkmarx",
+      "summary": "SAST, SCA and application security.",
+      "mark": "BV",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "checkmarx"
+      ],
+      "catalogs": [
+        {
+          "id": "checkmarx",
+          "title": "Checkmarx",
+          "file": "checkmarx.json",
+          "source": "https://checkmarx.com/resource/documents/"
+        }
+      ]
+    },
+    {
+      "id": "checkmk",
+      "name": "Checkmk",
+      "vendor": "Checkmk",
+      "summary": "Hosts, services and the REST API on the site.",
+      "mark": "B7",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "checkmk"
+      ],
+      "catalogs": [
+        {
+          "id": "checkmk",
+          "title": "Checkmk",
+          "file": "checkmk.json",
+          "source": "https://docs.checkmk.com/latest/en/rest_api.html"
+        }
+      ]
+    },
+    {
+      "id": "circleci",
+      "name": "CircleCI",
+      "vendor": "CircleCI",
+      "summary": "Pipelines, workflows and insights.",
+      "mark": "DJ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "circleci"
+      ],
+      "catalogs": [
+        {
+          "id": "circleci",
+          "title": "CircleCI",
+          "file": "circleci.json",
+          "source": "https://circleci.com/api/v2/openapi.json"
+        }
+      ]
+    },
+    {
+      "id": "cisco_umbrella",
+      "name": "Cisco Umbrella",
+      "vendor": "Cisco",
+      "summary": "DNS, SWG and cloud security.",
+      "mark": "CZ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cisco_umbrella"
+      ],
+      "catalogs": [
+        {
+          "id": "cisco_umbrella",
+          "title": "Cisco Umbrella",
+          "file": "cisco_umbrella.json",
+          "source": "https://developer.cisco.com/docs/cloud-security/"
+        }
+      ]
+    },
+    {
+      "id": "citrix",
+      "name": "Citrix",
+      "vendor": "Citrix",
+      "summary": "DaaS, ADC and Cloud APIs.",
+      "mark": "DW",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "citrix"
+      ],
+      "catalogs": [
+        {
+          "id": "citrix",
+          "title": "Citrix",
+          "file": "citrix.json",
+          "source": "https://developer.cloud.com/"
+        }
+      ]
+    },
+    {
+      "id": "clay",
+      "name": "Clay",
+      "vendor": "Clay",
+      "summary": "Enrichment, lead lists and CRM sync.",
+      "mark": "A9",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "clay"
+      ],
+      "catalogs": [
+        {
+          "id": "clay",
+          "title": "Clay",
+          "file": "clay.json",
+          "source": "https://www.clay.com/university/article/clay-api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.clay.earth/mcp",
+        "docs": "https://www.clay.com"
+      }
+    },
+    {
+      "id": "clerk",
+      "name": "Clerk",
+      "vendor": "Clerk",
+      "summary": "Users, sessions and organizations.",
+      "mark": "B9",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "clerk"
+      ],
+      "catalogs": [
+        {
+          "id": "clerk",
+          "title": "Clerk",
+          "file": "clerk.json",
+          "source": "https://clerk.com/docs/reference/backend-api"
+        }
+      ]
+    },
+    {
+      "id": "clickup",
+      "name": "ClickUp",
+      "vendor": "ClickUp",
+      "summary": "Tasks, docs and workspaces.",
+      "mark": "CP",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "clickup"
+      ],
+      "catalogs": [
+        {
+          "id": "clickup",
+          "title": "ClickUp",
+          "file": "clickup.json",
+          "source": "https://developer.clickup.com/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.clickup.com/mcp",
+        "docs": "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server"
+      }
+    },
+    {
+      "id": "close",
+      "name": "Close",
+      "vendor": "Close",
+      "summary": "Sales CRM: leads, calls and pipelines.",
+      "mark": "CE",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "close"
+      ],
+      "catalogs": [
+        {
+          "id": "close",
+          "title": "Close",
+          "file": "close.json",
+          "source": "https://developer.close.com/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.close.com/mcp",
+        "docs": "https://help.close.com/docs/mcp-server"
+      }
+    },
+    {
+      "id": "cloudflare_observability",
+      "name": "Cloudflare Observability",
+      "vendor": "Cloudflare",
+      "summary": "Workers observability MCP.",
+      "mark": "FJ",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cloudflare_observability"
+      ],
+      "catalogs": [
+        {
+          "id": "cloudflare_observability",
+          "title": "Cloudflare Observability",
+          "file": "cloudflare_observability.json",
+          "source": "https://developers.cloudflare.com/workers/"
+        }
+      ],
+      "mcp": {
+        "url": "https://observability.mcp.cloudflare.com/sse",
+        "docs": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/"
+      }
+    },
+    {
+      "id": "cloudflare_radar",
+      "name": "Cloudflare Radar",
+      "vendor": "Cloudflare",
+      "summary": "Internet insights. Official Radar MCP.",
+      "mark": "FF",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "cloudflare_radar"
+      ],
+      "catalogs": [
+        {
+          "id": "cloudflare_radar",
+          "title": "Cloudflare Radar",
+          "file": "cloudflare_radar.json",
+          "source": "https://developers.cloudflare.com/radar/"
+        }
+      ],
+      "mcp": {
+        "url": "https://radar.mcp.cloudflare.com/sse",
+        "docs": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/"
+      }
+    },
+    {
+      "id": "cloudflare_workers",
+      "name": "Cloudflare Workers Bindings",
+      "vendor": "Cloudflare",
+      "summary": "KV, R2, D1 and Workers bindings MCP.",
+      "mark": "FK",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cloudflare_workers"
+      ],
+      "catalogs": [
+        {
+          "id": "cloudflare_workers",
+          "title": "Cloudflare Workers Bindings",
+          "file": "cloudflare_workers.json",
+          "source": "https://developers.cloudflare.com/workers/"
+        }
+      ],
+      "mcp": {
+        "url": "https://bindings.mcp.cloudflare.com/sse",
+        "docs": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/"
+      }
+    },
+    {
+      "id": "cloudinary",
+      "name": "Cloudinary",
+      "vendor": "Cloudinary",
+      "summary": "Image and video assets, transforms and delivery.",
+      "mark": "CY",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cloudinary"
+      ],
+      "catalogs": [
+        {
+          "id": "cloudinary",
+          "title": "Cloudinary",
+          "file": "cloudinary.json",
+          "source": "https://cloudinary.com/documentation/admin_api"
+        }
+      ],
+      "mcp": {
+        "url": "https://asset-management.mcp.cloudinary.com/sse",
+        "docs": "https://cloudinary.com/documentation/mcp"
+      }
+    },
+    {
+      "id": "cockroach",
+      "name": "CockroachDB Cloud",
+      "vendor": "Cockroach Labs",
+      "summary": "Clusters, users and the Cloud API.",
+      "mark": "F1",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cockroach"
+      ],
+      "catalogs": [
+        {
+          "id": "cockroach",
+          "title": "CockroachDB Cloud",
+          "file": "cockroach.json",
+          "source": "https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api"
+        }
+      ]
+    },
+    {
+      "id": "coda",
+      "name": "Coda",
+      "vendor": "Coda",
+      "summary": "Docs, tables and automations.",
+      "mark": "A3",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "coda"
+      ],
+      "catalogs": [
+        {
+          "id": "coda",
+          "title": "Coda",
+          "file": "coda.json",
+          "source": "https://coda.io/developers/apis/v1"
+        }
+      ],
+      "mcp": {
+        "url": "https://coda.io/apis/mcp",
+        "docs": "https://coda.io/resources/guides/getting_started_with_coda_mcp"
+      }
+    },
+    {
+      "id": "cohesity",
+      "name": "Cohesity",
+      "vendor": "Cohesity",
+      "summary": "Protection jobs, views and cluster.",
+      "mark": "DX",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cohesity"
+      ],
+      "catalogs": [
+        {
+          "id": "cohesity",
+          "title": "Cohesity",
+          "file": "cohesity.json",
+          "source": "https://developer.cohesity.com/"
+        }
+      ]
+    },
+    {
+      "id": "commvault",
+      "name": "Commvault",
+      "vendor": "Commvault",
+      "summary": "Jobs, clients and Metallic.",
+      "mark": "D0",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "commvault"
+      ],
+      "catalogs": [
+        {
+          "id": "commvault",
+          "title": "Commvault",
+          "file": "commvault.json",
+          "source": "https://api.commvault.com/"
+        }
+      ]
+    },
+    {
+      "id": "confluence",
+      "name": "Confluence Cloud",
+      "vendor": "Atlassian",
+      "summary": "Spaces and pages. Uses the Atlassian Rovo MCP.",
+      "mark": "CC",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "swagger",
+        "account"
+      ],
+      "default_catalogs": [
+        "confluence"
+      ],
+      "catalogs": [
+        {
+          "id": "confluence",
+          "title": "Confluence Cloud",
+          "file": "confluence.json",
+          "source": "https://developer.atlassian.com/cloud/confluence/rest/v2/intro/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.atlassian.com/v2/mcp",
+        "docs": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"
+      }
+    },
+    {
+      "id": "confluent",
+      "name": "Confluent",
+      "vendor": "Confluent",
+      "summary": "Kafka clusters, topics and connectors.",
+      "mark": "F2",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "confluent"
+      ],
+      "catalogs": [
+        {
+          "id": "confluent",
+          "title": "Confluent",
+          "file": "confluent.json",
+          "source": "https://docs.confluent.io/cloud/current/api.html"
+        }
+      ]
+    },
+    {
+      "id": "consul",
+      "name": "Consul",
+      "vendor": "HashiCorp",
+      "summary": "Catalog, KV, intentions and ACL.",
+      "mark": "DC",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "consul"
+      ],
+      "catalogs": [
+        {
+          "id": "consul",
+          "title": "Consul",
+          "file": "consul.json",
+          "source": "https://developer.hashicorp.com/consul/api-docs"
+        }
+      ]
+    },
+    {
+      "id": "contentful",
+      "name": "Contentful",
+      "vendor": "Contentful",
+      "summary": "CMA and CDA for content and space.",
+      "mark": "E7",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "contentful"
+      ],
+      "catalogs": [
+        {
+          "id": "contentful",
+          "title": "Contentful",
+          "file": "contentful.json",
+          "source": "https://www.contentful.com/developers/docs/references/content-management-api/"
+        }
+      ]
+    },
+    {
+      "id": "context7",
+      "name": "Context7",
+      "vendor": "Upstash",
+      "summary": "Live library docs injected into agent prompts.",
+      "mark": "C7",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "context7"
+      ],
+      "catalogs": [
+        {
+          "id": "context7",
+          "title": "Context7",
+          "file": "context7.json",
+          "source": "https://context7.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.context7.com/mcp",
+        "docs": "https://context7.com/docs/resources/all-clients"
+      }
+    },
+    {
+      "id": "copper",
+      "name": "Copper",
+      "vendor": "Copper",
+      "summary": "CRM people, leads and pipelines.",
+      "mark": "EJ",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "copper"
+      ],
+      "catalogs": [
+        {
+          "id": "copper",
+          "title": "Copper",
+          "file": "copper.json",
+          "source": "https://developer.copper.com/"
+        }
+      ]
+    },
+    {
+      "id": "cortex",
+      "name": "Cortex",
+      "vendor": "Cortex",
+      "summary": "Service catalog, scorecards and ownership.",
+      "mark": "CO",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cortex"
+      ],
+      "catalogs": [
+        {
+          "id": "cortex",
+          "title": "Cortex",
+          "file": "cortex.json",
+          "source": "https://docs.cortex.io/api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.cortex.io/mcp",
+        "docs": "https://docs.cortex.io/mcp"
+      }
+    },
+    {
+      "id": "crowdstrike",
+      "name": "CrowdStrike Falcon",
+      "vendor": "CrowdStrike",
+      "summary": "Detections, hosts, IOCs and Falcon Spotlight.",
+      "mark": "CR",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "crowdstrike"
+      ],
+      "catalogs": [
+        {
+          "id": "crowdstrike",
+          "title": "CrowdStrike Falcon",
+          "file": "crowdstrike.json",
+          "source": "https://developer.crowdstrike.com/"
+        }
+      ]
+    },
+    {
+      "id": "customerio",
+      "name": "Customer.io",
+      "vendor": "Customer.io",
+      "summary": "People, campaigns and transactional.",
+      "mark": "EC",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "customerio"
+      ],
+      "catalogs": [
+        {
+          "id": "customerio",
+          "title": "Customer.io",
+          "file": "customerio.json",
+          "source": "https://customer.io/docs/api/"
+        }
+      ]
+    },
+    {
+      "id": "cyberark",
+      "name": "CyberArk",
+      "vendor": "CyberArk",
+      "summary": "Privilege Cloud, PAM and identity.",
+      "mark": "CN",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cyberark"
+      ],
+      "catalogs": [
+        {
+          "id": "cyberark",
+          "title": "CyberArk",
+          "file": "cyberark.json",
+          "source": "https://docs.cyberark.com/"
+        }
+      ]
+    },
+    {
+      "id": "cylance",
+      "name": "Cylance",
+      "vendor": "BlackBerry",
+      "summary": "AI antivirus and optics.",
+      "mark": "BN",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "cylance"
+      ],
+      "catalogs": [
+        {
+          "id": "cylance",
+          "title": "Cylance",
+          "file": "cylance.json",
+          "source": "https://docs.blackberry.com/en/unified-endpoint-security/cylance"
+        }
+      ]
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "vendor": "Databricks",
+      "summary": "Unity Catalog, SQL and Genie. MCP URL is per workspace.",
+      "mark": "DA",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "databricks"
+      ],
+      "catalogs": [
+        {
+          "id": "databricks",
+          "title": "Databricks",
+          "file": "databricks.json",
+          "source": "https://docs.databricks.com/api/workspace/introduction"
+        }
+      ],
+      "mcp": {
+        "docs": "https://docs.databricks.com/aws/en/generative-ai/mcp/"
+      }
+    },
+    {
+      "id": "datadog",
+      "name": "Datadog",
+      "vendor": "Datadog",
+      "summary": "Metrics, logs, traces, monitors and synthetics.",
+      "mark": "DG",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "datadog"
+      ],
+      "catalogs": [
+        {
+          "id": "datadog",
+          "title": "Datadog",
+          "file": "datadog.json",
+          "source": "https://docs.datadoghq.com/api/latest/"
+        }
+      ]
+    },
+    {
+      "id": "deepwiki",
+      "name": "DeepWiki",
+      "vendor": "Devin",
+      "summary": "Generated architecture docs for public GitHub repos.",
+      "mark": "DE",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "deepwiki"
+      ],
+      "catalogs": [
+        {
+          "id": "deepwiki",
+          "title": "DeepWiki",
+          "file": "deepwiki.json",
+          "source": "https://deepwiki.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.deepwiki.com/mcp",
+        "docs": "https://docs.devin.ai/work-with-devin/deepwiki-mcp"
+      }
+    },
+    {
+      "id": "delinea",
+      "name": "Delinea",
+      "vendor": "Delinea",
+      "summary": "Secret Server and privilege control.",
+      "mark": "CT",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "delinea"
+      ],
+      "catalogs": [
+        {
+          "id": "delinea",
+          "title": "Delinea",
+          "file": "delinea.json",
+          "source": "https://docs.delinea.com/"
+        }
+      ]
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "vendor": "Discord",
+      "summary": "Guilds, channels and the Bot API.",
+      "mark": "D5",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "discord"
+      ],
+      "catalogs": [
+        {
+          "id": "discord",
+          "title": "Discord",
+          "file": "discord.json",
+          "source": "https://discord.com/developers/docs/intro"
+        }
+      ]
+    },
+    {
+      "id": "dnsfilter",
+      "name": "DNSFilter",
+      "vendor": "DNSFilter",
+      "summary": "DNS filtering policies and roaming clients.",
+      "mark": "C0",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "dnsfilter"
+      ],
+      "catalogs": [
+        {
+          "id": "dnsfilter",
+          "title": "DNSFilter",
+          "file": "dnsfilter.json",
+          "source": "https://docs.dnsfilter.com/"
+        }
+      ]
+    },
+    {
+      "id": "dnsimple",
+      "name": "DNSimple",
+      "vendor": "DNSimple",
+      "summary": "Domains, records and certificates.",
+      "mark": "C9",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "dnsimple"
+      ],
+      "catalogs": [
+        {
+          "id": "dnsimple",
+          "title": "DNSimple",
+          "file": "dnsimple.json",
+          "source": "https://developer.dnsimple.com/"
+        }
+      ]
+    },
+    {
+      "id": "docker_engine",
+      "name": "Docker Engine",
+      "vendor": "Docker",
+      "summary": "Containers, images and volumes on the host.",
+      "mark": "DD",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "swagger",
+        "account"
+      ],
+      "default_catalogs": [
+        "docker_engine"
+      ],
+      "catalogs": [
+        {
+          "id": "docker_engine",
+          "title": "Docker Engine",
+          "file": "docker_engine.json",
+          "source": "https://docs.docker.com/reference/api/engine/latest/"
+        }
+      ]
+    },
+    {
+      "id": "docker_hub",
+      "name": "Docker Hub",
+      "vendor": "Docker",
+      "summary": "Repositories, tags and orgs.",
+      "mark": "DH",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "docker_hub"
+      ],
+      "catalogs": [
+        {
+          "id": "docker_hub",
+          "title": "Docker Hub",
+          "file": "docker_hub.json",
+          "source": "https://docs.docker.com/docker-hub/api/latest/"
+        }
+      ]
+    },
+    {
+      "id": "docusign",
+      "name": "Docusign",
+      "vendor": "Docusign",
+      "summary": "Envelopes, templates and e-signature. Official MCP is account-gated.",
+      "mark": "DN",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "docusign"
+      ],
+      "catalogs": [
+        {
+          "id": "docusign",
+          "title": "Docusign",
+          "file": "docusign.json",
+          "source": "https://developers.docusign.com/docs/esign-rest-api/"
+        }
+      ]
+    },
+    {
+      "id": "drawio",
+      "name": "draw.io",
+      "vendor": "JGraph",
+      "summary": "Diagrams inline for agents.",
+      "mark": "BA",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "drawio"
+      ],
+      "catalogs": [
+        {
+          "id": "drawio",
+          "title": "draw.io",
+          "file": "drawio.json",
+          "source": "https://www.drawio.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.draw.io/mcp",
+        "docs": "https://www.drawio.com/docs/manual/generate/drawio-mcp-server/"
+      }
+    },
+    {
+      "id": "druva",
+      "name": "Druva",
+      "vendor": "Druva",
+      "summary": "inSync, Phoenix and cloud backup.",
+      "mark": "D1",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "druva"
+      ],
+      "catalogs": [
+        {
+          "id": "druva",
+          "title": "Druva",
+          "file": "druva.json",
+          "source": "https://developer.druva.com/"
+        }
+      ]
+    },
+    {
+      "id": "dynatrace",
+      "name": "Dynatrace",
+      "vendor": "Dynatrace",
+      "summary": "Problems, metrics, entities and Davis.",
+      "mark": "DY",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "dynatrace"
+      ],
+      "catalogs": [
+        {
+          "id": "dynatrace",
+          "title": "Dynatrace",
+          "file": "dynatrace.json",
+          "source": "https://docs.dynatrace.com/docs/discover-dynatrace/references/dynatrace-api"
+        }
+      ]
+    },
+    {
+      "id": "egnyte",
+      "name": "Egnyte",
+      "vendor": "Egnyte",
+      "summary": "Content, permissions and workspace files.",
+      "mark": "EG",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "egnyte"
+      ],
+      "catalogs": [
+        {
+          "id": "egnyte",
+          "title": "Egnyte",
+          "file": "egnyte.json",
+          "source": "https://developers.egnyte.com/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp-server.egnyte.com/sse",
+        "docs": "https://developers.egnyte.com/docs/read/MCP_Server"
+      }
+    },
+    {
+      "id": "elastic",
+      "name": "Elastic",
+      "vendor": "Elastic",
+      "summary": "Elasticsearch, Kibana and Elastic Security.",
+      "mark": "EL",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "elastic"
+      ],
+      "catalogs": [
+        {
+          "id": "elastic",
+          "title": "Elastic",
+          "file": "elastic.json",
+          "source": "https://www.elastic.co/docs/api"
+        }
+      ]
+    },
+    {
+      "id": "eset",
+      "name": "ESET",
+      "vendor": "ESET",
+      "summary": "Protect / PROTECT Hub and endpoint management.",
+      "mark": "ES",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "eset"
+      ],
+      "catalogs": [
+        {
+          "id": "eset",
+          "title": "ESET",
+          "file": "eset.json",
+          "source": "https://help.eset.com/"
+        }
+      ]
+    },
+    {
+      "id": "exa",
+      "name": "Exa",
+      "vendor": "Exa",
+      "summary": "Neural web search for agents.",
+      "mark": "EX",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "exa"
+      ],
+      "catalogs": [
+        {
+          "id": "exa",
+          "title": "Exa",
+          "file": "exa.json",
+          "source": "https://docs.exa.ai/reference/getting-started"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.exa.ai/mcp",
+        "docs": "https://docs.exa.ai/reference/mcp-server"
+      }
+    },
+    {
+      "id": "excalidraw",
+      "name": "Excalidraw",
+      "vendor": "Excalidraw",
+      "summary": "Hand-drawn diagrams for agents.",
+      "mark": "EW",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "excalidraw"
+      ],
+      "catalogs": [
+        {
+          "id": "excalidraw",
+          "title": "Excalidraw",
+          "file": "excalidraw.json",
+          "source": "https://docs.excalidraw.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.excalidraw.com",
+        "docs": "https://github.com/excalidraw/excalidraw-mcp"
+      }
+    },
+    {
+      "id": "expensify",
+      "name": "Expensify",
+      "vendor": "Expensify",
+      "summary": "Reports, expenses and the Integration Server.",
+      "mark": "EY",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "expensify"
+      ],
+      "catalogs": [
+        {
+          "id": "expensify",
+          "title": "Expensify",
+          "file": "expensify.json",
+          "source": "https://integrations.expensify.com/Integration-Server/doc/"
+        }
+      ]
+    },
+    {
+      "id": "f5",
+      "name": "F5",
+      "vendor": "F5",
+      "summary": "BIG-IP, NGINX and Distributed Cloud.",
+      "mark": "F5",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "f5"
+      ],
+      "catalogs": [
+        {
+          "id": "f5",
+          "title": "F5",
+          "file": "f5.json",
+          "source": "https://clouddocs.f5.com/"
+        }
+      ]
+    },
+    {
+      "id": "fastly",
+      "name": "Fastly",
+      "vendor": "Fastly",
+      "summary": "Services, ACLs, WAF and purge.",
+      "mark": "FA",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "fastly"
+      ],
+      "catalogs": [
+        {
+          "id": "fastly",
+          "title": "Fastly",
+          "file": "fastly.json",
+          "source": "https://www.fastly.com/documentation/reference/api/"
+        }
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "vendor": "Figma",
+      "summary": "Files, components and design-to-code.",
+      "mark": "FI",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "figma"
+      ],
+      "catalogs": [
+        {
+          "id": "figma",
+          "title": "Figma",
+          "file": "figma.json",
+          "source": "https://www.figma.com/developers/api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.figma.com/mcp",
+        "docs": "https://developers.figma.com/docs/figma-mcp-server/"
+      }
+    },
+    {
+      "id": "fireflies",
+      "name": "Fireflies",
+      "vendor": "Fireflies.ai",
+      "summary": "Meeting transcripts, summaries and action items.",
+      "mark": "FS",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "fireflies"
+      ],
+      "catalogs": [
+        {
+          "id": "fireflies",
+          "title": "Fireflies",
+          "file": "fireflies.json",
+          "source": "https://docs.fireflies.ai/"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.fireflies.ai/mcp",
+        "docs": "https://guide.fireflies.ai/docs/mcp"
+      }
+    },
+    {
+      "id": "firehydrant",
+      "name": "FireHydrant",
+      "vendor": "FireHydrant",
+      "summary": "Incidents, runbooks and catalog.",
+      "mark": "FT",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "firehydrant"
+      ],
+      "catalogs": [
+        {
+          "id": "firehydrant",
+          "title": "FireHydrant",
+          "file": "firehydrant.json",
+          "source": "https://developers.firehydrant.com/"
+        }
+      ]
+    },
+    {
+      "id": "flagsmith",
+      "name": "Flagsmith",
+      "vendor": "Flagsmith",
+      "summary": "Flags and identities on the instance or cloud.",
+      "mark": "FH",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "flagsmith"
+      ],
+      "catalogs": [
+        {
+          "id": "flagsmith",
+          "title": "Flagsmith",
+          "file": "flagsmith.json",
+          "source": "https://docs.flagsmith.com/clients/rest"
+        }
+      ]
+    },
+    {
+      "id": "fleet",
+      "name": "Fleet",
+      "vendor": "Fleet",
+      "summary": "osquery, MDM and device inventory.",
+      "mark": "FL",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "fleet"
+      ],
+      "catalogs": [
+        {
+          "id": "fleet",
+          "title": "Fleet",
+          "file": "fleet.json",
+          "source": "https://fleetdm.com/docs/rest-api/rest-api"
+        }
+      ]
+    },
+    {
+      "id": "fly",
+      "name": "Fly.io",
+      "vendor": "Fly",
+      "summary": "Machines, apps and volumes.",
+      "mark": "FY",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "fly"
+      ],
+      "catalogs": [
+        {
+          "id": "fly",
+          "title": "Fly.io",
+          "file": "fly.json",
+          "source": "https://docs.fly.io/docs/machines/api/"
+        }
+      ]
+    },
+    {
+      "id": "freshchat",
+      "name": "Freshchat",
+      "vendor": "Freshworks",
+      "summary": "Messaging and conversations.",
+      "mark": "EH",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "freshchat"
+      ],
+      "catalogs": [
+        {
+          "id": "freshchat",
+          "title": "Freshchat",
+          "file": "freshchat.json",
+          "source": "https://developers.freshchat.com/api/"
+        }
+      ]
+    },
+    {
+      "id": "freshservice",
+      "name": "Freshservice",
+      "vendor": "Freshworks",
+      "summary": "ITSM tickets, assets and changes.",
+      "mark": "FR",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "freshservice"
+      ],
+      "catalogs": [
+        {
+          "id": "freshservice",
+          "title": "Freshservice",
+          "file": "freshservice.json",
+          "source": "https://api.freshservice.com/"
+        }
+      ]
+    },
+    {
+      "id": "front",
+      "name": "Front",
+      "vendor": "Front",
+      "summary": "Inboxes, conversations and comments.",
+      "mark": "EF",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "front"
+      ],
+      "catalogs": [
+        {
+          "id": "front",
+          "title": "Front",
+          "file": "front.json",
+          "source": "https://dev.frontapp.com/"
+        }
+      ]
+    },
+    {
+      "id": "ghost",
+      "name": "Ghost",
+      "vendor": "Ghost",
+      "summary": "Content, Admin and members APIs.",
+      "mark": "GT",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ghost"
+      ],
+      "catalogs": [
+        {
+          "id": "ghost",
+          "title": "Ghost",
+          "file": "ghost.json",
+          "source": "https://ghost.org/docs/content-api/"
+        }
+      ]
+    },
+    {
+      "id": "globalping",
+      "name": "Globalping",
+      "vendor": "Globalping",
+      "summary": "Probe latency, HTTP and traceroute from many regions.",
+      "mark": "GG",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "globalping"
+      ],
+      "catalogs": [
+        {
+          "id": "globalping",
+          "title": "Globalping",
+          "file": "globalping.json",
+          "source": "https://www.jsdelivr.com/globalping/api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.globalping.dev/sse",
+        "docs": "https://www.jsdelivr.com/docs/mcp"
+      }
+    },
+    {
+      "id": "glpi",
+      "name": "GLPI",
+      "vendor": "Teclib",
+      "summary": "Tickets, inventory and the REST plugin.",
+      "mark": "GI",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "glpi"
+      ],
+      "catalogs": [
+        {
+          "id": "glpi",
+          "title": "GLPI",
+          "file": "glpi.json",
+          "source": "https://glpi-developer-documentation.readthedocs.io/en/master/devapi/rest.html"
+        }
+      ]
+    },
+    {
+      "id": "godaddy",
+      "name": "GoDaddy",
+      "vendor": "GoDaddy",
+      "summary": "Domains, DNS and shopper.",
+      "mark": "GY",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "godaddy"
+      ],
+      "catalogs": [
+        {
+          "id": "godaddy",
+          "title": "GoDaddy",
+          "file": "godaddy.json",
+          "source": "https://developer.godaddy.com/doc"
+        }
+      ]
+    },
+    {
+      "id": "google_bigquery",
+      "name": "Google BigQuery",
+      "vendor": "Google",
+      "summary": "Datasets, jobs and SQL over BigQuery.",
+      "mark": "GB",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "google_bigquery"
+      ],
+      "catalogs": [
+        {
+          "id": "google_bigquery",
+          "title": "Google BigQuery",
+          "file": "google_bigquery.json",
+          "source": "https://cloud.google.com/bigquery/docs/reference/rest"
+        }
+      ],
+      "mcp": {
+        "url": "https://bigquery.googleapis.com/mcp",
+        "docs": "https://docs.cloud.google.com/bigquery/docs/reference/mcp"
+      }
+    },
+    {
+      "id": "google_calendar",
+      "name": "Google Calendar",
+      "vendor": "Google",
+      "summary": "Calendars, events and free/busy.",
+      "mark": "E1",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "google_calendar"
+      ],
+      "catalogs": [
+        {
+          "id": "google_calendar",
+          "title": "Google Calendar",
+          "file": "google_calendar.json",
+          "source": "https://developers.google.com/calendar/api/v3/reference"
+        }
+      ]
+    },
+    {
+      "id": "google_compute",
+      "name": "Google Compute Engine",
+      "vendor": "Google",
+      "summary": "VMs, disks and networks on GCE.",
+      "mark": "GO",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "google_compute"
+      ],
+      "catalogs": [
+        {
+          "id": "google_compute",
+          "title": "Google Compute Engine",
+          "file": "google_compute.json",
+          "source": "https://cloud.google.com/compute/docs/reference/rest/v1"
+        }
+      ],
+      "mcp": {
+        "url": "https://compute.googleapis.com/mcp",
+        "docs": "https://docs.cloud.google.com/compute/docs/reference/mcp"
+      }
+    },
+    {
+      "id": "google_drive",
+      "name": "Google Drive",
+      "vendor": "Google",
+      "summary": "Files, sharing and Drive activity.",
+      "mark": "GD",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "google_drive"
+      ],
+      "catalogs": [
+        {
+          "id": "google_drive",
+          "title": "Google Drive",
+          "file": "google_drive.json",
+          "source": "https://developers.google.com/drive/api/reference/rest/v3"
+        }
+      ]
+    },
+    {
+      "id": "google_gke",
+      "name": "Google Kubernetes Engine",
+      "vendor": "Google",
+      "summary": "GKE clusters and node pools.",
+      "mark": "GK",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "google_gke"
+      ],
+      "catalogs": [
+        {
+          "id": "google_gke",
+          "title": "Google Kubernetes Engine",
+          "file": "google_gke.json",
+          "source": "https://cloud.google.com/kubernetes-engine/docs/reference/rest"
+        }
+      ],
+      "mcp": {
+        "url": "https://container.googleapis.com/mcp",
+        "docs": "https://docs.cloud.google.com/kubernetes-engine/docs/reference/mcp"
+      }
+    },
+    {
+      "id": "google_maps",
+      "name": "Google Maps",
+      "vendor": "Google",
+      "summary": "Geocoding, places, routing and maps.",
+      "mark": "GM",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "google_maps"
+      ],
+      "catalogs": [
+        {
+          "id": "google_maps",
+          "title": "Google Maps",
+          "file": "google_maps.json",
+          "source": "https://developers.google.com/maps/documentation"
+        }
+      ],
+      "mcp": {
+        "url": "https://mapstools.googleapis.com/mcp",
+        "docs": "https://developers.google.com/maps/ai/grounding-lite/reference/mcp"
+      }
+    },
+    {
+      "id": "gorgias",
+      "name": "Gorgias",
+      "vendor": "Gorgias",
+      "summary": "Ecommerce helpdesk tickets and macros.",
+      "mark": "GS",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "gorgias"
+      ],
+      "catalogs": [
+        {
+          "id": "gorgias",
+          "title": "Gorgias",
+          "file": "gorgias.json",
+          "source": "https://developers.gorgias.com/reference/introduction"
+        }
+      ]
+    },
+    {
+      "id": "grafbase",
+      "name": "Grafbase",
+      "vendor": "Grafbase",
+      "summary": "GraphQL federation and the Grafbase gateway.",
+      "mark": "GR",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "grafbase"
+      ],
+      "catalogs": [
+        {
+          "id": "grafbase",
+          "title": "Grafbase",
+          "file": "grafbase.json",
+          "source": "https://grafbase.com/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.grafbase.com/mcp",
+        "docs": "https://grafbase.com/docs"
+      }
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "vendor": "Groq",
+      "summary": "Fast inference API.",
+      "mark": "GQ",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "groq"
+      ],
+      "catalogs": [
+        {
+          "id": "groq",
+          "title": "Groq",
+          "file": "groq.json",
+          "source": "https://console.groq.com/docs/api-reference"
+        }
+      ]
+    },
+    {
+      "id": "growthbook",
+      "name": "GrowthBook",
+      "vendor": "GrowthBook",
+      "summary": "Experiments and feature flags.",
+      "mark": "FC",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "growthbook"
+      ],
+      "catalogs": [
+        {
+          "id": "growthbook",
+          "title": "GrowthBook",
+          "file": "growthbook.json",
+          "source": "https://docs.growthbook.io/app/api"
+        }
+      ]
+    },
+    {
+      "id": "harbor",
+      "name": "Harbor",
+      "vendor": "CNCF",
+      "summary": "Projects, repos and replication on the registry.",
+      "mark": "HR",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "swagger",
+        "account"
+      ],
+      "default_catalogs": [
+        "harbor"
+      ],
+      "catalogs": [
+        {
+          "id": "harbor",
+          "title": "Harbor",
+          "file": "harbor.json",
+          "source": "https://goharbor.io/docs/latest/build-customize-contribute/configure-swagger/"
+        }
+      ]
+    },
+    {
+      "id": "hibp",
+      "name": "Have I Been Pwned",
+      "vendor": "Have I Been Pwned",
+      "summary": "Breach lookup for emails and domains.",
+      "mark": "HI",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "hibp"
+      ],
+      "catalogs": [
+        {
+          "id": "hibp",
+          "title": "Have I Been Pwned",
+          "file": "hibp.json",
+          "source": "https://haveibeenpwned.com/API/v3"
+        }
+      ]
+    },
+    {
+      "id": "terraform_cloud",
+      "name": "HCP Terraform",
+      "vendor": "HashiCorp",
+      "summary": "Workspaces, runs, variables and registry.",
+      "mark": "HC",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "terraform_cloud"
+      ],
+      "catalogs": [
+        {
+          "id": "terraform_cloud",
+          "title": "HCP Terraform",
+          "file": "terraform_cloud.json",
+          "source": "https://developer.hashicorp.com/terraform/cloud-docs/api-docs"
+        }
+      ]
+    },
+    {
+      "id": "helpscout",
+      "name": "Help Scout",
+      "vendor": "Help Scout",
+      "summary": "Mailboxes, conversations and customers.",
+      "mark": "EE",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "helpscout"
+      ],
+      "catalogs": [
+        {
+          "id": "helpscout",
+          "title": "Help Scout",
+          "file": "helpscout.json",
+          "source": "https://developer.helpscout.com/"
+        }
+      ]
+    },
+    {
+      "id": "heroku",
+      "name": "Heroku",
+      "vendor": "Salesforce",
+      "summary": "Apps, dynos, add-ons and pipelines.",
+      "mark": "DM",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "heroku"
+      ],
+      "catalogs": [
+        {
+          "id": "heroku",
+          "title": "Heroku",
+          "file": "heroku.json",
+          "source": "https://devcenter.heroku.com/categories/platform-api"
+        }
+      ]
+    },
+    {
+      "id": "hex",
+      "name": "Hex",
+      "vendor": "Hex",
+      "summary": "Data notebooks, apps and warehouse queries.",
+      "mark": "HE",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "hex"
+      ],
+      "catalogs": [
+        {
+          "id": "hex",
+          "title": "Hex",
+          "file": "hex.json",
+          "source": "https://learn.hex.tech/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://app.hex.tech/mcp",
+        "docs": "https://learn.hex.tech"
+      }
+    },
+    {
+      "id": "honeycomb",
+      "name": "Honeycomb",
+      "vendor": "Honeycomb",
+      "summary": "Observability queries and SLOs.",
+      "mark": "HO",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "honeycomb"
+      ],
+      "catalogs": [
+        {
+          "id": "honeycomb",
+          "title": "Honeycomb",
+          "file": "honeycomb.json",
+          "source": "https://docs.honeycomb.io/api/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.honeycomb.io/mcp",
+        "docs": "https://docs.honeycomb.io/integrations/mcp/"
+      }
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "vendor": "Hugging Face",
+      "summary": "Models, datasets and Spaces on the Hub.",
+      "mark": "HF",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "huggingface"
+      ],
+      "catalogs": [
+        {
+          "id": "huggingface",
+          "title": "Hugging Face",
+          "file": "huggingface.json",
+          "source": "https://huggingface.co/docs/hub/api"
+        }
+      ],
+      "mcp": {
+        "url": "https://hf.co/mcp",
+        "docs": "https://huggingface.co/docs/hub/en/hf-mcp-server"
+      }
+    },
+    {
+      "id": "ibm_cloud",
+      "name": "IBM Cloud",
+      "vendor": "IBM",
+      "summary": "IAM, VPC, Kubernetes and classic infra.",
+      "mark": "IC",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ibm_cloud"
+      ],
+      "catalogs": [
+        {
+          "id": "ibm_cloud",
+          "title": "IBM Cloud",
+          "file": "ibm_cloud.json",
+          "source": "https://cloud.ibm.com/apidocs"
+        }
+      ]
+    },
+    {
+      "id": "incident_io",
+      "name": "incident.io",
+      "vendor": "incident.io",
+      "summary": "Incidents, follow-ups and on-call.",
+      "mark": "IO",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "incident_io"
+      ],
+      "catalogs": [
+        {
+          "id": "incident_io",
+          "title": "incident.io",
+          "file": "incident_io.json",
+          "source": "https://api-docs.incident.io/"
+        }
+      ]
+    },
+    {
+      "id": "indeed",
+      "name": "Indeed",
+      "vendor": "Indeed",
+      "summary": "Jobs, applications and employer data.",
+      "mark": "ID",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "indeed"
+      ],
+      "catalogs": [
+        {
+          "id": "indeed",
+          "title": "Indeed",
+          "file": "indeed.json",
+          "source": "https://developer.indeed.com/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.indeed.com/claude/mcp",
+        "docs": "https://developer.indeed.com/"
+      }
+    },
+    {
+      "id": "intercom",
+      "name": "Intercom",
+      "vendor": "Intercom",
+      "summary": "Conversations, contacts and the help center.",
+      "mark": "IN",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "intercom"
+      ],
+      "catalogs": [
+        {
+          "id": "intercom",
+          "title": "Intercom",
+          "file": "intercom.json",
+          "source": "https://developers.intercom.com/docs/references/rest-api/api.intercom.io"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.intercom.com/sse",
+        "docs": "https://developers.intercom.com/docs/mcp"
+      }
+    },
+    {
+      "id": "ipinfo",
+      "name": "IPinfo",
+      "vendor": "IPinfo",
+      "summary": "IP geolocation, ASN and privacy detection.",
+      "mark": "IP",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ipinfo"
+      ],
+      "catalogs": [
+        {
+          "id": "ipinfo",
+          "title": "IPinfo",
+          "file": "ipinfo.json",
+          "source": "https://ipinfo.io/developers"
+        }
+      ]
+    },
+    {
+      "id": "ivanti",
+      "name": "Ivanti",
+      "vendor": "Ivanti",
+      "summary": "Neurons, Service Manager and endpoint.",
+      "mark": "IV",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ivanti"
+      ],
+      "catalogs": [
+        {
+          "id": "ivanti",
+          "title": "Ivanti",
+          "file": "ivanti.json",
+          "source": "https://help.ivanti.com/"
+        }
+      ]
+    },
+    {
+      "id": "jam",
+      "name": "Jam",
+      "vendor": "Jam.dev",
+      "summary": "Bug reports with video, console and network.",
+      "mark": "JA",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "jam"
+      ],
+      "catalogs": [
+        {
+          "id": "jam",
+          "title": "Jam",
+          "file": "jam.json",
+          "source": "https://jam.dev"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.jam.dev/mcp",
+        "docs": "https://jam.dev/docs/mcp"
+      }
+    },
+    {
+      "id": "jenkins",
+      "name": "Jenkins",
+      "vendor": "Jenkins",
+      "summary": "Jobs, queues and the remote access API.",
+      "mark": "JE",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "jenkins"
+      ],
+      "catalogs": [
+        {
+          "id": "jenkins",
+          "title": "Jenkins",
+          "file": "jenkins.json",
+          "source": "https://www.jenkins.io/doc/book/using/remote-access-api/"
+        }
+      ]
+    },
+    {
+      "id": "artifactory",
+      "name": "JFrog Artifactory",
+      "vendor": "JFrog",
+      "summary": "Artifacts, builds and Xray.",
+      "mark": "DF",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "artifactory"
+      ],
+      "catalogs": [
+        {
+          "id": "artifactory",
+          "title": "JFrog Artifactory",
+          "file": "artifactory.json",
+          "source": "https://jfrog.com/help/r/jfrog-rest-apis"
+        }
+      ]
+    },
+    {
+      "id": "jira_service_management",
+      "name": "Jira Service Management",
+      "vendor": "Atlassian",
+      "summary": "Requests, queues and assets. Uses the Atlassian Rovo MCP.",
+      "mark": "JS",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "swagger",
+        "account"
+      ],
+      "default_catalogs": [
+        "jira_service_management"
+      ],
+      "catalogs": [
+        {
+          "id": "jira_service_management",
+          "title": "Jira Service Management",
+          "file": "jira_service_management.json",
+          "source": "https://developer.atlassian.com/cloud/jira/service-desk/rest/intro/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.atlassian.com/v2/mcp",
+        "docs": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/"
+      }
+    },
+    {
+      "id": "juniper_mist",
+      "name": "Juniper Mist",
+      "vendor": "Juniper",
+      "summary": "Wi-Fi, SLE and org inventory.",
+      "mark": "JM",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "juniper_mist"
+      ],
+      "catalogs": [
+        {
+          "id": "juniper_mist",
+          "title": "Juniper Mist",
+          "file": "juniper_mist.json",
+          "source": "https://www.mist.com/documentation/mist-api-introduction/"
+        }
+      ]
+    },
+    {
+      "id": "keeper",
+      "name": "Keeper",
+      "vendor": "Keeper Security",
+      "summary": "Commander / Secrets Manager and vaults.",
+      "mark": "KR",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "keeper"
+      ],
+      "catalogs": [
+        {
+          "id": "keeper",
+          "title": "Keeper",
+          "file": "keeper.json",
+          "source": "https://docs.keeper.io/"
+        }
+      ]
+    },
+    {
+      "id": "keycloak",
+      "name": "Keycloak",
+      "vendor": "Keycloak",
+      "summary": "Realms, clients and users on the instance.",
+      "mark": "KE",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "keycloak"
+      ],
+      "catalogs": [
+        {
+          "id": "keycloak",
+          "title": "Keycloak",
+          "file": "keycloak.json",
+          "source": "https://www.keycloak.org/docs-api/latest/rest-api/index.html"
+        }
+      ]
+    },
+    {
+      "id": "klaviyo",
+      "name": "Klaviyo",
+      "vendor": "Klaviyo",
+      "summary": "Profiles, lists, campaigns and metrics.",
+      "mark": "KL",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "klaviyo"
+      ],
+      "catalogs": [
+        {
+          "id": "klaviyo",
+          "title": "Klaviyo",
+          "file": "klaviyo.json",
+          "source": "https://developers.klaviyo.com/en/reference/api-overview"
+        }
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "vendor": "CNCF",
+      "summary": "Official OpenAPI for the kube-apiserver.",
+      "mark": "KU",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "openapi",
+        "swagger"
+      ],
+      "default_catalogs": [
+        "kubernetes"
+      ],
+      "catalogs": [
+        {
+          "id": "kubernetes",
+          "title": "Kubernetes",
+          "file": "kubernetes.json",
+          "source": "https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/swagger.json"
+        }
+      ]
+    },
+    {
+      "id": "lastpass",
+      "name": "LastPass",
+      "vendor": "LastPass",
+      "summary": "Business provisioning and reporting.",
+      "mark": "LA",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "lastpass"
+      ],
+      "catalogs": [
+        {
+          "id": "lastpass",
+          "title": "LastPass",
+          "file": "lastpass.json",
+          "source": "https://support.lastpass.com/"
+        }
+      ]
+    },
+    {
+      "id": "launchdarkly",
+      "name": "LaunchDarkly",
+      "vendor": "LaunchDarkly",
+      "summary": "Flags, environments and experiments.",
+      "mark": "LY",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "launchdarkly"
+      ],
+      "catalogs": [
+        {
+          "id": "launchdarkly",
+          "title": "LaunchDarkly",
+          "file": "launchdarkly.json",
+          "source": "https://app.launchdarkly.com/api/v2/openapi.json"
+        }
+      ]
+    },
+    {
+      "id": "librenms",
+      "name": "LibreNMS",
+      "vendor": "LibreNMS",
+      "summary": "Devices, alerts and billing on the instance.",
+      "mark": "LS",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "librenms"
+      ],
+      "catalogs": [
+        {
+          "id": "librenms",
+          "title": "LibreNMS",
+          "file": "librenms.json",
+          "source": "https://docs.librenms.org/API/"
+        }
+      ]
+    },
+    {
+      "id": "logicmonitor",
+      "name": "LogicMonitor",
+      "vendor": "LogicMonitor",
+      "summary": "Devices, datasources and alerts.",
+      "mark": "LO",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "logicmonitor"
+      ],
+      "catalogs": [
+        {
+          "id": "logicmonitor",
+          "title": "LogicMonitor",
+          "file": "logicmonitor.json",
+          "source": "https://www.logicmonitor.com/support/rest-api-developers-guide/overview/using-logicmonitors-rest-api"
+        }
+      ]
+    },
+    {
+      "id": "mailchimp",
+      "name": "Mailchimp",
+      "vendor": "Intuit",
+      "summary": "Audiences, campaigns and automations.",
+      "mark": "D7",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mailchimp"
+      ],
+      "catalogs": [
+        {
+          "id": "mailchimp",
+          "title": "Mailchimp",
+          "file": "mailchimp.json",
+          "source": "https://mailchimp.com/developer/marketing/api/"
+        }
+      ]
+    },
+    {
+      "id": "mailgun",
+      "name": "Mailgun",
+      "vendor": "Sinch",
+      "summary": "Messages, domains, routes and logs.",
+      "mark": "D9",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mailgun"
+      ],
+      "catalogs": [
+        {
+          "id": "mailgun",
+          "title": "Mailgun",
+          "file": "mailgun.json",
+          "source": "https://documentation.mailgun.com/docs/mailgun/api-reference/"
+        }
+      ]
+    },
+    {
+      "id": "malware_patrol",
+      "name": "Malware Patrol",
+      "vendor": "Malware Patrol",
+      "summary": "Threat intel feeds and indicators.",
+      "mark": "BF",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "malware_patrol"
+      ],
+      "catalogs": [
+        {
+          "id": "malware_patrol",
+          "title": "Malware Patrol",
+          "file": "malware_patrol.json",
+          "source": "https://www.malwarepatrol.net"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.malwarepatrol.net/v1",
+        "docs": "https://www.malwarepatrol.net"
+      }
+    },
+    {
+      "id": "malwarebytes",
+      "name": "Malwarebytes",
+      "vendor": "Malwarebytes",
+      "summary": "Nebula endpoints, detections and isolation.",
+      "mark": "MS",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "malwarebytes"
+      ],
+      "catalogs": [
+        {
+          "id": "malwarebytes",
+          "title": "Malwarebytes",
+          "file": "malwarebytes.json",
+          "source": "https://api.malwarebytes.com/"
+        }
+      ]
+    },
+    {
+      "id": "manageengine_sdp",
+      "name": "ManageEngine ServiceDesk Plus",
+      "vendor": "Zoho",
+      "summary": "Tickets, assets and CMDB.",
+      "mark": "D2",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "manageengine_sdp"
+      ],
+      "catalogs": [
+        {
+          "id": "manageengine_sdp",
+          "title": "ManageEngine ServiceDesk Plus",
+          "file": "manageengine_sdp.json",
+          "source": "https://www.manageengine.com/products/service-desk/sdpod-v3-api.html"
+        }
+      ]
+    },
+    {
+      "id": "mattermost",
+      "name": "Mattermost",
+      "vendor": "Mattermost",
+      "summary": "Teams, channels and posts on the instance.",
+      "mark": "MT",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mattermost"
+      ],
+      "catalogs": [
+        {
+          "id": "mattermost",
+          "title": "Mattermost",
+          "file": "mattermost.json",
+          "source": "https://api.mattermost.com/"
+        }
+      ]
+    },
+    {
+      "id": "maxmind",
+      "name": "MaxMind",
+      "vendor": "MaxMind",
+      "summary": "GeoIP, minFraud and the web services.",
+      "mark": "FE",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "maxmind"
+      ],
+      "catalogs": [
+        {
+          "id": "maxmind",
+          "title": "MaxMind",
+          "file": "maxmind.json",
+          "source": "https://dev.maxmind.com/geoip/docs/web-services"
+        }
+      ]
+    },
+    {
+      "id": "meilisearch",
+      "name": "Meilisearch",
+      "vendor": "Meilisearch",
+      "summary": "Search indexes on the instance.",
+      "mark": "MH",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "meilisearch"
+      ],
+      "catalogs": [
+        {
+          "id": "meilisearch",
+          "title": "Meilisearch",
+          "file": "meilisearch.json",
+          "source": "https://www.meilisearch.com/docs/reference/api/overview"
+        }
+      ]
+    },
+    {
+      "id": "mend",
+      "name": "Mend",
+      "vendor": "Mend",
+      "summary": "SCA, SAST and supply-chain security.",
+      "mark": "BY",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mend"
+      ],
+      "catalogs": [
+        {
+          "id": "mend",
+          "title": "Mend",
+          "file": "mend.json",
+          "source": "https://docs.mend.io/"
+        }
+      ]
+    },
+    {
+      "id": "mercado_libre",
+      "name": "Mercado Libre",
+      "vendor": "Mercado Libre",
+      "summary": "Listings, orders and the marketplace.",
+      "mark": "ML",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mercado_libre"
+      ],
+      "catalogs": [
+        {
+          "id": "mercado_libre",
+          "title": "Mercado Libre",
+          "file": "mercado_libre.json",
+          "source": "https://developers.mercadolibre.com.ar/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.mercadolibre.com/mcp",
+        "docs": "https://mcp.mercadolibre.com/"
+      }
+    },
+    {
+      "id": "mercado_pago",
+      "name": "Mercado Pago",
+      "vendor": "Mercado Pago",
+      "summary": "Payments, payouts and checkout.",
+      "mark": "ME",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mercado_pago"
+      ],
+      "catalogs": [
+        {
+          "id": "mercado_pago",
+          "title": "Mercado Pago",
+          "file": "mercado_pago.json",
+          "source": "https://www.mercadopago.com/developers/en/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.mercadopago.com/mcp",
+        "docs": "https://mcp.mercadopago.com/"
+      }
+    },
+    {
+      "id": "defender_endpoint",
+      "name": "Microsoft Defender for Endpoint",
+      "vendor": "Microsoft",
+      "summary": "Alerts, machines and hunting. Graph / security.",
+      "mark": "MD",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "defender_endpoint"
+      ],
+      "catalogs": [
+        {
+          "id": "defender_endpoint",
+          "title": "Microsoft Defender for Endpoint",
+          "file": "defender_endpoint.json",
+          "source": "https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/api/apis-intro"
+        }
+      ]
+    },
+    {
+      "id": "entra",
+      "name": "Microsoft Entra ID",
+      "vendor": "Microsoft",
+      "summary": "Users, groups, apps and conditional access.",
+      "mark": "EN",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "entra"
+      ],
+      "catalogs": [
+        {
+          "id": "entra",
+          "title": "Microsoft Entra ID",
+          "file": "entra.json",
+          "source": "https://learn.microsoft.com/en-us/graph/api/resources/azure-ad-overview"
+        }
+      ]
+    },
+    {
+      "id": "intune",
+      "name": "Microsoft Intune",
+      "vendor": "Microsoft",
+      "summary": "Devices, apps and compliance. Graph deviceManagement.",
+      "mark": "IE",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "intune"
+      ],
+      "catalogs": [
+        {
+          "id": "intune",
+          "title": "Microsoft Intune",
+          "file": "intune.json",
+          "source": "https://learn.microsoft.com/en-us/graph/api/resources/intune-graph-overview"
+        }
+      ]
+    },
+    {
+      "id": "microsoft_learn",
+      "name": "Microsoft Learn",
+      "vendor": "Microsoft",
+      "summary": "Search official Microsoft documentation.",
+      "mark": "MN",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "microsoft_learn"
+      ],
+      "catalogs": [
+        {
+          "id": "microsoft_learn",
+          "title": "Microsoft Learn",
+          "file": "microsoft_learn.json",
+          "source": "https://learn.microsoft.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://learn.microsoft.com/api/mcp",
+        "docs": "https://learn.microsoft.com/en-us/training/support/mcp"
+      }
+    },
+    {
+      "id": "microsoft_teams",
+      "name": "Microsoft Teams",
+      "vendor": "Microsoft",
+      "summary": "Chats, channels and meetings via Graph.",
+      "mark": "E2",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "microsoft_teams"
+      ],
+      "catalogs": [
+        {
+          "id": "microsoft_teams",
+          "title": "Microsoft Teams",
+          "file": "microsoft_teams.json",
+          "source": "https://learn.microsoft.com/en-us/graph/api/resources/teams-api-overview"
+        }
+      ]
+    },
+    {
+      "id": "minio",
+      "name": "MinIO",
+      "vendor": "MinIO",
+      "summary": "S3-compatible object storage on the instance.",
+      "mark": "DT",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "minio"
+      ],
+      "catalogs": [
+        {
+          "id": "minio",
+          "title": "MinIO",
+          "file": "minio.json",
+          "source": "https://min.io/docs/minio/linux/developers/minio-drivers.html"
+        }
+      ]
+    },
+    {
+      "id": "miro",
+      "name": "Miro",
+      "vendor": "Miro",
+      "summary": "Boards, frames, stickies and diagrams.",
+      "mark": "MI",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "miro"
+      ],
+      "catalogs": [
+        {
+          "id": "miro",
+          "title": "Miro",
+          "file": "miro.json",
+          "source": "https://developers.miro.com/reference"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.miro.com/",
+        "docs": "https://developers.miro.com/docs/miro-mcp"
+      }
+    },
+    {
+      "id": "misp",
+      "name": "MISP",
+      "vendor": "MISP Project",
+      "summary": "Threat intel sharing on the instance.",
+      "mark": "B1",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "misp"
+      ],
+      "catalogs": [
+        {
+          "id": "misp",
+          "title": "MISP",
+          "file": "misp.json",
+          "source": "https://www.misp-project.org/documentation/"
+        }
+      ]
+    },
+    {
+      "id": "mixpanel",
+      "name": "Mixpanel",
+      "vendor": "Mixpanel",
+      "summary": "Events, funnels, experiments and cohorts.",
+      "mark": "A8",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mixpanel"
+      ],
+      "catalogs": [
+        {
+          "id": "mixpanel",
+          "title": "Mixpanel",
+          "file": "mixpanel.json",
+          "source": "https://developer.mixpanel.com/reference/overview"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.mixpanel.com/mcp",
+        "docs": "https://docs.mixpanel.com/docs/features/mcp"
+      }
+    },
+    {
+      "id": "monday",
+      "name": "monday.com",
+      "vendor": "monday.com",
+      "summary": "Boards, items and work OS workflows.",
+      "mark": "MO",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "monday"
+      ],
+      "catalogs": [
+        {
+          "id": "monday",
+          "title": "monday.com",
+          "file": "monday.json",
+          "source": "https://developer.monday.com/api-reference/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.monday.com/sse",
+        "docs": "https://support.monday.com/hc/en-us/articles/28588158981266-Get-started-with-monday-MCP"
+      }
+    },
+    {
+      "id": "mongodb_atlas",
+      "name": "MongoDB Atlas",
+      "vendor": "MongoDB",
+      "summary": "Clusters, users and Atlas admin. Official MCP is local or Atlas-hosted.",
+      "mark": "MA",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "mongodb_atlas"
+      ],
+      "catalogs": [
+        {
+          "id": "mongodb_atlas",
+          "title": "MongoDB Atlas",
+          "file": "mongodb_atlas.json",
+          "source": "https://www.mongodb.com/docs/atlas/api/atlas-admin-api/"
+        }
+      ],
+      "mcp": {
+        "docs": "https://www.mongodb.com/docs/mcp-server/"
+      }
+    },
+    {
+      "id": "namecheap",
+      "name": "Namecheap",
+      "vendor": "Namecheap",
+      "summary": "Domains and DNS (XML API).",
+      "mark": "NA",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "namecheap"
+      ],
+      "catalogs": [
+        {
+          "id": "namecheap",
+          "title": "Namecheap",
+          "file": "namecheap.json",
+          "source": "https://www.namecheap.com/support/api/"
+        }
+      ]
+    },
+    {
+      "id": "neon",
+      "name": "Neon",
+      "vendor": "Neon",
+      "summary": "Serverless Postgres projects and branches.",
+      "mark": "NE",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "neon"
+      ],
+      "catalogs": [
+        {
+          "id": "neon",
+          "title": "Neon",
+          "file": "neon.json",
+          "source": "https://api-docs.neon.tech/reference/getting-started-with-neon-api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.neon.tech/mcp",
+        "docs": "https://neon.tech/docs/ai/neon-mcp-server"
+      }
+    },
+    {
+      "id": "netlify",
+      "name": "Netlify",
+      "vendor": "Netlify",
+      "summary": "Sites, deploys, functions and forms.",
+      "mark": "NY",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "netlify"
+      ],
+      "catalogs": [
+        {
+          "id": "netlify",
+          "title": "Netlify",
+          "file": "netlify.json",
+          "source": "https://raw.githubusercontent.com/netlify/open-api/master/swagger.yml"
+        }
+      ],
+      "mcp": {
+        "url": "https://netlify-mcp.netlify.app/mcp",
+        "docs": "https://docs.netlify.com/mcp"
+      }
+    },
+    {
+      "id": "netskope",
+      "name": "Netskope",
+      "vendor": "Netskope",
+      "summary": "SASE, CASB and private access.",
+      "mark": "CV",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "netskope"
+      ],
+      "catalogs": [
+        {
+          "id": "netskope",
+          "title": "Netskope",
+          "file": "netskope.json",
+          "source": "https://docs.netskope.com/"
+        }
+      ]
+    },
+    {
+      "id": "newrelic",
+      "name": "New Relic",
+      "vendor": "New Relic",
+      "summary": "APM, NRQL, logs and alerts.",
+      "mark": "NR",
+      "tone": "query",
+      "tags": [
+        "graphql",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "newrelic"
+      ],
+      "catalogs": [
+        {
+          "id": "newrelic",
+          "title": "New Relic",
+          "file": "newrelic.json",
+          "source": "https://docs.newrelic.com/docs/apis/intro-apis/introduction-new-relic-apis/"
+        }
+      ]
+    },
+    {
+      "id": "nextcloud",
+      "name": "Nextcloud",
+      "vendor": "Nextcloud",
+      "summary": "Files, Talk, users and OCS on the instance.",
+      "mark": "DV",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "nextcloud"
+      ],
+      "catalogs": [
+        {
+          "id": "nextcloud",
+          "title": "Nextcloud",
+          "file": "nextcloud.json",
+          "source": "https://docs.nextcloud.com/server/latest/developer_manual/client_apis/OCS/ocs-api-overview.html"
+        }
+      ]
+    },
+    {
+      "id": "nextdns",
+      "name": "NextDNS",
+      "vendor": "NextDNS",
+      "summary": "DNS profiles, analytics and denylist.",
+      "mark": "C1",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "nextdns"
+      ],
+      "catalogs": [
+        {
+          "id": "nextdns",
+          "title": "NextDNS",
+          "file": "nextdns.json",
+          "source": "https://nextdns.io/docs/api"
+        }
+      ]
+    },
+    {
+      "id": "nomad",
+      "name": "Nomad",
+      "vendor": "HashiCorp",
+      "summary": "Jobs, allocations and nodes.",
+      "mark": "ND",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "nomad"
+      ],
+      "catalogs": [
+        {
+          "id": "nomad",
+          "title": "Nomad",
+          "file": "nomad.json",
+          "source": "https://developer.hashicorp.com/nomad/api-docs"
+        }
+      ]
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "vendor": "Notion",
+      "summary": "Pages, databases and workspace search.",
+      "mark": "NO",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "notion"
+      ],
+      "catalogs": [
+        {
+          "id": "notion",
+          "title": "Notion",
+          "file": "notion.json",
+          "source": "https://developers.notion.com/reference/intro"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.notion.com/mcp",
+        "docs": "https://developers.notion.com/docs/mcp"
+      }
+    },
+    {
+      "id": "onelogin",
+      "name": "OneLogin",
+      "vendor": "One Identity",
+      "summary": "Users, roles and SSO.",
+      "mark": "CG",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "onelogin"
+      ],
+      "catalogs": [
+        {
+          "id": "onelogin",
+          "title": "OneLogin",
+          "file": "onelogin.json",
+          "source": "https://developers.onelogin.com/"
+        }
+      ]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "vendor": "OpenAI",
+      "summary": "Responses, Assistants and the platform API.",
+      "mark": "FP",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "openai"
+      ],
+      "catalogs": [
+        {
+          "id": "openai",
+          "title": "OpenAI",
+          "file": "openai.json",
+          "source": "https://platform.openai.com/docs/api-reference"
+        }
+      ]
+    },
+    {
+      "id": "opencti",
+      "name": "OpenCTI",
+      "vendor": "Filigran",
+      "summary": "Threat intel knowledge graph.",
+      "mark": "OI",
+      "tone": "query",
+      "tags": [
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "opencti"
+      ],
+      "catalogs": [
+        {
+          "id": "opencti",
+          "title": "OpenCTI",
+          "file": "opencti.json",
+          "source": "https://docs.opencti.io/"
+        }
+      ]
+    },
+    {
+      "id": "openshift",
+      "name": "OpenShift",
+      "vendor": "Red Hat",
+      "summary": "Projects, builds and routes on the cluster.",
+      "mark": "OT",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "openshift"
+      ],
+      "catalogs": [
+        {
+          "id": "openshift",
+          "title": "OpenShift",
+          "file": "openshift.json",
+          "source": "https://docs.openshift.com/container-platform/latest/rest_api/index.html"
+        }
+      ]
+    },
+    {
+      "id": "openzeppelin",
+      "name": "OpenZeppelin",
+      "vendor": "OpenZeppelin",
+      "summary": "Solidity contracts docs for agents.",
+      "mark": "ON",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "openzeppelin"
+      ],
+      "catalogs": [
+        {
+          "id": "openzeppelin",
+          "title": "OpenZeppelin",
+          "file": "openzeppelin.json",
+          "source": "https://docs.openzeppelin.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.openzeppelin.com/contracts/solidity/mcp",
+        "docs": "https://docs.openzeppelin.com"
+      }
+    },
+    {
+      "id": "opsgenie",
+      "name": "Opsgenie",
+      "vendor": "Atlassian",
+      "summary": "Alerts, on-call and schedules.",
+      "mark": "OE",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "opsgenie"
+      ],
+      "catalogs": [
+        {
+          "id": "opsgenie",
+          "title": "Opsgenie",
+          "file": "opsgenie.json",
+          "source": "https://docs.opsgenie.com/docs/api-overview"
+        }
+      ]
+    },
+    {
+      "id": "opslevel",
+      "name": "OpsLevel",
+      "vendor": "OpsLevel",
+      "summary": "Service catalog, checks and maturity.",
+      "mark": "OL",
+      "tone": "query",
+      "tags": [
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "opslevel"
+      ],
+      "catalogs": [
+        {
+          "id": "opslevel",
+          "title": "OpsLevel",
+          "file": "opslevel.json",
+          "source": "https://docs.opslevel.com/docs/graphql"
+        }
+      ]
+    },
+    {
+      "id": "oracle_cloud",
+      "name": "Oracle Cloud",
+      "vendor": "Oracle",
+      "summary": "Compute, VCN, database and IAM.",
+      "mark": "OC",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "oracle_cloud"
+      ],
+      "catalogs": [
+        {
+          "id": "oracle_cloud",
+          "title": "Oracle Cloud",
+          "file": "oracle_cloud.json",
+          "source": "https://docs.oracle.com/en-us/iaas/api/"
+        }
+      ]
+    },
+    {
+      "id": "orca",
+      "name": "Orca Security",
+      "vendor": "Orca Security",
+      "summary": "Cloud detections, inventory and compliance.",
+      "mark": "OR",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "orca"
+      ],
+      "catalogs": [
+        {
+          "id": "orca",
+          "title": "Orca Security",
+          "file": "orca.json",
+          "source": "https://docs.orcasecurity.io/"
+        }
+      ]
+    },
+    {
+      "id": "owncloud",
+      "name": "ownCloud",
+      "vendor": "ownCloud",
+      "summary": "Files and sharing on the instance.",
+      "mark": "OW",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "owncloud"
+      ],
+      "catalogs": [
+        {
+          "id": "owncloud",
+          "title": "ownCloud",
+          "file": "owncloud.json",
+          "source": "https://doc.owncloud.com/server/next/developer_manual/core/apis/ocs-share-api.html"
+        }
+      ]
+    },
+    {
+      "id": "palo_alto",
+      "name": "Palo Alto Networks",
+      "vendor": "Palo Alto Networks",
+      "summary": "PAN-OS, Prisma and Strata APIs on pan.dev.",
+      "mark": "BJ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "palo_alto"
+      ],
+      "catalogs": [
+        {
+          "id": "palo_alto",
+          "title": "Palo Alto Networks",
+          "file": "palo_alto.json",
+          "source": "https://pan.dev"
+        }
+      ]
+    },
+    {
+      "id": "parallel_search",
+      "name": "Parallel Search",
+      "vendor": "Parallel Web Systems",
+      "summary": "Web search for agents.",
+      "mark": "PH",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "parallel_search"
+      ],
+      "catalogs": [
+        {
+          "id": "parallel_search",
+          "title": "Parallel Search",
+          "file": "parallel_search.json",
+          "source": "https://parallel.ai"
+        }
+      ],
+      "mcp": {
+        "url": "https://search-mcp.parallel.ai/mcp",
+        "docs": "https://docs.parallel.ai"
+      }
+    },
+    {
+      "id": "parallel_task",
+      "name": "Parallel Task",
+      "vendor": "Parallel Web Systems",
+      "summary": "Long-running web research tasks.",
+      "mark": "PK",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "parallel_task"
+      ],
+      "catalogs": [
+        {
+          "id": "parallel_task",
+          "title": "Parallel Task",
+          "file": "parallel_task.json",
+          "source": "https://parallel.ai"
+        }
+      ],
+      "mcp": {
+        "url": "https://task-mcp.parallel.ai/mcp",
+        "docs": "https://docs.parallel.ai"
+      }
+    },
+    {
+      "id": "pennylane",
+      "name": "Pennylane",
+      "vendor": "Pennylane",
+      "summary": "Invoices, bank lines and accounting (beta MCP).",
+      "mark": "PE",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "pennylane"
+      ],
+      "catalogs": [
+        {
+          "id": "pennylane",
+          "title": "Pennylane",
+          "file": "pennylane.json",
+          "source": "https://pennylane.readme.io/"
+        }
+      ],
+      "mcp": {
+        "url": "https://app.pennylane.com/mcp/messages",
+        "docs": "https://pennylane-mcp.readme.io/docs/getting-started"
+      }
+    },
+    {
+      "id": "pinecone",
+      "name": "Pinecone",
+      "vendor": "Pinecone",
+      "summary": "Indexes, vectors and inference.",
+      "mark": "FU",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "pinecone"
+      ],
+      "catalogs": [
+        {
+          "id": "pinecone",
+          "title": "Pinecone",
+          "file": "pinecone.json",
+          "source": "https://docs.pinecone.io/reference/api/introduction"
+        }
+      ]
+    },
+    {
+      "id": "ping_identity",
+      "name": "Ping Identity",
+      "vendor": "Ping Identity",
+      "summary": "Workforce identity and federation.",
+      "mark": "PY",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ping_identity"
+      ],
+      "catalogs": [
+        {
+          "id": "ping_identity",
+          "title": "Ping Identity",
+          "file": "ping_identity.json",
+          "source": "https://apidocs.pingidentity.com/"
+        }
+      ]
+    },
+    {
+      "id": "pingdom",
+      "name": "Pingdom",
+      "vendor": "SolarWinds",
+      "summary": "Uptime checks and transaction probes.",
+      "mark": "PM",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "pingdom"
+      ],
+      "catalogs": [
+        {
+          "id": "pingdom",
+          "title": "Pingdom",
+          "file": "pingdom.json",
+          "source": "https://docs.pingdom.com/api-documentation/"
+        }
+      ]
+    },
+    {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "vendor": "Pipedrive",
+      "summary": "Deals, contacts, leads and pipeline.",
+      "mark": "PI",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "pipedrive"
+      ],
+      "catalogs": [
+        {
+          "id": "pipedrive",
+          "title": "Pipedrive",
+          "file": "pipedrive.json",
+          "source": "https://developers.pipedrive.com/docs/api/v1"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.pipedrive.ai/mcp",
+        "docs": "https://www.pipedrive.com/en/features/mcp-server"
+      }
+    },
+    {
+      "id": "plaid",
+      "name": "Plaid",
+      "vendor": "Plaid",
+      "summary": "Bank linking, balances and transactions.",
+      "mark": "PL",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "plaid"
+      ],
+      "catalogs": [
+        {
+          "id": "plaid",
+          "title": "Plaid",
+          "file": "plaid.json",
+          "source": "https://plaid.com/docs/api/"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.dashboard.plaid.com/mcp/sse",
+        "docs": "https://plaid.com/docs/mcp/"
+      }
+    },
+    {
+      "id": "planetscale",
+      "name": "PlanetScale",
+      "vendor": "PlanetScale",
+      "summary": "Branches, deploys and the database API.",
+      "mark": "F0",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "planetscale"
+      ],
+      "catalogs": [
+        {
+          "id": "planetscale",
+          "title": "PlanetScale",
+          "file": "planetscale.json",
+          "source": "https://api-docs.planetscale.com/"
+        }
+      ]
+    },
+    {
+      "id": "port",
+      "name": "Port",
+      "vendor": "Port",
+      "summary": "Internal developer portal, catalog and scorecards.",
+      "mark": "PO",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "port"
+      ],
+      "catalogs": [
+        {
+          "id": "port",
+          "title": "Port",
+          "file": "port.json",
+          "source": "https://docs.port.io/api-reference/port-api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.port.io/v1",
+        "docs": "https://docs.port.io/mcp"
+      }
+    },
+    {
+      "id": "posthog",
+      "name": "PostHog",
+      "vendor": "PostHog",
+      "summary": "Analytics, flags, experiments and session replay.",
+      "mark": "AX",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "posthog"
+      ],
+      "catalogs": [
+        {
+          "id": "posthog",
+          "title": "PostHog",
+          "file": "posthog.json",
+          "source": "https://posthog.com/docs/api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.posthog.com/mcp",
+        "docs": "https://posthog.com/docs/model-context-protocol"
+      }
+    },
+    {
+      "id": "postman",
+      "name": "Postman",
+      "vendor": "Postman",
+      "summary": "Collections, environments and API testing.",
+      "mark": "PN",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "postman"
+      ],
+      "catalogs": [
+        {
+          "id": "postman",
+          "title": "Postman",
+          "file": "postman.json",
+          "source": "https://www.postman.com/postman/workspace/postman-public-workspace/documentation"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.postman.com/minimal",
+        "docs": "https://github.com/postmanlabs/postman-mcp-server/blob/main/README.md"
+      }
+    },
+    {
+      "id": "postmark",
+      "name": "Postmark",
+      "vendor": "ActiveCampaign",
+      "summary": "Transactional mail and servers.",
+      "mark": "EA",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "postmark"
+      ],
+      "catalogs": [
+        {
+          "id": "postmark",
+          "title": "Postmark",
+          "file": "postmark.json",
+          "source": "https://postmarkapp.com/developer"
+        }
+      ]
+    },
+    {
+      "id": "prisma_cloud",
+      "name": "Prisma Cloud",
+      "vendor": "Palo Alto Networks",
+      "summary": "CSPM, CWPP and cloud posture.",
+      "mark": "PC",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "prisma_cloud"
+      ],
+      "catalogs": [
+        {
+          "id": "prisma_cloud",
+          "title": "Prisma Cloud",
+          "file": "prisma_cloud.json",
+          "source": "https://pan.dev/prisma-cloud/"
+        }
+      ]
+    },
+    {
+      "id": "prisma",
+      "name": "Prisma Postgres",
+      "vendor": "Prisma",
+      "summary": "Prisma Postgres instances and schema.",
+      "mark": "PA",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "prisma"
+      ],
+      "catalogs": [
+        {
+          "id": "prisma",
+          "title": "Prisma Postgres",
+          "file": "prisma.json",
+          "source": "https://www.prisma.io/docs/postgres/introduction"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.prisma.io/mcp",
+        "docs": "https://www.prisma.io/docs/postgres/integrations/mcp-server"
+      }
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "vendor": "Prometheus",
+      "summary": "Instant and range queries on the instance.",
+      "mark": "B6",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "prometheus"
+      ],
+      "catalogs": [
+        {
+          "id": "prometheus",
+          "title": "Prometheus",
+          "file": "prometheus.json",
+          "source": "https://prometheus.io/docs/prometheus/latest/querying/api/"
+        }
+      ]
+    },
+    {
+      "id": "pulumi",
+      "name": "Pulumi",
+      "vendor": "Pulumi",
+      "summary": "Stacks, previews and the Cloud API.",
+      "mark": "PU",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "pulumi"
+      ],
+      "catalogs": [
+        {
+          "id": "pulumi",
+          "title": "Pulumi",
+          "file": "pulumi.json",
+          "source": "https://www.pulumi.com/docs/pulumi-cloud/reference/cloud-rest-api/"
+        }
+      ]
+    },
+    {
+      "id": "qnap",
+      "name": "QNAP",
+      "vendor": "QNAP",
+      "summary": "NAS volumes, apps and QTS on the appliance.",
+      "mark": "QN",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "qnap"
+      ],
+      "catalogs": [
+        {
+          "id": "qnap",
+          "title": "QNAP",
+          "file": "qnap.json",
+          "source": "https://www.qnap.com/en/how-to"
+        }
+      ]
+    },
+    {
+      "id": "qualys",
+      "name": "Qualys",
+      "vendor": "Qualys",
+      "summary": "VMDR, assets and scan results.",
+      "mark": "QU",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "qualys"
+      ],
+      "catalogs": [
+        {
+          "id": "qualys",
+          "title": "Qualys",
+          "file": "qualys.json",
+          "source": "https://www.qualys.com/docs/"
+        }
+      ]
+    },
+    {
+      "id": "railway",
+      "name": "Railway",
+      "vendor": "Railway",
+      "summary": "Projects, services and deployments (GraphQL).",
+      "mark": "RY",
+      "tone": "write",
+      "tags": [
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "railway"
+      ],
+      "catalogs": [
+        {
+          "id": "railway",
+          "title": "Railway",
+          "file": "railway.json",
+          "source": "https://docs.railway.app/guides/manage-services-with-public-api"
+        }
+      ]
+    },
+    {
+      "id": "ramp",
+      "name": "Ramp",
+      "vendor": "Ramp",
+      "summary": "Cards, expenses and spend data.",
+      "mark": "RA",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "ramp"
+      ],
+      "catalogs": [
+        {
+          "id": "ramp",
+          "title": "Ramp",
+          "file": "ramp.json",
+          "source": "https://docs.ramp.com/developer-api/v1/overview"
+        }
+      ],
+      "mcp": {
+        "url": "https://ramp-mcp-remote.ramp.com/mcp",
+        "docs": "https://docs.ramp.com/mcp"
+      }
+    },
+    {
+      "id": "rancher",
+      "name": "Rancher",
+      "vendor": "SUSE",
+      "summary": "Clusters, projects and auth on the manager.",
+      "mark": "RR",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "rancher"
+      ],
+      "catalogs": [
+        {
+          "id": "rancher",
+          "title": "Rancher",
+          "file": "rancher.json",
+          "source": "https://ranchermanager.docs.rancher.com/api/"
+        }
+      ]
+    },
+    {
+      "id": "rapid7",
+      "name": "Rapid7",
+      "vendor": "Rapid7",
+      "summary": "InsightVM, InsightIDR and insight platform APIs.",
+      "mark": "R7",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "rapid7"
+      ],
+      "catalogs": [
+        {
+          "id": "rapid7",
+          "title": "Rapid7",
+          "file": "rapid7.json",
+          "source": "https://docs.rapid7.com/"
+        }
+      ]
+    },
+    {
+      "id": "recorded_future",
+      "name": "Recorded Future",
+      "vendor": "Recorded Future",
+      "summary": "Threat intel, risk and detections.",
+      "mark": "RF",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "recorded_future"
+      ],
+      "catalogs": [
+        {
+          "id": "recorded_future",
+          "title": "Recorded Future",
+          "file": "recorded_future.json",
+          "source": "https://docs.recordedfuture.com/"
+        }
+      ]
+    },
+    {
+      "id": "redis_cloud",
+      "name": "Redis Cloud",
+      "vendor": "Redis",
+      "summary": "Subscriptions, databases and the Cloud API.",
+      "mark": "FZ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "redis_cloud"
+      ],
+      "catalogs": [
+        {
+          "id": "redis_cloud",
+          "title": "Redis Cloud",
+          "file": "redis_cloud.json",
+          "source": "https://redis.io/docs/latest/operate/rc/api/"
+        }
+      ]
+    },
+    {
+      "id": "render",
+      "name": "Render",
+      "vendor": "Render",
+      "summary": "Services, deploys, databases and cron.",
+      "mark": "RE",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "render"
+      ],
+      "catalogs": [
+        {
+          "id": "render",
+          "title": "Render",
+          "file": "render.json",
+          "source": "https://api-docs.render.com/reference/introduction"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.render.com/mcp",
+        "docs": "https://render.com/docs/mcp-server"
+      }
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "vendor": "Replicate",
+      "summary": "Run, search and compare hosted ML models.",
+      "mark": "A4",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "replicate"
+      ],
+      "catalogs": [
+        {
+          "id": "replicate",
+          "title": "Replicate",
+          "file": "replicate.json",
+          "source": "https://replicate.com/docs/reference/http"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.replicate.com/sse",
+        "docs": "https://replicate.com/docs/reference/mcp"
+      }
+    },
+    {
+      "id": "resend",
+      "name": "Resend",
+      "vendor": "Resend",
+      "summary": "Transactional email API.",
+      "mark": "EB",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "resend"
+      ],
+      "catalogs": [
+        {
+          "id": "resend",
+          "title": "Resend",
+          "file": "resend.json",
+          "source": "https://resend.com/docs/api-reference/introduction"
+        }
+      ]
+    },
+    {
+      "id": "rippling",
+      "name": "Rippling",
+      "vendor": "Rippling",
+      "summary": "HRIS, devices, apps and payroll.",
+      "mark": "RI",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "rippling"
+      ],
+      "catalogs": [
+        {
+          "id": "rippling",
+          "title": "Rippling",
+          "file": "rippling.json",
+          "source": "https://developer.rippling.com/"
+        }
+      ]
+    },
+    {
+      "id": "rocket_chat",
+      "name": "Rocket.Chat",
+      "vendor": "Rocket.Chat",
+      "summary": "Rooms, users and livechat.",
+      "mark": "RO",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "rocket_chat"
+      ],
+      "catalogs": [
+        {
+          "id": "rocket_chat",
+          "title": "Rocket.Chat",
+          "file": "rocket_chat.json",
+          "source": "https://developer.rocket.chat/reference/api"
+        }
+      ]
+    },
+    {
+      "id": "rubrik",
+      "name": "Rubrik",
+      "vendor": "Rubrik",
+      "summary": "Snapshots, SLA domains and Polar.",
+      "mark": "RU",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "rubrik"
+      ],
+      "catalogs": [
+        {
+          "id": "rubrik",
+          "title": "Rubrik",
+          "file": "rubrik.json",
+          "source": "https://github.com/rubrikinc/rubrik-sdk-for-python"
+        }
+      ]
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "vendor": "Salesforce",
+      "summary": "CRM objects. Official MCP is org-specific under Setup.",
+      "mark": "BH",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "salesforce"
+      ],
+      "catalogs": [
+        {
+          "id": "salesforce",
+          "title": "Salesforce",
+          "file": "salesforce.json",
+          "source": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm"
+        }
+      ]
+    },
+    {
+      "id": "sanity",
+      "name": "Sanity",
+      "vendor": "Sanity",
+      "summary": "Content, datasets, schemas and releases.",
+      "mark": "A5",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "graphql",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sanity"
+      ],
+      "catalogs": [
+        {
+          "id": "sanity",
+          "title": "Sanity",
+          "file": "sanity.json",
+          "source": "https://www.sanity.io/docs/http-api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.sanity.io",
+        "docs": "https://www.sanity.io/docs/compute-and-ai/mcp-server"
+      }
+    },
+    {
+      "id": "scaleway",
+      "name": "Scaleway",
+      "vendor": "Scaleway",
+      "summary": "Instances, Kubernetes, Object Storage and DNS.",
+      "mark": "DQ",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "scaleway"
+      ],
+      "catalogs": [
+        {
+          "id": "scaleway",
+          "title": "Scaleway",
+          "file": "scaleway.json",
+          "source": "https://www.scaleway.com/en/developers/api/"
+        }
+      ]
+    },
+    {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "vendor": "Semgrep",
+      "summary": "SAST findings and code security rules.",
+      "mark": "AL",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "semgrep"
+      ],
+      "catalogs": [
+        {
+          "id": "semgrep",
+          "title": "Semgrep",
+          "file": "semgrep.json",
+          "source": "https://semgrep.dev/api/v1/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.semgrep.ai/mcp",
+        "docs": "https://semgrep.dev/docs/mcp"
+      }
+    },
+    {
+      "id": "semrush",
+      "name": "Semrush",
+      "vendor": "Semrush",
+      "summary": "SEO, traffic and keyword data.",
+      "mark": "AN",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "semrush"
+      ],
+      "catalogs": [
+        {
+          "id": "semrush",
+          "title": "Semrush",
+          "file": "semrush.json",
+          "source": "https://developer.semrush.com/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.semrush.com/v1/mcp",
+        "docs": "https://developer.semrush.com/api/v3/mcp/"
+      }
+    },
+    {
+      "id": "sendgrid",
+      "name": "SendGrid",
+      "vendor": "Twilio",
+      "summary": "Transactional mail, templates and stats.",
+      "mark": "D8",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "sendgrid"
+      ],
+      "catalogs": [
+        {
+          "id": "sendgrid",
+          "title": "SendGrid",
+          "file": "sendgrid.json",
+          "source": "https://raw.githubusercontent.com/sendgrid/sendgrid-oai/main/oai.json"
+        }
+      ]
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "vendor": "Sentry",
+      "summary": "Errors, issues and performance traces.",
+      "mark": "AG",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sentry"
+      ],
+      "catalogs": [
+        {
+          "id": "sentry",
+          "title": "Sentry",
+          "file": "sentry.json",
+          "source": "https://docs.sentry.io/api/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.sentry.dev/mcp",
+        "docs": "https://docs.sentry.io/product/sentry-mcp/"
+      }
+    },
+    {
+      "id": "shodan",
+      "name": "Shodan",
+      "vendor": "Shodan",
+      "summary": "Internet-wide device and service search.",
+      "mark": "B0",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "shodan"
+      ],
+      "catalogs": [
+        {
+          "id": "shodan",
+          "title": "Shodan",
+          "file": "shodan.json",
+          "source": "https://developer.shodan.io/"
+        }
+      ]
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "vendor": "Shopify",
+      "summary": "Admin, catalog and storefront for a shop.",
+      "mark": "SH",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "graphql",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "shopify"
+      ],
+      "catalogs": [
+        {
+          "id": "shopify",
+          "title": "Shopify",
+          "file": "shopify.json",
+          "source": "https://shopify.dev/docs/api/admin-rest"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.shopify.com/mcp",
+        "docs": "https://shopify.dev/docs/apps/build/devmcp"
+      }
+    },
+    {
+      "id": "shortcut",
+      "name": "Shortcut",
+      "vendor": "Shortcut",
+      "summary": "Stories, epics and iterations.",
+      "mark": "E0",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "shortcut"
+      ],
+      "catalogs": [
+        {
+          "id": "shortcut",
+          "title": "Shortcut",
+          "file": "shortcut.json",
+          "source": "https://developer.shortcut.com/"
+        }
+      ]
+    },
+    {
+      "id": "simplemdm",
+      "name": "SimpleMDM",
+      "vendor": "SimpleMDM",
+      "summary": "Apple MDM: devices, apps and profiles.",
+      "mark": "SM",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "simplemdm"
+      ],
+      "catalogs": [
+        {
+          "id": "simplemdm",
+          "title": "SimpleMDM",
+          "file": "simplemdm.json",
+          "source": "https://api.simplemdm.com/"
+        }
+      ]
+    },
+    {
+      "id": "sistrix",
+      "name": "SISTRIX",
+      "vendor": "SISTRIX",
+      "summary": "SEO visibility, keywords and rankings.",
+      "mark": "BD",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sistrix"
+      ],
+      "catalogs": [
+        {
+          "id": "sistrix",
+          "title": "SISTRIX",
+          "file": "sistrix.json",
+          "source": "https://www.sistrix.com/api/"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.sistrix.com/mcp/",
+        "docs": "https://www.sistrix.com/api/connection-to-chatbot-ai/"
+      }
+    },
+    {
+      "id": "smartsheet",
+      "name": "Smartsheet",
+      "vendor": "Smartsheet",
+      "summary": "Sheets, reports and workspaces.",
+      "mark": "EZ",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "smartsheet"
+      ],
+      "catalogs": [
+        {
+          "id": "smartsheet",
+          "title": "Smartsheet",
+          "file": "smartsheet.json",
+          "source": "https://smartsheet.redoc.ly/"
+        }
+      ]
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "vendor": "Snowflake",
+      "summary": "Cortex Analyst, Search and SQL. MCP URL is per account.",
+      "mark": "AY",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "snowflake"
+      ],
+      "catalogs": [
+        {
+          "id": "snowflake",
+          "title": "Snowflake",
+          "file": "snowflake.json",
+          "source": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api"
+        }
+      ],
+      "mcp": {
+        "docs": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp"
+      }
+    },
+    {
+      "id": "snyk",
+      "name": "Snyk",
+      "vendor": "Snyk",
+      "summary": "Open source, code, container and IaC findings.",
+      "mark": "BQ",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "snyk"
+      ],
+      "catalogs": [
+        {
+          "id": "snyk",
+          "title": "Snyk",
+          "file": "snyk.json",
+          "source": "https://apidocs.snyk.io/"
+        }
+      ]
+    },
+    {
+      "id": "solarwinds",
+      "name": "SolarWinds",
+      "vendor": "SolarWinds",
+      "summary": "Orion, N-central-adjacent observability and SWIS.",
+      "mark": "SS",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "solarwinds"
+      ],
+      "catalogs": [
+        {
+          "id": "solarwinds",
+          "title": "SolarWinds",
+          "file": "solarwinds.json",
+          "source": "https://github.com/solarwinds"
+        }
+      ]
+    },
+    {
+      "id": "sonarcloud",
+      "name": "SonarCloud",
+      "vendor": "Sonar",
+      "summary": "SaaS code quality and security.",
+      "mark": "SD",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sonarcloud"
+      ],
+      "catalogs": [
+        {
+          "id": "sonarcloud",
+          "title": "SonarCloud",
+          "file": "sonarcloud.json",
+          "source": "https://sonarcloud.io/web_api"
+        }
+      ]
+    },
+    {
+      "id": "sonarqube",
+      "name": "SonarQube",
+      "vendor": "Sonar",
+      "summary": "Code quality and security on the instance.",
+      "mark": "BX",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sonarqube"
+      ],
+      "catalogs": [
+        {
+          "id": "sonarqube",
+          "title": "SonarQube",
+          "file": "sonarqube.json",
+          "source": "https://docs.sonarsource.com/sonarqube-server/latest/extension-guide/web-api/"
+        }
+      ]
+    },
+    {
+      "id": "nexus",
+      "name": "Sonatype Nexus",
+      "vendor": "Sonatype",
+      "summary": "Repositories and components on the instance.",
+      "mark": "DI",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "nexus"
+      ],
+      "catalogs": [
+        {
+          "id": "nexus",
+          "title": "Sonatype Nexus",
+          "file": "nexus.json",
+          "source": "https://help.sonatype.com/en/rest-and-integration-api.html"
+        }
+      ]
+    },
+    {
+      "id": "sonicwall",
+      "name": "SonicWall",
+      "vendor": "SonicWall",
+      "summary": "Firewall, NSM and Secure Mobile Access.",
+      "mark": "C4",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sonicwall"
+      ],
+      "catalogs": [
+        {
+          "id": "sonicwall",
+          "title": "SonicWall",
+          "file": "sonicwall.json",
+          "source": "https://www.sonicwall.com/support/technical-documentation"
+        }
+      ]
+    },
+    {
+      "id": "spendesk",
+      "name": "Spendesk",
+      "vendor": "Spendesk",
+      "summary": "Spend, invoices and expenses (read).",
+      "mark": "A6",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "spendesk"
+      ],
+      "catalogs": [
+        {
+          "id": "spendesk",
+          "title": "Spendesk",
+          "file": "spendesk.json",
+          "source": "https://developers.spendesk.com/"
+        }
+      ],
+      "mcp": {
+        "url": "https://public-api.spendesk.com/v1/mcp",
+        "docs": "https://helpcenter.spendesk.com/en/articles/15052814-ask-your-spendesk-data-with-ai-mcp-getting-started-guide"
+      }
+    },
+    {
+      "id": "splunk",
+      "name": "Splunk",
+      "vendor": "Splunk",
+      "summary": "Search, alerts and the REST API on the instance.",
+      "mark": "B4",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "splunk"
+      ],
+      "catalogs": [
+        {
+          "id": "splunk",
+          "title": "Splunk",
+          "file": "splunk.json",
+          "source": "https://docs.splunk.com/Documentation/Splunk/latest/RESTREF/RESTprolog"
+        }
+      ]
+    },
+    {
+      "id": "stackoverflow",
+      "name": "Stack Overflow",
+      "vendor": "Stack Overflow",
+      "summary": "Developer Q and A search.",
+      "mark": "AK",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "stackoverflow"
+      ],
+      "catalogs": [
+        {
+          "id": "stackoverflow",
+          "title": "Stack Overflow",
+          "file": "stackoverflow.json",
+          "source": "https://api.stackexchange.com/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.stackoverflow.com",
+        "docs": "https://stackoverflow.com/docs/mcp"
+      }
+    },
+    {
+      "id": "statista",
+      "name": "Statista",
+      "vendor": "Statista",
+      "summary": "Statistics, consumer insights and market data.",
+      "mark": "BE",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "statista"
+      ],
+      "catalogs": [
+        {
+          "id": "statista",
+          "title": "Statista",
+          "file": "statista.json",
+          "source": "https://docs.platform.statista.ai"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.statista.ai/v1/mcp",
+        "docs": "https://docs.platform.statista.ai/mcp-server/introduction"
+      }
+    },
+    {
+      "id": "statsig",
+      "name": "Statsig",
+      "vendor": "Statsig",
+      "summary": "Gates, experiments and product analytics.",
+      "mark": "E9",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "statsig"
+      ],
+      "catalogs": [
+        {
+          "id": "statsig",
+          "title": "Statsig",
+          "file": "statsig.json",
+          "source": "https://docs.statsig.com/http-api"
+        }
+      ]
+    },
+    {
+      "id": "strapi",
+      "name": "Strapi",
+      "vendor": "Strapi",
+      "summary": "Content types and the REST/GraphQL APIs.",
+      "mark": "E8",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "strapi"
+      ],
+      "catalogs": [
+        {
+          "id": "strapi",
+          "title": "Strapi",
+          "file": "strapi.json",
+          "source": "https://docs.strapi.io/dev-docs/api/rest"
+        }
+      ]
+    },
+    {
+      "id": "strongdm",
+      "name": "StrongDM",
+      "vendor": "StrongDM",
+      "summary": "Just-in-time access to infra and data.",
+      "mark": "CU",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "strongdm"
+      ],
+      "catalogs": [
+        {
+          "id": "strongdm",
+          "title": "StrongDM",
+          "file": "strongdm.json",
+          "source": "https://www.strongdm.com/docs"
+        }
+      ]
+    },
+    {
+      "id": "stytch",
+      "name": "Stytch",
+      "vendor": "Stytch",
+      "summary": "Auth, sessions and user identity.",
+      "mark": "AJ",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "stytch"
+      ],
+      "catalogs": [
+        {
+          "id": "stytch",
+          "title": "Stytch",
+          "file": "stytch.json",
+          "source": "https://stytch.com/docs/api"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.stytch.dev/mcp",
+        "docs": "https://stytch.com/docs/mcp"
+      }
+    },
+    {
+      "id": "sumologic",
+      "name": "Sumo Logic",
+      "vendor": "Sumo Logic",
+      "summary": "Logs, metrics and monitors.",
+      "mark": "B5",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sumologic"
+      ],
+      "catalogs": [
+        {
+          "id": "sumologic",
+          "title": "Sumo Logic",
+          "file": "sumologic.json",
+          "source": "https://api.sumologic.com/docs/"
+        }
+      ]
+    },
+    {
+      "id": "supabase",
+      "name": "Supabase",
+      "vendor": "Supabase",
+      "summary": "Projects, database, auth and storage.",
+      "mark": "SU",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "supabase"
+      ],
+      "catalogs": [
+        {
+          "id": "supabase",
+          "title": "Supabase",
+          "file": "supabase.json",
+          "source": "https://supabase.com/docs/reference/api/introduction"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.supabase.com/mcp",
+        "docs": "https://supabase.com/docs/guides/getting-started/mcp"
+      }
+    },
+    {
+      "id": "sysaid",
+      "name": "SysAid",
+      "vendor": "SysAid",
+      "summary": "Service desk, assets and workflows.",
+      "mark": "D4",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "sysaid"
+      ],
+      "catalogs": [
+        {
+          "id": "sysaid",
+          "title": "SysAid",
+          "file": "sysaid.json",
+          "source": "https://documentation.sysaid.com/"
+        }
+      ]
+    },
+    {
+      "id": "teamcity",
+      "name": "TeamCity",
+      "vendor": "JetBrains",
+      "summary": "Builds, agents and projects.",
+      "mark": "TY",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "teamcity"
+      ],
+      "catalogs": [
+        {
+          "id": "teamcity",
+          "title": "TeamCity",
+          "file": "teamcity.json",
+          "source": "https://www.jetbrains.com/help/teamcity/rest-api.html"
+        }
+      ]
+    },
+    {
+      "id": "teleport",
+      "name": "Teleport",
+      "vendor": "Teleport",
+      "summary": "Access, sessions and audit for infra.",
+      "mark": "TT",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "teleport"
+      ],
+      "catalogs": [
+        {
+          "id": "teleport",
+          "title": "Teleport",
+          "file": "teleport.json",
+          "source": "https://goteleport.com/docs/reference/api/"
+        }
+      ]
+    },
+    {
+      "id": "telnyx",
+      "name": "Telnyx",
+      "vendor": "Telnyx",
+      "summary": "Voice, SMS, numbers and SIP.",
+      "mark": "TE",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "telnyx"
+      ],
+      "catalogs": [
+        {
+          "id": "telnyx",
+          "title": "Telnyx",
+          "file": "telnyx.json",
+          "source": "https://developers.telnyx.com/docs/api/v2/overview"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.telnyx.com/v2/mcp",
+        "docs": "https://developers.telnyx.com/docs/inference/mcp"
+      }
+    },
+    {
+      "id": "tenable",
+      "name": "Tenable",
+      "vendor": "Tenable",
+      "summary": "Vulnerability scans, assets and findings.",
+      "mark": "BK",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "tenable"
+      ],
+      "catalogs": [
+        {
+          "id": "tenable",
+          "title": "Tenable",
+          "file": "tenable.json",
+          "source": "https://developer.tenable.com/"
+        }
+      ]
+    },
+    {
+      "id": "thoughtspot",
+      "name": "ThoughtSpot",
+      "vendor": "ThoughtSpot",
+      "summary": "Liveboards, search and analytics.",
+      "mark": "TH",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "thoughtspot"
+      ],
+      "catalogs": [
+        {
+          "id": "thoughtspot",
+          "title": "ThoughtSpot",
+          "file": "thoughtspot.json",
+          "source": "https://developers.thoughtspot.com/docs"
+        }
+      ],
+      "mcp": {
+        "url": "https://agent.thoughtspot.app/mcp",
+        "docs": "https://developers.thoughtspot.com/docs"
+      }
+    },
+    {
+      "id": "timescale",
+      "name": "Timescale",
+      "vendor": "Timescale",
+      "summary": "Services and the Cloud API.",
+      "mark": "TI",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "timescale"
+      ],
+      "catalogs": [
+        {
+          "id": "timescale",
+          "title": "Timescale",
+          "file": "timescale.json",
+          "source": "https://docs.timescale.com/cloud/latest/"
+        }
+      ]
+    },
+    {
+      "id": "todoist",
+      "name": "Todoist",
+      "vendor": "Doist",
+      "summary": "Tasks, projects and filters.",
+      "mark": "TO",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "todoist"
+      ],
+      "catalogs": [
+        {
+          "id": "todoist",
+          "title": "Todoist",
+          "file": "todoist.json",
+          "source": "https://developer.todoist.com/rest/v2/"
+        }
+      ]
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "vendor": "Together",
+      "summary": "Open models inference API.",
+      "mark": "TA",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "together"
+      ],
+      "catalogs": [
+        {
+          "id": "together",
+          "title": "Together AI",
+          "file": "together.json",
+          "source": "https://docs.together.ai/reference/inference"
+        }
+      ]
+    },
+    {
+      "id": "toggl",
+      "name": "Toggl Track",
+      "vendor": "Toggl",
+      "summary": "Time entries, projects and workspaces.",
+      "mark": "EP",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "toggl"
+      ],
+      "catalogs": [
+        {
+          "id": "toggl",
+          "title": "Toggl Track",
+          "file": "toggl.json",
+          "source": "https://developers.track.toggl.com/docs/"
+        }
+      ]
+    },
+    {
+      "id": "topdesk",
+      "name": "TOPdesk",
+      "vendor": "TOPdesk",
+      "summary": "Incidents, changes and the operator API.",
+      "mark": "TK",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "topdesk"
+      ],
+      "catalogs": [
+        {
+          "id": "topdesk",
+          "title": "TOPdesk",
+          "file": "topdesk.json",
+          "source": "https://developers.topdesk.com/"
+        }
+      ]
+    },
+    {
+      "id": "trello",
+      "name": "Trello",
+      "vendor": "Atlassian",
+      "summary": "Boards, lists, cards and Power-Ups.",
+      "mark": "TR",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "trello"
+      ],
+      "catalogs": [
+        {
+          "id": "trello",
+          "title": "Trello",
+          "file": "trello.json",
+          "source": "https://developer.atlassian.com/cloud/trello/rest/"
+        }
+      ]
+    },
+    {
+      "id": "trend_micro",
+      "name": "Trend Micro",
+      "vendor": "Trend Micro",
+      "summary": "Vision One, Apex One and cloud security.",
+      "mark": "TM",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "trend_micro"
+      ],
+      "catalogs": [
+        {
+          "id": "trend_micro",
+          "title": "Trend Micro",
+          "file": "trend_micro.json",
+          "source": "https://automation.trendmicro.com/"
+        }
+      ]
+    },
+    {
+      "id": "segment",
+      "name": "Twilio Segment",
+      "vendor": "Twilio",
+      "summary": "Sources, destinations and tracking.",
+      "mark": "ED",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "segment"
+      ],
+      "catalogs": [
+        {
+          "id": "segment",
+          "title": "Twilio Segment",
+          "file": "segment.json",
+          "source": "https://segment.com/docs/api/"
+        }
+      ]
+    },
+    {
+      "id": "typesense",
+      "name": "Typesense",
+      "vendor": "Typesense",
+      "summary": "Search collections on the cluster.",
+      "mark": "FX",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "typesense"
+      ],
+      "catalogs": [
+        {
+          "id": "typesense",
+          "title": "Typesense",
+          "file": "typesense.json",
+          "source": "https://typesense.org/docs/latest/api/"
+        }
+      ]
+    },
+    {
+      "id": "uptimerobot",
+      "name": "UptimeRobot",
+      "vendor": "UptimeRobot",
+      "summary": "HTTP, keyword and port monitors.",
+      "mark": "UT",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "uptimerobot"
+      ],
+      "catalogs": [
+        {
+          "id": "uptimerobot",
+          "title": "UptimeRobot",
+          "file": "uptimerobot.json",
+          "source": "https://uptimerobot.com/api/"
+        }
+      ]
+    },
+    {
+      "id": "veeam",
+      "name": "Veeam",
+      "vendor": "Veeam",
+      "summary": "Backup and Replication, VSPC and REST.",
+      "mark": "VM",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "veeam"
+      ],
+      "catalogs": [
+        {
+          "id": "veeam",
+          "title": "Veeam",
+          "file": "veeam.json",
+          "source": "https://helpcenter.veeam.com/"
+        }
+      ]
+    },
+    {
+      "id": "veracode",
+      "name": "Veracode",
+      "vendor": "Veracode",
+      "summary": "AppSec scans, findings and policy.",
+      "mark": "BT",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "veracode"
+      ],
+      "catalogs": [
+        {
+          "id": "veracode",
+          "title": "Veracode",
+          "file": "veracode.json",
+          "source": "https://docs.veracode.com/r/c_rest_introduction"
+        }
+      ]
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "vendor": "Vercel",
+      "summary": "Projects, deployments and domains.",
+      "mark": "VE",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "openapi",
+        "account"
+      ],
+      "default_catalogs": [
+        "vercel"
+      ],
+      "catalogs": [
+        {
+          "id": "vercel",
+          "title": "Vercel",
+          "file": "vercel.json",
+          "source": "https://openapi.vercel.sh/"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.vercel.com/",
+        "docs": "https://vercel.com/docs/mcp"
+      }
+    },
+    {
+      "id": "virustotal",
+      "name": "VirusTotal",
+      "vendor": "Google",
+      "summary": "File, URL and domain reputation.",
+      "mark": "VI",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "virustotal"
+      ],
+      "catalogs": [
+        {
+          "id": "virustotal",
+          "title": "VirusTotal",
+          "file": "virustotal.json",
+          "source": "https://docs.virustotal.com/reference/overview"
+        }
+      ]
+    },
+    {
+      "id": "vmware_vsphere",
+      "name": "VMware vSphere",
+      "vendor": "Broadcom",
+      "summary": "vCenter inventory, VMs and hosts.",
+      "mark": "VV",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "vmware_vsphere"
+      ],
+      "catalogs": [
+        {
+          "id": "vmware_vsphere",
+          "title": "VMware vSphere",
+          "file": "vmware_vsphere.json",
+          "source": "https://developer.broadcom.com/xapis/vsphere-automation-api/"
+        }
+      ]
+    },
+    {
+      "id": "vonage",
+      "name": "Vonage",
+      "vendor": "Vonage",
+      "summary": "SMS, voice, Verify and Numbers.",
+      "mark": "VO",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "vonage"
+      ],
+      "catalogs": [
+        {
+          "id": "vonage",
+          "title": "Vonage",
+          "file": "vonage.json",
+          "source": "https://developer.vonage.com/"
+        }
+      ]
+    },
+    {
+      "id": "vultr",
+      "name": "Vultr",
+      "vendor": "Vultr",
+      "summary": "Instances, Kubernetes and DNS.",
+      "mark": "VU",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "vultr"
+      ],
+      "catalogs": [
+        {
+          "id": "vultr",
+          "title": "Vultr",
+          "file": "vultr.json",
+          "source": "https://www.vultr.com/api/"
+        }
+      ]
+    },
+    {
+      "id": "watchguard",
+      "name": "WatchGuard",
+      "vendor": "WatchGuard",
+      "summary": "Firebox, AuthPoint and Cloud.",
+      "mark": "WA",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "watchguard"
+      ],
+      "catalogs": [
+        {
+          "id": "watchguard",
+          "title": "WatchGuard",
+          "file": "watchguard.json",
+          "source": "https://www.watchguard.com/help/docs"
+        }
+      ]
+    },
+    {
+      "id": "wave",
+      "name": "Wave",
+      "vendor": "Wave",
+      "summary": "Invoices, customers and accounting.",
+      "mark": "EU",
+      "tone": "write",
+      "tags": [
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "wave"
+      ],
+      "catalogs": [
+        {
+          "id": "wave",
+          "title": "Wave",
+          "file": "wave.json",
+          "source": "https://developer.waveapps.com/hc/en-us/articles/360019968212-API-Reference"
+        }
+      ]
+    },
+    {
+      "id": "weaviate",
+      "name": "Weaviate",
+      "vendor": "Weaviate",
+      "summary": "Vector search on the cluster.",
+      "mark": "FV",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "weaviate"
+      ],
+      "catalogs": [
+        {
+          "id": "weaviate",
+          "title": "Weaviate",
+          "file": "weaviate.json",
+          "source": "https://weaviate.io/developers/weaviate/api/rest"
+        }
+      ]
+    },
+    {
+      "id": "webex",
+      "name": "Webex",
+      "vendor": "Cisco",
+      "summary": "Meetings, messaging and devices.",
+      "mark": "WX",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "webex"
+      ],
+      "catalogs": [
+        {
+          "id": "webex",
+          "title": "Webex",
+          "file": "webex.json",
+          "source": "https://developer.webex.com/docs/getting-started"
+        }
+      ]
+    },
+    {
+      "id": "webflow",
+      "name": "Webflow",
+      "vendor": "Webflow",
+      "summary": "CMS collections, pages and sites.",
+      "mark": "WE",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "webflow"
+      ],
+      "catalogs": [
+        {
+          "id": "webflow",
+          "title": "Webflow",
+          "file": "webflow.json",
+          "source": "https://developers.webflow.com/data/reference"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.webflow.com/sse",
+        "docs": "https://developers.webflow.com/data/docs/ai-tools"
+      }
+    },
+    {
+      "id": "webroot",
+      "name": "Webroot",
+      "vendor": "OpenText",
+      "summary": "Endpoint and DNS protection for MSPs.",
+      "mark": "WT",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "webroot"
+      ],
+      "catalogs": [
+        {
+          "id": "webroot",
+          "title": "Webroot",
+          "file": "webroot.json",
+          "source": "https://www.webroot.com/us/en/business/support"
+        }
+      ]
+    },
+    {
+      "id": "wix",
+      "name": "Wix",
+      "vendor": "Wix",
+      "summary": "Sites, CMS and business apps.",
+      "mark": "WI",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "wix"
+      ],
+      "catalogs": [
+        {
+          "id": "wix",
+          "title": "Wix",
+          "file": "wix.json",
+          "source": "https://dev.wix.com/docs/rest"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.wix.com/mcp",
+        "docs": "https://dev.wix.com/docs/sdk/articles/use-the-wix-mcp/about-the-wix-mcp"
+      }
+    },
+    {
+      "id": "wiz",
+      "name": "Wiz",
+      "vendor": "Wiz",
+      "summary": "Cloud security graph, issues and inventory.",
+      "mark": "WZ",
+      "tone": "query",
+      "tags": [
+        "graphql",
+        "account"
+      ],
+      "default_catalogs": [
+        "wiz"
+      ],
+      "catalogs": [
+        {
+          "id": "wiz",
+          "title": "Wiz",
+          "file": "wiz.json",
+          "source": "https://win.wiz.io/docs"
+        }
+      ]
+    },
+    {
+      "id": "wolfram",
+      "name": "Wolfram",
+      "vendor": "Wolfram Research",
+      "summary": "Computation, knowledge and math tools.",
+      "mark": "WO",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "wolfram"
+      ],
+      "catalogs": [
+        {
+          "id": "wolfram",
+          "title": "Wolfram",
+          "file": "wolfram.json",
+          "source": "https://products.wolframalpha.com/api/"
+        }
+      ],
+      "mcp": {
+        "url": "https://agenttools.wolfram.com/mcp",
+        "docs": "https://www.wolfram.com/wolfram-gpt/"
+      }
+    },
+    {
+      "id": "woocommerce",
+      "name": "WooCommerce",
+      "vendor": "Automattic",
+      "summary": "Orders, products and customers on WordPress.",
+      "mark": "E3",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "woocommerce"
+      ],
+      "catalogs": [
+        {
+          "id": "woocommerce",
+          "title": "WooCommerce",
+          "file": "woocommerce.json",
+          "source": "https://woocommerce.github.io/woocommerce-rest-api-docs/"
+        }
+      ]
+    },
+    {
+      "id": "wordpress",
+      "name": "WordPress",
+      "vendor": "Automattic",
+      "summary": "Posts, pages, users and the REST API.",
+      "mark": "E4",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "wordpress"
+      ],
+      "catalogs": [
+        {
+          "id": "wordpress",
+          "title": "WordPress",
+          "file": "wordpress.json",
+          "source": "https://developer.wordpress.org/rest-api/"
+        }
+      ]
+    },
+    {
+      "id": "workday",
+      "name": "Workday",
+      "vendor": "Workday",
+      "summary": "HCM, finance and the REST/SOAP APIs.",
+      "mark": "WY",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "workday"
+      ],
+      "catalogs": [
+        {
+          "id": "workday",
+          "title": "Workday",
+          "file": "workday.json",
+          "source": "https://community.workday.com/"
+        }
+      ]
+    },
+    {
+      "id": "workos",
+      "name": "WorkOS",
+      "vendor": "WorkOS",
+      "summary": "SSO, Directory Sync and Audit Log.",
+      "mark": "CD",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "workos"
+      ],
+      "catalogs": [
+        {
+          "id": "workos",
+          "title": "WorkOS",
+          "file": "workos.json",
+          "source": "https://workos.com/docs/reference"
+        }
+      ]
+    },
+    {
+      "id": "workspace_one",
+      "name": "Workspace ONE",
+      "vendor": "Omnissa",
+      "summary": "UEM devices, apps and compliance.",
+      "mark": "CM",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "workspace_one"
+      ],
+      "catalogs": [
+        {
+          "id": "workspace_one",
+          "title": "Workspace ONE",
+          "file": "workspace_one.json",
+          "source": "https://developer.omnissa.com/"
+        }
+      ]
+    },
+    {
+      "id": "wrike",
+      "name": "Wrike",
+      "vendor": "Wrike",
+      "summary": "Tasks, folders and timelogs.",
+      "mark": "WR",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "wrike"
+      ],
+      "catalogs": [
+        {
+          "id": "wrike",
+          "title": "Wrike",
+          "file": "wrike.json",
+          "source": "https://developers.wrike.com/overview/"
+        }
+      ]
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "vendor": "X",
+      "summary": "Posts, users, timelines and search.",
+      "mark": "A0",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "x"
+      ],
+      "catalogs": [
+        {
+          "id": "x",
+          "title": "X",
+          "file": "x.json",
+          "source": "https://docs.x.com/x-api/introduction"
+        }
+      ],
+      "mcp": {
+        "url": "https://api.x.com/mcp",
+        "docs": "https://docs.x.com/x-api"
+      }
+    },
+    {
+      "id": "x_docs",
+      "name": "X Docs",
+      "vendor": "X",
+      "summary": "X API documentation search. No auth.",
+      "mark": "XD",
+      "tone": "query",
+      "tags": [
+        "mcp",
+        "rest"
+      ],
+      "default_catalogs": [
+        "x_docs"
+      ],
+      "catalogs": [
+        {
+          "id": "x_docs",
+          "title": "X Docs",
+          "file": "x_docs.json",
+          "source": "https://docs.x.com"
+        }
+      ],
+      "mcp": {
+        "url": "https://docs.x.com/mcp",
+        "docs": "https://docs.x.com"
+      }
+    },
+    {
+      "id": "xmatters",
+      "name": "xMatters",
+      "vendor": "xMatters",
+      "summary": "On-call, signals and workflows.",
+      "mark": "XM",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "xmatters"
+      ],
+      "catalogs": [
+        {
+          "id": "xmatters",
+          "title": "xMatters",
+          "file": "xmatters.json",
+          "source": "https://help.xmatters.com/xmattersapi/"
+        }
+      ]
+    },
+    {
+      "id": "zammad",
+      "name": "Zammad",
+      "vendor": "Zammad",
+      "summary": "Tickets, users and organizations.",
+      "mark": "D3",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "zammad"
+      ],
+      "catalogs": [
+        {
+          "id": "zammad",
+          "title": "Zammad",
+          "file": "zammad.json",
+          "source": "https://docs.zammad.org/en/latest/api/intro.html"
+        }
+      ]
+    },
+    {
+      "id": "zapier",
+      "name": "Zapier",
+      "vendor": "Zapier",
+      "summary": "Zaps and actions across connected apps.",
+      "mark": "ZA",
+      "tone": "write",
+      "tags": [
+        "mcp",
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "zapier"
+      ],
+      "catalogs": [
+        {
+          "id": "zapier",
+          "title": "Zapier",
+          "file": "zapier.json",
+          "source": "https://zapier.com/developer"
+        }
+      ],
+      "mcp": {
+        "url": "https://mcp.zapier.com/api/mcp/mcp",
+        "docs": "https://zapier.com/mcp"
+      }
+    },
+    {
+      "id": "zoho_crm",
+      "name": "Zoho CRM",
+      "vendor": "Zoho",
+      "summary": "Modules, records and workflows.",
+      "mark": "ZC",
+      "tone": "write",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "zoho_crm"
+      ],
+      "catalogs": [
+        {
+          "id": "zoho_crm",
+          "title": "Zoho CRM",
+          "file": "zoho_crm.json",
+          "source": "https://www.zoho.com/crm/developer/docs/api/v6/"
+        }
+      ]
+    },
+    {
+      "id": "zscaler",
+      "name": "Zscaler",
+      "vendor": "Zscaler",
+      "summary": "ZIA, ZPA and the oneAPI.",
+      "mark": "ZS",
+      "tone": "query",
+      "tags": [
+        "rest",
+        "account"
+      ],
+      "default_catalogs": [
+        "zscaler"
+      ],
+      "catalogs": [
+        {
+          "id": "zscaler",
+          "title": "Zscaler",
+          "file": "zscaler.json",
+          "source": "https://help.zscaler.com/oneapi"
+        }
+      ]
     }
   ]
 }
