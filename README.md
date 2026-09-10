@@ -11,8 +11,8 @@
 
 <p align="center">
   <a href="index.json"><img src="https://img.shields.io/badge/format-pulsatrix--hub%2F1-3c76f4?style=flat-square&labelColor=111a2f" alt="format pulsatrix-hub/1"></a>
-  <a href="index.json"><img src="https://img.shields.io/badge/products-426-3c76f4?style=flat-square&labelColor=111a2f" alt="426 products"></a>
-  <a href="#remote-mcp"><img src="https://img.shields.io/badge/MCP-100%20remote-3c76f4?style=flat-square&labelColor=111a2f" alt="100 remote MCP"></a>
+  <a href="index.json"><img src="https://img.shields.io/badge/products-557-3c76f4?style=flat-square&labelColor=111a2f" alt="557 products"></a>
+  <a href="#remote-mcp"><img src="https://img.shields.io/badge/MCP-164%20remote-3c76f4?style=flat-square&labelColor=111a2f" alt="164 remote MCP"></a>
   <a href="https://github.com/pulsatrixtechnologies/connector-hub/commits/main"><img src="https://img.shields.io/github/last-commit/pulsatrixtechnologies/connector-hub?style=flat-square&labelColor=111a2f&color=3c76f4" alt="last commit"></a>
   <a href="https://github.com/pulsatrixtechnologies/connector-hub/issues"><img src="https://img.shields.io/github/issues/pulsatrixtechnologies/connector-hub?style=flat-square&labelColor=111a2f&color=3c76f4" alt="issues"></a>
   <a href="https://pulsatrix.ca"><img src="https://img.shields.io/badge/website-pulsatrix.ca-111a2f?style=flat-square" alt="pulsatrix.ca"></a>
@@ -36,7 +36,7 @@ Nothing is preloaded. Adding a product from the console imports the catalog. If 
 https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index.json
 ```
 
-426 products. 100 with a vendor-hosted MCP URL. 6 with official MCP docs only (local, self-hosted, or per-account). The gateway refuses a `hub_url` larger than 256 KiB. This file stays under that.
+557 products in 20 categories. 164 with a vendor-hosted MCP URL, 4 with official MCP docs only (local, self-hosted, or per-account). 112 carry a GraphQL schema source and 44 are an MCP server the connector imports as a catalog. The gateway refuses a `hub_url` larger than 256 KiB; the file is written compact and stays under that.
 
 ## Contents
 
@@ -45,15 +45,18 @@ https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index
 3. [Format](#format)
 4. [MCP or catalog](#mcp-or-catalog)
 5. [Tags](#tags)
-6. [What belongs here](#what-belongs-here)
-7. [Remote MCP](#remote-mcp)
-8. [Fetchable specs](#fetchable-specs)
-9. [Login-gated documents](#login-gated-documents)
-10. [Limits](#limits)
-11. [Not listed](#not-listed)
-12. [Contribute](#contribute)
-13. [Status](#status)
-14. [License](#license)
+6. [Categories](#categories)
+7. [What belongs here](#what-belongs-here)
+8. [Remote MCP](#remote-mcp)
+9. [Fetchable specs](#fetchable-specs)
+10. [Login-gated documents](#login-gated-documents)
+11. [Checked](#checked)
+12. [Other lists](#other-lists)
+13. [Limits](#limits)
+14. [Not listed](#not-listed)
+15. [Contribute](#contribute)
+16. [Status](#status)
+17. [License](#license)
 
 ## Use it
 
@@ -122,6 +125,7 @@ Unknown JSON fields are ignored. `installed` is filled at list time from catalog
 | `tags` | yes | See [Tags](#tags). `mcp` first when `mcp` is present. |
 | `catalogs` | yes | At least one. |
 | `default_catalogs` | no | Catalog ids imported on Add when the operator does not pick a subset. |
+| `category` | yes | One of the twenty [categories](#categories). What the product does, not how its document is shaped. |
 | `mcp` | no | Official vendor MCP. See below. |
 
 ### Catalog
@@ -131,7 +135,12 @@ Unknown JSON fields are ignored. `installed` is filled at list time from catalog
 | `id` | yes | Unique across the whole index. |
 | `title` | yes | Short label on the card. |
 | `file` | yes | Filename the connector looks up under `catalog/` (`pagerduty.json`). |
-| `source` | no | HTTPS URL of the OpenAPI, Swagger, GraphQL or RPC document, or of the vendor developer page when the file is login-gated. |
+| `source` | no | HTTPS URL of the OpenAPI, Swagger, GraphQL or RPC document, of a GraphQL or MCP endpoint when `kind` says so, or of the vendor developer page when the file is login-gated. |
+| `kind` | no | The import kind when `source` is not a document to download: `graphql` (the connector posts the introspection query) or `mcp_tools` (it shakes hands and reads `tools/list`). Absent means a plain document. |
+| `introspection` | no | `graphql` only: `open`, `auth`, `closed` or `unknown`, as observed. `closed` means the operator opens it once on the instance, takes the schema and closes it again. |
+| `endpoint_template` | no | A per-tenant endpoint with placeholders (`https://{instance}.example.com/graphql`). It is never the `source`, which stays a URL that resolves: the console fills the placeholders from what the operator types. |
+| `bot_blocked` | no | The page is alive in a browser and answers 403 or 429 to any fetcher. Set so a link checker does not report it as dead every run. |
+| `no_public_document` | no | The vendor publishes no API document any more. The card stays because the product is still run; `source` points at the product page. |
 
 ### MCP
 
@@ -187,16 +196,30 @@ Shared endpoints:
 
 | Tag | Meaning |
 |---|---|
-| `mcp` | Official vendor MCP. Connect it before compiling the API. |
+| `mcp` | Official vendor MCP. Connect it in the client before compiling, or import it as a catalog (`kind: mcp_tools`), which absorbs its read tools into one query tool. |
 | `rest` | HTTP REST. |
 | `openapi` | OpenAPI document. |
 | `swagger` | Swagger 2 document. |
-| `graphql` | GraphQL schema or endpoint. |
+| `graphql` | GraphQL. The catalog carries `kind: graphql`, and the connector asks the service for its own schema (`import <endpoint> --kind graphql`). |
 | `rpc` | RPC methods (JSON-RPC or similar). |
 | `account` | Spec is behind a login, a tenant console, or an instance page. `source` is the vendor page, not a fetchable file. |
 | `private` | Private API: the vendor's own site, with the client's authorisation. |
 
 Filter in the console or with `jq`. Combining `mcp` and `account` is normal: the MCP may be public while the OpenAPI is not.
+
+## Categories
+
+Every product carries exactly one `category`. The tags say how a document is shaped; the category says what the product does, which is what an operator searches by and what the console groups on.
+
+| Category | Products |
+|---|---|
+| `security` | 68 |\n| `msp` | 53 |\n| `productivity` | 51 |\n| `devtools` | 45 |\n| `data` | 42 |\n| `finance` | 40 |\n| `cloud` | 31 |\n| `identity` | 27 |\n| `monitoring` | 27 |\n| `crm` | 24 |\n| `backup` | 23 |\n| `network` | 23 |\n| `other` | 23 |\n| `cms` | 22 |\n| `ai` | 19 |\n| `ecommerce` | 14 |\n| `marketing` | 10 |\n| `storage` | 6 |\n| `communication` | 5 |\n| `hr` | 4 |
+
+The category is also the shard key: an index that outgrows the 256 KiB cap splits into one file per category, with `index.json` keeping the cards and each shard keeping the catalogs. That split is not needed yet.
+
+```bash
+jq -r '.products[] | select(.category == "msp") | .name' index.json
+```
 
 ## What belongs here
 
@@ -430,6 +453,50 @@ Filter the full set with:
 ```bash
 jq '.products[] | select(.tags | index("account")) | .name' index.json
 ```
+
+## Checked
+
+Every URL in this file was probed on 2026-09-09, and the method matters: a GET on an
+MCP endpoint is meaningless, so the MCP URLs were probed with a real `initialize`
+POST and the GraphQL endpoints with a real introspection query.
+
+| What | Probed | Result |
+|---|---|---|
+| MCP endpoints | 100 (the set before this pass) | 94 alive: 71 answer the OAuth challenge, 17 answer JSON-RPC unauthenticated, 6 want auth without a challenge. 2 gone (Grafbase, Shopify), 3 redirect, 1 was 503 |
+| GraphQL endpoints | 76 that are not per-tenant | 74 alive: 36 with introspection open, 24 behind auth, the rest answering. 2 repaired to the vendor page |
+| Per-tenant GraphQL | 36 | Never shipped as a `source`: the vendor page is the source and the template moved to `endpoint_template` |
+| Catalog sources | 454 (the set before this pass) | 32 returned a machine document, 326 a vendor page (which is what the `account` tier is), and 60 were dead or erroring |
+| The 60 dead ones | each one chased to its current home | 16 now point at a real OpenAPI or Swagger document that did not exist in this file before, 39 at a live vendor page, 3 at a page that is alive in a browser and 403s to fetchers (`bot_blocked`), and 2 vendors publish no API document any more (`no_public_document`) |
+
+A GET on an MCP endpoint answers 401, 405 or 406 on a perfectly healthy server, and a
+GET on a GraphQL endpoint answers 400 or 405. Any count of dead servers built from GET
+probes is wrong, including one this repository published before this pass.
+
+Rebrands the repair pass turned up, now reflected in the file: Datto RMM's swagger
+group was renamed (`Datto-RMM` to `Datto-RMM-v2`, which is why every region host
+answered 500), SendGrid's spec moved org and split into about thirty per-product
+documents, Timescale is TigerData, Datto Commerce is Kaseya Quote Manager, StreamOne
+Ion is StreamOne Stellr, Malwarebytes business is ThreatDown, and Cylance is Arctic
+Wolf Aurora, which publishes no REST reference at all any more.
+
+## Other lists
+
+Measured on 2026-09-09, because "the most complete list" only means something against
+the ones that exist.
+
+| List | Size | Licence | State |
+|---|---|---|---|
+| [jentic/jentic-public-apis](https://github.com/jentic/jentic-public-apis) | 6 467 OpenAPI documents, 4 222 vendors | CC0-1.0 | Pushed daily. The one to measure against. Entries are largely generated from doc pages, and every sampled `meta.json` reads `status: staging` |
+| [APIs-guru/openapi-directory](https://github.com/APIs-guru/openapi-directory) | 4 138 specs, 677 providers | CC0-1.0 | **Frozen.** Content stopped 2024-03-01 and the served `list.json` carries nothing newer than 2023-04-21, while the README still promises weekly updates. Jentic seeded from it and covers 571 of its 677 providers |
+| apis.io / api-evangelist | 27 505 providers, 133 345 APIs | no licence file | Enumerable, but the specs are resource slices (2 to 6 operations) and the terms allow indexing, not redistribution |
+| SwaggerHub public | 803 138 specs, 39 937 published | no viewer grant | Not redistributable. It is, however, the only place holding public copies of some login-walled MSP documents |
+| [public-apis](https://github.com/public-apis/public-apis) | 1 769 rows | MIT | Documentation links, not specs: 6 rows carry a spec URL |
+| Official MCP registry | 30 305 records, 18 005 with a remote URL | open API, no auth | 98 % noise: the top namespaces are single publishers with 1 100 to 1 500 generated entries. Usable only with the domain-verified-namespace filter |
+| [GitHub MCP registry](https://api.mcp.github.com/v0/servers) | 252 records, 148 remote | open API, no auth | Curated. The highest signal-to-noise MCP source found |
+
+What this list is not trying to be: a mirror. A card here names a vendor an MSP runs
+and a document or endpoint an operator can actually reach, and every one of them was
+probed. Four thousand generated entries would be a bigger number and a worse product.
 
 ## Limits
 
