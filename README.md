@@ -49,9 +49,9 @@ https://raw.githubusercontent.com/pulsatrixtechnologies/connector-hub/main/index
 7. [What belongs here](#what-belongs-here)
 8. [Remote MCP](#remote-mcp)
 9. [Fetchable specs](#fetchable-specs)
-10. [Login-gated documents](#login-gated-documents)
-11. [Checked](#checked)
-12. [Other lists](#other-lists)
+10. [GraphQL endpoints](#graphql-endpoints)
+11. [Login-gated documents](#login-gated-documents)
+12. [Checked](#checked)
 13. [Limits](#limits)
 14. [Not listed](#not-listed)
 15. [Contribute](#contribute)
@@ -213,7 +213,26 @@ Every product carries exactly one `category`. The tags say how a document is sha
 
 | Category | Products |
 |---|---|
-| `security` | 68 |\n| `msp` | 53 |\n| `productivity` | 51 |\n| `devtools` | 45 |\n| `data` | 42 |\n| `finance` | 40 |\n| `cloud` | 31 |\n| `identity` | 27 |\n| `monitoring` | 27 |\n| `crm` | 24 |\n| `backup` | 23 |\n| `network` | 23 |\n| `other` | 23 |\n| `cms` | 22 |\n| `ai` | 19 |\n| `ecommerce` | 14 |\n| `marketing` | 10 |\n| `storage` | 6 |\n| `communication` | 5 |\n| `hr` | 4 |
+| `security` | 68 |
+| `msp` | 53 |
+| `productivity` | 51 |
+| `devtools` | 45 |
+| `data` | 42 |
+| `finance` | 40 |
+| `cloud` | 31 |
+| `identity` | 27 |
+| `monitoring` | 27 |
+| `crm` | 24 |
+| `network` | 23 |
+| `other` | 23 |
+| `backup` | 22 |
+| `cms` | 22 |
+| `ai` | 19 |
+| `ecommerce` | 14 |
+| `marketing` | 10 |
+| `storage` | 7 |
+| `communication` | 5 |
+| `hr` | 4 |
 
 The category is also the shard key: an index that outgrows the 256 KiB cap splits into one file per category, with `index.json` keeping the cards and each shard keeping the catalogs. That split is not needed yet.
 
@@ -271,7 +290,7 @@ URLs below are the vendor hosts from `index.json`. Auth is OAuth or an API key u
 | Mercado Libre | https://mcp.mercadolibre.com/mcp |
 | Mercado Pago | https://mcp.mercadopago.com/mcp |
 | PayPal | https://mcp.paypal.com/mcp |
-| Pennylane | https://app.pennylane.com/mcp/messages |
+| Pennylane | https://app.pennylane.com/mcp |
 | Plaid | https://api.dashboard.plaid.com/mcp/sse |
 | Ramp | https://ramp-mcp-remote.ramp.com/mcp |
 | Spendesk | https://public-api.spendesk.com/v1/mcp |
@@ -329,7 +348,6 @@ URLs below are the vendor hosts from `index.json`. Auth is OAuth or an API key u
 | monday.com | https://mcp.monday.com/sse |
 | Notion | https://mcp.notion.com/mcp |
 | Sanity | https://mcp.sanity.io |
-| Shopify | https://mcp.shopify.com/mcp |
 | Slack | https://mcp.slack.com/mcp |
 | Webflow | https://mcp.webflow.com/sse |
 | Wix | https://mcp.wix.com/mcp |
@@ -348,7 +366,6 @@ URLs below are the vendor hosts from `index.json`. Auth is OAuth or an API key u
 | DeepWiki | https://mcp.deepwiki.com/mcp |
 | Exa | https://mcp.exa.ai/mcp |
 | Globalping | https://mcp.globalping.dev/sse |
-| Grafbase | https://api.grafbase.com/mcp |
 | Hex | https://app.hex.tech/mcp |
 | Honeycomb | https://mcp.honeycomb.io/mcp |
 | Hugging Face | https://hf.co/mcp |
@@ -397,7 +414,7 @@ These `source` URLs returned the document without a vendor login when last check
 | CircleCI | `circleci` | https://circleci.com/api/v2/openapi.json |
 | Cisco Meraki | `cisco_meraki_*` | https://raw.githubusercontent.com/meraki/openapi/master/openapi/spec3.json |
 | Cloudflare | `cloudflare` | https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.yaml |
-| Datto RMM | `datto_rmm` | https://pinotage-api.centrastage.net/api/v3/api-docs/Datto-RMM |
+| Datto RMM | `datto_rmm` | https://pinotage-api.centrastage.net/api/v3/api-docs/Datto-RMM-v2 |
 | DigitalOcean | `digitalocean` | https://raw.githubusercontent.com/digitalocean/openapi/main/specification/DigitalOcean-public.v2.yaml |
 | GitHub | `github` | https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.yaml |
 | GitLab | `gitlab` | https://gitlab.com/gitlab-org/gitlab/-/raw/master/doc/api/openapi/openapi_v2.yaml |
@@ -412,7 +429,7 @@ These `source` URLs returned the document without a vendor login when last check
 | Netlify | `netlify` | https://raw.githubusercontent.com/netlify/open-api/master/swagger.yml |
 | NinjaOne | `ninjaone` | https://app.ninjarmm.com/apidocs/NinjaRMM-API-v2.json |
 | PagerDuty | `pagerduty` | https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json |
-| SendGrid | `sendgrid` | https://raw.githubusercontent.com/sendgrid/sendgrid-oai/main/oai.json |
+| SendGrid | `sendgrid` | https://raw.githubusercontent.com/twilio/sendgrid-oai/main/spec/json/tsg_mail_v3.json |
 | Slack | `slack` | https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json |
 | Slide | `slide` | https://api.slide.tech/openapi.json |
 | Square | `square` | https://raw.githubusercontent.com/square/connect-api-specification/master/api.json |
@@ -431,6 +448,135 @@ Instance copies:
 - N-central serves Swagger on the appliance at `{fqdn}/api-explorer`.
 - UniFi Network on a local console: `{console}/proxy/network/api-docs/integration.json`.
 - Datto RMM platforms share one schema. Pinotage answered 200. Merlot, Vidal, Concord and Zinfandel answered 500 on the same path the day this was checked. Swagger UI: `https://{platform}-api.centrastage.net/api/swagger-ui/index.html`.
+
+## GraphQL endpoints
+
+One route, one verb: the connector compiles the schema the endpoint answers with, not a
+document. `kind: graphql` on the catalog; `endpoint_template` carries the tenant or instance
+placeholder, which is filled at import and never sent by this repository; `introspection`
+says whether the endpoint answers an introspection query without a token (`open`), with one
+(`auth`), or has it closed (`closed`, open it once on the instance). A per-instance product
+such as Unraid (`{instance}/graphql`, unraid-api on OS 7.2+, introspection open) is imported
+with `--kind graphql` against the instance.
+
+114 GraphQL catalogs:
+
+| Product | Catalog | Endpoint | Introspection |
+|---|---|---|---|
+| Adobe Commerce | `adobe_commerce_graphql` | `https://{store_domain}/graphql` | unknown |
+| Amplience GraphQL Management | `amplience` | see `source` | open |
+| Apollo GraphOS Platform | `apollo_graphos` | see `source` | open |
+| Appwrite | `appwrite` | see `source` | open |
+| Ashby | `ashby_graphql` | see `source` | auth |
+| BigCommerce | `bigcommerce_account_graphql` | `https://api.bigcommerce.com/accounts/{account_uuid}/graphql` | auth |
+| Bitquery Streaming | `bitquery` | see `source` | auth |
+| Braintree | `braintree_2` | see `source` | auth |
+| Brandfolder | `brandfolder` | see `source` | unknown |
+| Builder.io GraphQL Content | `builder_io` | `https://cdn.builder.io/api/v3/graphql/{api_key}` | unknown |
+| Buildkite | `buildkite_graphql` | see `source` | auth |
+| Canvas LMS | `canvas_lms` | `https://{instance}.instructure.com/api/graphql` | auth |
+| Catalysis-Hub | `catalysis_hub` | see `source` | open |
+| Cato Networks | `cato_networks` | see `source` | open |
+| Cloudflare | `cloudflare_analytics_graphql` | see `source` | auth |
+| commercetools | `commercetools` | `https://api.{region}.commercetools.com/{projectKey}/graphql` | auth |
+| Contentful | `contentful_delivery_graphql` | `https://graphql.contentful.com/content/v1/spaces/{space_id}/environments/{environment}` | auth |
+| Contentstack GraphQL Content Delivery | `contentstack` | `https://graphql.contentstack.com/stacks/{stack_api_key}?environment={environment}` | auth |
+| Countries | `countries_trevorblades` | see `source` | open |
+| Courier | `courier` | see `source` | auth |
+| Craft CMS | `craft_cms` | `https://{host}/actions/graphql/api` | unknown |
+| CrowdStrike Falcon | `crowdstrike_logscale_graphql` | see `source` | closed |
+| Crystallize Catalogue | `crystallize` | `https://api.crystallize.com/{tenant}/catalogue` | open |
+| DatoCMS Content Delivery | `datocms` | see `source` | auth |
+| dbt Cloud Discovery | `dbt_discovery` | see `source` | open |
+| dbt Semantic Layer | `dbt_semantic_layer` | see `source` | open |
+| Digitransit Routing | `digitransit` | see `source` | auth |
+| Directus | `directus` | `https://{host}/graphql` | unknown |
+| dotCMS | `dotcms` | `https://{host}/api/v1/graphql` | unknown |
+| EAN-Search | `ean_search` | see `source` | auth |
+| EHRI Portal | `ehri` | see `source` | open |
+| Entur Journey Planner v3 | `entur_journey_planner` | see `source` | open |
+| Escape platform GraphQL backend | `escape_tech` | see `source` | open |
+| Expo EAS | `expo_eas` | see `source` | open |
+| Fireflies | `fireflies_ai_graphql` | see `source` | auth |
+| Fly.io | `fly_io_graphql` | see `source` | open |
+| Fragment Ledger | `fragment` | `https://api.fragment.dev/graphql` | auth |
+| Frontify | `frontify` | `https://{domain}.frontify.com/graphql` | unknown |
+| GitHub GraphQL API (v4) | `github_2` | see `source` | auth |
+| GitLab | `gitlab_graphql` | see `source` | open |
+| GraphQL Hive | `graphql_hive` | see `source` | open |
+| GraphQL Pokemon | `graphql_pokemon` | see `source` | open |
+| GraphQLZero | `graphqlzero` | see `source` | open |
+| HackerOne | `hackerone` | see `source` | closed |
+| Hashnode Public | `hashnode` | see `source` | unknown |
+| Highnote | `highnote` | see `source` | auth |
+| HubSpot | `hubspot_graphql_graphql` | see `source` | auth |
+| Hygraph (formerly GraphCMS) | `hygraph` | `https://{region}.cdn.hygraph.com/v2/{projectId}/{environment}` | unknown |
+| Jira Cloud | `atlassian_graphql_graphql` | see `source` | auth |
+| JupiterOne | `jupiterone` | see `source` | auth |
+| KeystoneJS | `keystonejs` | `https://{host}/api/graphql` | unknown |
+| Kibo Commerce Storefront | `kibo_commerce` | `https://{tenant}.mozu.com/graphql` | auth |
+| Kontent.ai Delivery | `kontent_ai` | `https://graphql.kontent.ai/{environment_id}` | unknown |
+| Lansweeper Data | `lansweeper` | see `source` | auth |
+| LeetCode | `leetcode` | see `source` | closed |
+| Linear | `linear_graphql` | see `source` | open |
+| melodyRepo | `melody_repo` | see `source` | open |
+| monday.com | `monday_graphql` | see `source` | auth |
+| Nacelle Storefront | `nacelle` | `https://storefront.api.nacelle.com/graphql/v1/spaces/{space_id}` | open |
+| NASA Earthdata | `nasa_earthdata` | see `source` | open |
+| Nautobot | `nautobot` | `https://{instance}/api/graphql/` | unknown |
+| NetBox | `netbox` | `https://{instance}/graphql/` | unknown |
+| New Relic | `new_relic_nerdgraph_graphql` | see `source` | auth |
+| Octopus Energy Kraken | `octopus_energy` | see `source` | open |
+| Open Collective GraphQL API v2 | `open_collective` | see `source` | open |
+| Open Targets Platform | `open_targets` | see `source` | open |
+| OpsLevel | `opslevel_graphql` | see `source` | auth |
+| Optimizely Graph (Content Graph) | `optimizely_graph` | see `source` | auth |
+| Panther | `panther` | `https://api.{panther_domain}.runpanther.net/public/graphql` | auth |
+| Payload CMS | `payload_cms` | `https://{host}/api/graphql` | unknown |
+| Pipefy | `pipefy` | see `source` | auth |
+| Platzi Fake Store | `platzi_fake_store` | see `source` | open |
+| PokeAPI | `pokeapi_graphql` | see `source` | open |
+| Prismic | `prismic` | `https://{repo}.cdn.prismic.io/graphql` | unknown |
+| Product Hunt API v2 | `product_hunt` | see `source` | auth |
+| Railway | `railway` | see `source` | open |
+| Railway | `railway_graphql` | see `source` | open |
+| Rewst platform | `rewst` | see `source` | open |
+| Rick and Morty | `rick_and_morty` | see `source` | open |
+| Saleor | `saleor` | see `source` | open |
+| Sanity | `sanity_graphql` | `https://{projectId}.api.sanity.io/v{version}/graphql/{dataset}/{tag}` | auth |
+| ServiceNow | `servicenow_graphql_graphql` | `https://{instance}.service-now.com/api/now/graphql` | unknown |
+| Shopify | `shopify_admin_graphql` | `https://{store}.myshopify.com/admin/api/2026-07/graphql.json` | auth |
+| Silverstripe CMS | `silverstripe` | `https://{host}/graphql` | unknown |
+| Sitecore Experience Edge Delivery | `sitecore_experience_edge` | see `source` | auth |
+| Slack | `salesforce_graphql_graphql` | `https://{myDomain}.my.salesforce.com/services/data/v{version}/graphql` | auth |
+| Sourcegraph | `sourcegraph` | see `source` | open |
+| Spacelift | `spacelift` | `https://{account}.app.spacelift.io/graphql` | open |
+| SpaceX GraphQL API (community mirror) | `spacex_graphql` | see `source` | open |
+| Stanford HIVDB | `hivdb_stanford` | see `source` | open |
+| start.gg | `start_gg` | see `source` | auth |
+| Statamic | `statamic` | `https://{host}/graphql` | unknown |
+| Stitch | `stitch_money` | see `source` | closed |
+| Storyblok GraphQL Content Delivery | `storyblok_graphql` | see `source` | open |
+| Strapi | `strapi_graphql` | `https://{host}/graphql` | unknown |
+| Supabase | `supabase_graphql_graphql` | `https://{project_ref}.supabase.co/graphql/v1` | auth |
+| Swan Banking | `swan` | see `source` | open |
+| SWAPI | `swapi_graphql` | see `source` | open |
+| Swell Frontend | `swell` | `https://{store_id}.swell.store/graphql/v2` | unknown |
+| Swop foreign exchange | `swop` | see `source` | auth |
+| TCGdex | `tcgdex` | see `source` | open |
+| The Graph Gateway | `the_graph` | `https://gateway.thegraph.com/api/{api_key}/subgraphs/id/{subgraph_id}` | auth |
+| Tibber | `tibber` | see `source` | open |
+| Twenty CRM | `twenty_crm` | see `source` | closed |
+| Twingate | `twingate` | `https://{network}.twingate.com/api/graphql/` | unknown |
+| Umbraco Heartcore | `umbraco_heartcore` | see `source` | auth |
+| Unraid | `unraid` | `{instance}/graphql` | open |
+| Vendure Shop & Admin | `vendure` | see `source` | open |
+| VTEX IO GraphQL APIs | `vtex_io` | see `source` | unknown |
+| Wave Business | `wave_accounting` | see `source` | open |
+| Wiz | `wiz_graphql` | `https://api.{region}.app.wiz.io/graphql` | auth |
+| WPGraphQL | `wpgraphql` | `https://{host}/graphql` | unknown |
+| Yelp Fusion | `yelp_fusion` | see `source` | auth |
+| Zendesk | `zendesk_sell_graphql` | see `source` | auth |
 
 ## Login-gated documents
 
@@ -456,6 +602,10 @@ jq '.products[] | select(.tags | index("account")) | .name' index.json
 
 ## Checked
 
+Rechecked on 2026-09-10 with the same methods: Grafbase and Shopify no longer answer an
+`initialize` on their MCP URL (404) and left the MCP table; Pennylane moved to `/mcp`;
+Datto RMM and SendGrid point at the documents that actually answer.
+
 Every URL in this file was probed on 2026-09-09, and the method matters: a GET on an
 MCP endpoint is meaningless, so the MCP URLs were probed with a real `initialize`
 POST and the GraphQL endpoints with a real introspection query.
@@ -478,25 +628,6 @@ answered 500), SendGrid's spec moved org and split into about thirty per-product
 documents, Timescale is TigerData, Datto Commerce is Kaseya Quote Manager, StreamOne
 Ion is StreamOne Stellr, Malwarebytes business is ThreatDown, and Cylance is Arctic
 Wolf Aurora, which publishes no REST reference at all any more.
-
-## Other lists
-
-Measured on 2026-09-09, because "the most complete list" only means something against
-the ones that exist.
-
-| List | Size | Licence | State |
-|---|---|---|---|
-| [jentic/jentic-public-apis](https://github.com/jentic/jentic-public-apis) | 6 467 OpenAPI documents, 4 222 vendors | CC0-1.0 | Pushed daily. The one to measure against. Entries are largely generated from doc pages, and every sampled `meta.json` reads `status: staging` |
-| [APIs-guru/openapi-directory](https://github.com/APIs-guru/openapi-directory) | 4 138 specs, 677 providers | CC0-1.0 | **Frozen.** Content stopped 2024-03-01 and the served `list.json` carries nothing newer than 2023-04-21, while the README still promises weekly updates. Jentic seeded from it and covers 571 of its 677 providers |
-| apis.io / api-evangelist | 27 505 providers, 133 345 APIs | no licence file | Enumerable, but the specs are resource slices (2 to 6 operations) and the terms allow indexing, not redistribution |
-| SwaggerHub public | 803 138 specs, 39 937 published | no viewer grant | Not redistributable. It is, however, the only place holding public copies of some login-walled MSP documents |
-| [public-apis](https://github.com/public-apis/public-apis) | 1 769 rows | MIT | Documentation links, not specs: 6 rows carry a spec URL |
-| Official MCP registry | 30 305 records, 18 005 with a remote URL | open API, no auth | 98 % noise: the top namespaces are single publishers with 1 100 to 1 500 generated entries. Usable only with the domain-verified-namespace filter |
-| [GitHub MCP registry](https://api.mcp.github.com/v0/servers) | 252 records, 148 remote | open API, no auth | Curated. The highest signal-to-noise MCP source found |
-
-What this list is not trying to be: a mirror. A card here names a vendor an MSP runs
-and a document or endpoint an operator can actually reach, and every one of them was
-probed. Four thousand generated entries would be a bigger number and a worse product.
 
 ## Limits
 
